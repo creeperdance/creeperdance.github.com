@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<!-- 移动优先，自适应手机屏幕-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--解决bootstrap不支持IE兼容模式问题，为了让IE浏览器运行最新的渲染模式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>招聘中心</title>
+		<!--引入bootstrap css文件-->
+		<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script src="bootstrap/respond.min.js"></script>
+		<script src="bootstrap/html5.js"></script>
+		<!--<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
+	</head>
+
+	<body>
+		<!--响应式导航栏-->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#"><img src="img/logo.png" /></a>
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myCollapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse " id="myCollapse">
+					<ul class="nav navbar-nav navbar-right ">
+						<li>
+							<a href="index.html"><span class="glyphicon  glyphicon-home"></span> 网站首页</a>
+						</li>
+						<li id="navactive">
+							<a href="recruit.html"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> 招聘中心</a>
+						</li>
+						<li>
+							<a href="connect.html"><span class="glyphicon glyphicon-envelope"></span> 联系我们</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--响应式轮播图-->
+		<div id="myCarousel" class="carousel slide">
+			<ol class="carousel-indicators ">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner ">
+				<div class="item pic1 active">
+					<img src="img/write.jpg" alt="第一张" />
+					<div class="carousel-caption">
+						<h1>团队协作</h1>
+						<p>善于沟通，平等友善，明确职责，紧密协作。</p>
+					</div>
+				</div>
+				<div class="item pic2">
+					<img src="img/team.jpg" alt="第二张" />
+					<div class="carousel-caption">
+						<h1>求真务实</h1>
+						<p>关注实干、理性、高效，脚踏实地，严谨细致。</p>
+					</div>
+				</div>
+				<div class="item pic3">
+					<img class="pic3" src="img/hand.jpg" alt="第三张" />
+					<div class="carousel-caption">
+						<h1>携手客户</h1>
+						<p>携手客户、股东、员工，合作共赢，共创美好生活。</p>
+					</div>
+				</div>
+			</div>
+			<a href="#myCarousel" data-slide="prev" class="carousel-control left">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a href="#myCarousel" data-slide="next" class="carousel-control right">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<!--招聘职位模块-->
+		<div class="container job outside_border_shadow">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<div class="job-recruit inside_border_shadow">
+						<ul>
+							<li><a class="active" href="#">招聘职位</a></li>
+							<li><a href="#">招聘流程</a></li>
+							<li><a href="#">常见问题</a></li>
+						</ul>
+					</div>
+					<div class="concern inside_border_shadow">
+						<p>关注我们</p>
+						<div class="recent">
+							<ul>
+								<li><a href="#">最新职位</a></li>
+								<li><a href="#">热门收藏</a></li>
+								<li><a href="#">加入我们</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<div class="job-search">
+						<div class="search">
+							<span class="searchleft">职位搜索</span>
+							<input class="searchcenter" type="text">
+							<span class="searchright glyphicon glyphicon-search"></span>
+						</div>
+						<div class="job_env">
+							<div class="city">
+								<span class="glyphicon glyphicon-play"> 工作城市:</span>
+								<ul>
+									<li class="active">
+										<a href="#">全部</a>
+									</li>
+									<li>
+										<a href="#">北京</a>
+									</li>
+									<li>
+										<a href="">上海</a>
+									</li>
+									<li>
+										<a href="">深圳</a>
+									</li>
+									<li>
+										<a href="">杭州</a>
+									</li>
+								</ul>
+							</div>
+							<div class="type">
+								<span class="glyphicon glyphicon-play"> 职位类别:</span>
+								<ul>
+									<li class="active">
+										<a href="#">运营</a>
+									</li>
+									<li>
+										<a href="#">技术</a>
+									</li>
+									<li>
+										<a href="">财务</a>
+									</li>
+									<li>
+										<a href="">销售</a>
+									</li>
+									<li>
+										<a href="">设计</a>
+									</li>
+									<li>
+										<a href="">维护</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--job-search-->
+					<div class="job-list">
+						<table class="jobtable table-hover">
+							<thead class="thead-list">
+								<tr>
+									<th width="40%"><span>职位名称</span></th>
+									<th width="20%"><span>工作地点</span></th>
+									<th width="20%"><span>招聘人数</span></th>
+									<th width="20%"><span>更新时间</span></th>
+									<th><span>&nbsp;</span></th>
+								</tr>
+							</thead>
+							<tbody id="tbody-list">
+								<tr>
+									<td width="40%"><span>数据挖掘实习生</span></td>
+									<td width="20%"><span>北京市</span></td>
+									<td width="20%"><span>2</span></td>
+									<td width="20%"><span>2017-04-18</span></td>
+									<td><span>&nbsp;</span></td>
+								</tr>
+								<tr>
+									<td width="40%"><span>新闻数据可视化工程师</span></td>
+									<td width="20%"><span>北京市</span></td>
+									<td width="20"><span>1</span></td>
+									<td width="20%"><span>2017-04-18</span></td>
+									<td><span>&nbsp;</span></td>
+								</tr>
+								<tr>
+									<td width="40%"><span>JAVA工程师</span></td>
+									<td width="20%"><span>杭州市</span></td>
+									<td width="20%"><span>3</span></td>
+									<td width="20%"><span>2017-04-18</span></td>
+									<td><span>&nbsp;</span></td>
+								</tr>
+								<tr>
+									<td width="40%"><span>Web前端工程师</span></td>
+									<td width="20%"><span>广州市</span></td>
+									<td width="20%"><span>3</span></td>
+									<td width="20%"><span>2017-04-18</span></td>
+									<td><span>&nbsp;</span></td>
+								</tr>
+								<tr>
+									<td width="40%"><span>H5微信前端开发实习生</span></td>
+									<td width="20"><span>杭州市</span></td>
+									<td width="20%"><span>5</span></td>
+									<td width="20%"><span>2017-04-18</span></td>
+									<td><span>&nbsp;</span></td>
+								</tr>
+								<tr>
+									<td width="40%"><span>前端开发实习生</span></td>
+									<td width="20%"><span>上海市</span></td>
+									<td width="20%"><span>5</span></td>
+									<td width="20%"><span>2017-04-18</span></td>
+									<td><span>&nbsp;</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer id="footer" class="container">
+			<p>福建师范大学|软件工程专业|</p>
+			<p>Copyright © 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
+		</footer>
+
+		<!--引入jquery-->
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	</body>
+
+</html>

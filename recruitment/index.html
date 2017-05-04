@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<!-- 移动优先，自适应手机屏幕-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--解决bootstrap不支持IE兼容模式问题，为了让IE浏览器运行最新的渲染模式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>企业招聘网</title>
+		<!--引入bootstrap css文件-->
+		<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script src="bootstrap/respond.min.js"></script>
+		<script src="bootstrap/html5.js"></script>
+		<!--<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
+	</head>
+	<body>
+		<!--响应式导航栏-->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#"><img src="img/logo.png" /></a>
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myCollapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse " id="myCollapse">
+					<ul class="nav navbar-nav navbar-right ">
+						<li id="navactive">
+							<a href="index.html"><span class="glyphicon  glyphicon-home"></span> 网站首页</a>
+						</li>
+						<li>
+							<a href="recruit.html"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> 招聘中心</a>
+						</li>
+						<li>
+							<a href="connect.html"><span class="glyphicon glyphicon-envelope"></span> 联系我们</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="banner" style="background-image: url(img/banner.jpg);">
+			<div class="info">
+				<h2>2017春季实习生招聘</h2>
+				<p>让梦想走向舞台</p>
+			</div>
+		</div>
+		<div class="joinus">
+			A place of infinite <span>chance</span>
+			<p>加入我们 —— 让生活更美好！</p>
+		</div>
+		<!--栅栏系统-->
+		<div class="introduce container">
+			<div class="row">
+				<div class="col-md-4 col-sm-4 col ">
+					<a href="#">
+						<img src="img/企业认证.png" alt="企业认证" />
+					</a>
+					<div class="info">
+						<h2>企业认证</h2>
+						<p>经国内首选企业信用认证机构认证,证书商务部信用平台查验,全国认可。</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 col">
+					<a href="#">
+						<img src="img/助你成长.png" alt="企业认证" />
+					</a>
+					<div class="info">
+						<h2>人才培养</h2>
+						<p>致力于培养集团的技术领头人，提供技术培训，沟通技巧，助你迅速提升技能。</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 col">
+					<a href="#">
+						<img src="img/氛围灯.png" alt="企业认证" />
+					</a>
+					<div class="info">
+						<h2>氛围浓厚</h2>
+						<p>纯洁友好的工作氛围，健身器材齐全，季度TB,年度旅游。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<!--最新资讯-->
+		<div class="container news">
+			<h1>最新资讯</h1>
+			<ul class="row">
+				<li class="col-md-4 col-sm-6 col ">
+					<span>校园招聘</span>
+					<a href="#"><img src="img/img1.jpg" alt="" /></a>
+				</li>
+				<li class="col-md-4 col-sm-6 col ">
+					<span>社会招聘</span>
+					<a href="#"><img src="img/img2.png" alt="" /></a>
+				</li>
+				<li class="col-md-4 col-sm-6 col ">
+					<span>海外校招</span>
+					<a href="#"><img src="img/img3.png" alt="" /></a>
+				</li>
+				<li class="col-md-4 col-sm-6 col ">
+					<span>热招职位</span>
+					<a href="#"><img src="img/img4.png" alt="" /></a>
+				</li>
+				<li class="col-md-4 col-sm-6 col ">
+					<span>公司动态</span>
+					<a href="#"><img src="img/img5.jpg" alt="" /></a>
+				</li>
+				<li class="col-md-4 col-sm-6 col ">
+					<span>招聘流程</span>
+					<a href="#"><img src="img/img6.jpg" alt="" /></a>
+				</li>
+			</ul>
+		</div>
+		<footer id="footer" class="container">
+			<p>福建师范大学|软件工程专业|</p>
+			<p>Copyright © 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
+		</footer>
+
+		<!--引入jquery-->
+		<script type="text/javascript" src="bootstrap/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+			$('#myCarousel').carousel({
+				//设置自动播放/4 秒
+				interval: 4000,
+			});
+		</script>
+	</body>
+
+</html>
