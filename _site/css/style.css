@@ -1,10 +1,13 @@
-body {
+﻿body {
 	color: #424242;
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Helvetica Neue', PingFangSC-Light, 'Microsoft Yahei', sans-serif;
 	margin: 0;
 	padding: 0;
 }
 
+ul{
+	list-style:none;
+}
 #main {
 	margin: 0 auto;
 }
@@ -50,7 +53,8 @@ body {
 /*content*/
 
 #content {
-	margin: 250px auto;
+	/*margin: 250px auto;*/
+	margin:150px auto;
 	text-align: center;
 }
 
@@ -77,7 +81,7 @@ body {
 	line-height: 25px;
 }
 #content li {
-	margin-bottom:80px;
+	margin-bottom:50px;
 }
 /*footer*/
 
