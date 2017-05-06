@@ -1,11 +1,15 @@
 # 作品介绍：
 
+ 1. 个人博客
 
- 1. 企业招聘网站
+折腾了一天，刚搭建起来，博客文章那块还有bug ... 暂时还没想到解决方法。准备先甩个链接，如下链接地址。
+未完待续...
+
+ 2. 企业招聘网站
  
 一个Bootstrap的项目实战，支持响应式 ,适配不同分辨率。
 
- 2. 电影小窝
+ 3. 电影小窝
  
 通过Bootstrap + 自行封装的一个简单javascript库实现 ，登陆注册模块实现了前后端的交互（Ajax+php+mysql）。 实现了简单的页面交互，适配不同分辨率。
 
@@ -19,6 +23,7 @@
 	
 # 链接地址：
 
+ - [个人博客](https://creeperdance.github.io)
  - [企业招聘网站](https://creeperdance.github.io/recruitment/)
  - [电影小窝](https://creeperdance.github.io/FilmNest/)
  
