@@ -1,1 +1,20 @@
-theme: jekyll-theme-cayman
+﻿permalink: /:year/:month/:title.html 
+markdown: kramdown
+highlights: pygments
+
+safe: true
+paginate: 8
+paginate_path: "page:num"
+
+
+# presonal config
+domain: http://creeperdance.com.io
+title: Creeperdance
+author: Weixuee
+email: creeperdance@163.com
+github: creeperdance
+
+config:
+  js_dir:
+  img_dir:
+  css_dir:
