@@ -1,7 +1,17 @@
 ---
 layout: default
 ---
-<h2 class="content">{{page.title}}</h2>
-<article>
-{{ content }}
-</article>
+<div id="title">
+	<a href="{{ page.url }}">
+	  <h3>{{ page.title }}</h3>
+	</a>
+</div>
+<div id="post_info">
+	<div class="post_about">
+		<span class="glyphicon glyphicon-time"> 发表于{{ page.date | date: "%Y-%m-%d"}}</span>|
+		<span class="glyphicon glyphicon-folder-close"> 分类于{{page.categories}}</span>
+	</div>
+	<div class="article">
+		{{ content}}
+	</div>
+</div>
