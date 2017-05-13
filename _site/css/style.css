@@ -1,0 +1,224 @@
+﻿body {
+	color: #424242;
+	/*font-family: 'Neucha', "PingFang SC", "Microsoft YaHei", sans-serif;*/
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode','Neucha', "PingFang SC", "Microsoft YaHei", sans-serif;
+    margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+#main {
+	margin: 0 auto;
+}
+
+
+/*header*/
+
+#main header h1 {
+	font-family:  "Josefin Sans",'Lucida Grande', 'Lucida Sans Unicode', "PingFang SC", "Microsoft YaHei", sans-serif;
+	text-align: center;
+	color: #555;
+	font-size: 22px;
+	font-weight: bold;
+	margin-top: 10px;
+	letter-spacing: 2px;
+}
+
+#main a img {
+	width: 0;
+	display: block;
+}
+
+.navbar {
+	padding: 30px 0 0 30px;
+	background-color: white;
+}
+
+.nav {
+	padding: 20px 0 0 20px;
+	font-size: 16px;
+}
+
+.nav li:hover {
+	background-color: #F9F9F9;
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Josefin Sans Light'), local('JosefinSans-Light'), url(https://fonts.gstatic.com/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04z04GofcKVZz6wtzX_QUIqsI.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+#main .navbar-header p {
+	text-align: center;
+	font-family: "Josefin Sans";
+}
+
+
+/*content*/
+
+#content {
+	color: #555;
+	margin: 100px auto;
+	text-align: left;
+	position: relative;
+	left: 0;
+}
+
+#content #title {
+	font-size: 20px;
+	font-weight: lighter;
+	padding-bottom: 15px;
+}
+#content #title a{
+	color:#555;
+}
+#content #post_info {
+	margin-top: -10px;
+	font-size: 14px;
+	color: #666;
+	letter-spacing: 2px;
+}
+#content #post_info .post_about {
+	font-size: 12px;
+	color: #999;
+	letter-spacing:1px;
+	margin-top: 10px;
+}
+#content #post_info .summary {
+	margin-top: 20px;
+}
+#content #post_content {
+	text-indent: 40px;
+	font-size: 15px;
+	letter-spacing: 2px;
+	line-height: 25px;
+}
+#content .reading  a{
+	color:#555;
+	display:block;
+	letter-spacing:0;
+	margin-top:50px;
+	text-decoration:none;
+	padding-bottom:8px;
+	width:100px;
+	border-bottom:2px solid #555;
+}
+#content li {
+	margin-bottom: 120px;
+}
+/*post content*/
+#content #post_info .article{
+	margin-top: 30px;
+}
+/*小龙猫*/
+#totoro_fixed img{
+	width: 100px;
+	position: fixed;
+	right: 50px;
+	bottom: 60px;
+}
+/*右侧边栏*/
+#right_sidebar {
+	top: 0;
+	bottom: 0;
+	right: -300px;
+	position: fixed;
+	width: 300px;
+	background-color: #222;
+}
+#right_sidebar img {
+	width: 120px;
+	position: absolute;
+	left: 90px;
+	top: 130px;
+}
+#sidebar_content p{
+	color: white;
+	position: absolute;
+	top: 280px;
+	left: 100px;
+	font-size: 24px;
+	font-family:  "Josefin Sans",'Lucida Grande', 'Lucida Sans Unicode', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+#sidebar_content span {
+	color: #ddd;
+	position: absolute;
+	top: 330px;
+	left: 50px;
+	font-size: 24px;
+	font-size: 14px;
+	border-bottom: 1px solid white;
+}
+#sidebar_link {
+	position: absolute;
+	left: 30px;
+	bottom: 50px;
+}
+#sidebar_link a{
+	color: white;
+	margin-right: 10px;
+}
+/*footer*/
+footer {
+	margin-top: 100px;
+}
+
+footer span {
+	color: #043e92;
+}
+
+footer p {
+	text-align: center;
+	font-size: 12px;
+	color: #A8A8A8;
+}
+
+
+/*媒体查询*/
+
+
+/* 小屏幕（平板，大于等于 768px） */
+
+@media (min-width: 768px) {
+	.navbar {
+		padding-left: 60px;
+	}
+	#content #title {
+		font-size: 24px
+	}
+	#content {
+		width: 80%;
+		margin-top: 150px;
+	}
+}
+
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+
+@media (min-width: 992px) {
+	#main header h1 {
+		font-size: 36px;
+		letter-spacing: 3px;
+	}
+}
+
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+
+@media (min-width: 1200px) {
+	
+	#main header {
+		padding-left: 100px;
+	}
+	#main a img {
+		margin-left: 20%;
+		width: 100px;
+		margin-top: -10px;
+		display: block;
+	}
+}
