@@ -8,6 +8,8 @@
 
 ul {
 	list-style: none;
+	margin:0;
+	padding:0;
 }
 #main {
 	margin: 0 auto;
@@ -162,6 +164,18 @@ ul {
 #sidebar_link a{
 	color: white;
 	margin-right: 10px;
+}
+/*category*/
+.list-category  li {
+	margin-top:20px;
+}
+.list-category a{
+	text-decoration:none;
+	color:#555;
+}
+.list-category h2{
+	width:120px;
+	font-size:24px;
 }
 /*footer*/
 footer {
