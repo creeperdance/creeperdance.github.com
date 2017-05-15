@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<ul class="entries">
+  {% for post in site.posts %}
+  <li>
+	<div id="title">
+		<a href="{{ post.url }}">
+		  <h3>{{ post.title }}</h3>
+		</a>
+	</div>
+	<div id="post_info">
+		<div class="post_about">
+			<span class="glyphicon glyphicon-time"> 发表于{{ post.date | date: "%Y-%m-%d"}}</span>|
+			<span class="glyphicon glyphicon-folder-close"> 分类于{{post.categories}}</span>
+		</div>
+		<div class="summary">
+			{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+		</div>
+		<div class="reading">
+			<a href="{{ post.url }}"><span >阅读全文 &raquo; </span></a>
+		</div>
+	</div>
+  </li>
+  {% endfor %}
+</ul>
