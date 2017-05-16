@@ -1,0 +1,420 @@
+﻿	body {
+		margin: 0;
+		padding: 0;
+		font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Helvetica Neue', PingFangSC-Light, 'Microsoft Yahei', sans-serif;
+	}
+	
+	ul {
+		list-style: none;
+	}
+	
+	a,
+	a:hover {
+		text-decoration: none;
+		cursor: pointer;
+	}
+	
+	.nav_container {
+		background-color: #222;
+	}
+	/*导航条*/
+	
+	.navbar {
+		left: 0;
+		top: 0;
+		z-index: 9997;
+		position: fixed;
+	}
+	
+	.navbar-toggle {
+		position: relative;
+		top: 10px;
+	}
+	
+	#myCarousel {
+		left: 0px;
+		top: 70px;
+		z-index: 9996;
+	}
+	
+	#myCollapse a {
+		font-size: 16px;
+		color: white;
+		line-height: 40px;
+		background-color: #222;
+	}
+	
+	#myCollapse a:hover {
+		color: #f60;
+	}
+	
+	#login {
+		display: none;
+	}
+	
+	.person {
+		margin-right: 100px;
+	}
+	
+	.person_center {
+		width: 160px;
+		border: 1px solid #ddd;
+		padding: 0;
+		display: none;
+		position: absolute;
+	}
+	
+	.person_center a {
+		display: block;
+		text-decoration: none;
+		color: white;
+	}
+	/*登陆注册*/
+	
+	#user_login,
+	#user_regist {
+		width: 300px;
+		height: 360px;
+		border: 5px solid #181a1a;
+		z-index: 9999;
+		background-color: white;
+		text-align: center;
+	}
+	
+	#user_login,
+	#regist_container {
+		display: none;
+		z-index: 9999;
+		position: absolute;
+	}
+	
+	form label {
+		font-size: 18px;
+		font-weight: 700;
+		display: block;
+		margin: 40px -30px;
+	}
+	
+	#login_close,
+	#regist_close ,#frame_close {
+		color: #222;
+		cursor: pointer;
+	}
+	
+	#login_close:hover,#frame_close:hover,#regist_close:hover {
+		color: #f60;
+	}
+	
+	form input {
+		width: 80%;
+		height: 30px;
+		margin-bottom: 22px;
+	}
+	
+	.btn_submit {
+		display: inline-block;
+		width: 40%;
+		height: 32px;
+		color: white;
+		background-color: #f60;
+		vertical-align: middle;
+		border: 1px solid transparent;
+		font-size: 15px;
+		border-radius: 2px;
+	}
+	
+	.other_login_options,
+	.other_login_options a:hover {
+		margin-top: 20px;
+		color: #666;
+	}
+	
+	.join_to_regist,
+	.forget_password {
+		color: #f60;
+	}
+	
+	.forget_password,
+	.add_account {
+		margin-left: 5px;
+	}
+	/*提示弹窗*/
+	
+	#flip_frame {
+		background-color: #F9F9F9;
+		width: 220px;
+		height: 150px;
+		position: fixed;
+		z-index: 9999;
+		display: none;
+		
+		-webkit-border-radius: 2px;
+		-moz-border--radius: 2px;
+		border-radius: 2px;
+		
+		-webkit-box-shadow: 0px 0px 10px 2px #000;
+		-moz-box-shadow: 0px 0px 10px 2px #000;
+		box-shadow: 0px 0px 10px 2px #000;
+	}
+	
+	#flip_frame span {
+		position: absolute;
+		top: 30%;
+		color: #666;
+		text-align: center;
+		font-size: 16px;
+		letter-spacing: 1px;
+	}
+	
+	#frame_close {
+		position: relative;
+		left: 190px;
+		top: 10px;
+	}
+	/*锁屏*/
+	
+	.lock_screen {
+		filter: alpha(Opacity=30);
+		display: none;
+		opacity: 0.3;
+		position: fixed;
+		z-index: 9998;
+		background-color: #666;
+	}
+	
+	#regist_container {
+		width: 300px;
+		height: 360px;
+	}
+	
+	.introduce {
+		width: 300px;
+		height: 360px;
+		z-index: 9999;
+		color: white;
+		float: left;
+		background-color: #222;
+		display: none;
+	}
+	
+	.introduce p {
+		margin-top: 30px;
+		text-indent: 30px;
+		font-size: 18px;
+		letter-spacing: 2px;
+	}
+	
+	.introduce ul {
+		list-style: disc;
+		font-size: 15px;
+	}
+	
+	.introduce ul li {
+		margin-bottom: 15px;
+		margin-left: -10px;
+	}
+	
+	label {
+		font-size: 12px;
+		font-weight: normal;
+		text-indent: 10px;
+	}
+	/*图*/
+	
+	.img-side {
+		max-height: 650px;
+		width: 100%;
+		min-height: 400px;
+	}
+	
+	.carousel-caption {
+		bottom: -6%;
+		left: 0;
+		width: 100%;
+	}
+	
+	.carousel-caption h1 {
+		padding: 10px 0;
+		font-size: 30px;
+		width: 75%;
+		margin: 30px auto;
+		background: rgba(255, 255, 255, 0.2) none no-repeat scroll !important;
+	}
+	
+	.carousel-caption p {
+		font-size: 16px;
+		height: 30px;
+		line-height: 30px;
+		background: rgba(255, 255, 255, 0.2) none no-repeat scroll !important;
+	}
+	/*侧边栏*/
+	/*取消boostrap .row引起的滚动条*/
+	
+	.row {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	
+	.sidebar {
+		position: fixed;
+		z-index: 9;
+		left: 0;
+		top: 70px;
+		width: 15%;
+		padding-top: 15px;
+		border-right: 2px solid #f8f8f8;
+		display: none;
+		font-family: "din-condensed-web", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	}
+	
+	.sidebar p {
+		font-size: 24px;
+		margin: 20px auto;
+		margin-bottom: 150px;
+		text-align: center;
+		cursor: pointer;
+		font-weight: bold;
+		letter-spacing: 3px;
+		position: relative;
+		width: 60%;
+		height: 24px;
+	}
+	
+	.sidebar img {
+		position: absolute;
+		left: -10%;
+		top: 0;
+		border-radius: 10px;
+		-webkit-filter: grayscale(100%);
+		/* Chrome, Safari, Opera */
+		filter: grayscale(100%);
+		opacity: 0;
+		filter: alpha(Opacity=0);
+		width: 50px;
+		height: 50px;
+	}
+	/*电影小窝*/
+	
+	.myNest {
+		color: #444;
+	}
+	
+	.myNest p {
+		margin: 50px auto;
+		font-size: 28px;
+		text-align: center;
+	}
+	
+	.myNest li a {
+		color: #f60;
+	}
+	
+	#film_list1 {
+		padding-top: 80px;
+	}
+	
+	.role_avatar {
+		display: none;
+		padding-top: 30px;
+		border-bottom: 1px solid #E0E0E0;
+	}
+	
+	.role_avatar p {
+		font-size: 18px;
+		padding: 2px;
+	}
+	
+	.role_avatar a,
+	.role_avatar p span {
+		font-size: 12px;
+	}
+	
+	.role_avatar img {
+		opacity: 0.9;
+		filter: alpha(Opacity=90);
+		width: 200px;
+		height: 200px;
+	}
+	
+	.myNest .row {
+		text-align: center;
+	}
+	
+	.role_brief {
+		text-indent: 27px;
+		margin: 10px auto;
+		padding: 20px;
+		width: 90%;
+		border: 1px solid #ddd;
+		border-radius: 10px;
+		letter-spacing: 2px;
+	}
+	
+	.bgm {
+		margin-top: 80px;
+	}
+	
+	.bgm span {
+		position: relative;
+		font-size: 16px;
+		top: -20px;
+	}
+	
+	.bgm i {
+		margin-left: -15%;
+	}
+	
+	.bgm audio {
+		position: relative;
+		top: -6px;
+		width: 80%;
+	}
+	
+	#footer {
+		margin-top: 100px;
+	}
+	
+	#footer span {
+		color: #043e92;
+	}
+	
+	#footer p {
+		text-align: center;
+		font-size: 12px;
+		color: #A8A8A8;
+	}
+	/*媒体查询*/
+	/* 小屏幕（平板，大于等于 768px） */
+	
+	@media (min-width: 768px) {
+		.introduce {
+			display: block;
+		}
+		#regist_container {
+			width: 600px;
+		}
+		#user_regist {
+			float: left;
+		}
+		.role_brief {
+			padding: 40px;
+			width: 80%;
+		}
+		.carousel-caption h1 {
+			width: 50%;
+		}
+		.bgm audio {
+			width: 50%;
+			margin-left: 30px;
+		}
+	}
+	/* 中等屏幕（桌面显示器，大于等于 992px） */
+	
+	@media (min-width: 992px) {}
+	/* 大屏幕（大桌面显示器，大于等于 1200px） */
+	
+	@media (min-width: 1200px) {
+		.sidebar {
+			display: block;
+		}
+	}

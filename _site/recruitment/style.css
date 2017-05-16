@@ -1,0 +1,509 @@
+	@charset "utf-8";
+	/*首页部分及通用：*/
+	/*设置通用样式：*/
+	
+	body,
+	ul,
+	h1,
+	h2,
+	h3,
+	img {
+		margin: 0;
+		padding: 0;
+	}
+	
+	body {
+		/*font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "宋体", simsun, sans-serif;*/
+		font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Helvetica Neue', PingFangSC-Light, 'Microsoft Yahei', sans-serif;
+		background-color: #f8f8f8;
+	}
+	
+	ul,
+	ol {
+		list-style-type: none;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	/*外盒子边框阴影效果：*/
+	
+	.outside_border_shadow {
+		border: 1px solid #e5e5e5;
+		box-shadow: 0 0 2px #ddd;
+		border-radius: 4px;
+	}
+	/*内盒子边框阴影效果：*/
+	
+	.inside_border_shadow {
+		border: 1px solid #f8f8f8;
+		box-shadow: 0 0 2px #e5e5e5;
+	}
+	
+	.navbar-header img {
+		max-width: 80px;
+	}
+	
+	#navactive a {
+		background-color: #043e92;
+		color: white;
+	}
+	
+	.banner {
+		position: relative;
+		display: block;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover!important;
+		position: relative;
+		height: 250px;
+	}
+	
+	.banner .info {
+		position: absolute;
+		left: 5%;
+		top: 45%;
+		z-index: 999;
+		letter-spacing: 3px;
+	}
+	
+	.banner .info h2 {
+		font-size: 20px;
+		color: white;
+		animation: firstMove 1s ease-in;
+		-webkit-animation: firstMove 1s ease-in;
+		-moz-animation: firstMove 1s ease-in;
+		-o-animation: firstMove 1s ease-in;
+	}
+	
+	.banner .info p {
+		margin-top: 10px;
+		font-size: 18px;
+		color: white;
+		/*兼容浏览器*/
+		animation: firstMove 2s ease-in;
+		-webkit-animation: firstMove 2s ease-in;
+		-moz-animation: firstMove 2s ease-in;
+		-o-animation: firstMove 2s ease-in;
+	}
+	/*CSS3动画效果*/
+	
+	@keyframes firstMove {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			transform: translateX(-40px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateX(0px);
+			opacity: 1;
+		}
+	}
+	
+	#myCarousel img {
+		margin: 0 auto;
+	}
+	
+	.carousel-inner {
+		max-height: 500px;
+	}
+	
+	.pic1 {
+		background-color: #cfd2d8;
+	}
+	
+	.pic2 {
+		background-color: #ebece7;
+	}
+	
+	.pic3 {
+		background-color: #3e4440;
+	}
+	
+	.joinus,
+	#footer {
+		margin: 20px auto;
+		text-align: center;
+		color: #af2956;
+		font-size: 28px;
+	}
+	
+	.joinus span {
+		color: #043e92;
+		font-weight: bold;
+	}
+	
+	.joinus p {
+		margin-top: 10px;
+		color: #666;
+		font-size: 18px;
+		display: inlie;
+	}
+	
+	.introduce,
+	.news {
+		text-align: center;
+	}
+	
+	.info h2 {
+		color: #af2956;
+	}
+	
+	.news h1 {
+		margin-top: 50px;
+		color: #043e92;
+	}
+	
+	.news img {
+		margin-top: 20px;
+		position: relative;
+		margin-left: -10px;
+		width: 320px;
+		opacity: 0.9;
+		filter: alpha(Opacity=90);
+	}
+	
+	.news span {
+		position: absolute;
+		margin-left: -80px;
+		top: 50%;
+		left: 50%;
+		font-size: 32px;
+		color: white;
+		text-align: center;
+		z-index: 1;
+		letter-spacing: 5px;
+	}
+	
+	.news a:hover img {
+		opacity: 1.0;
+	}
+	
+	#footer {
+		margin-top: 100px;
+	}
+	
+	#footer span {
+		color: #043e92;
+	}
+	
+	#footer p {
+		text-align: center;
+		font-size: 12px;
+		color: #A8A8A8;
+	}
+	/*招聘中心：*/
+	
+	.job {
+		margin-top: 36px;
+		background-color: #fff;
+		padding-bottom: 50px;
+	}
+	
+	.job-recruit,
+	.concern {
+		margin: 30px auto;
+		height: 200px;
+		width: 200px;
+	}
+	
+	.job-recruit ul {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+	
+	.job-recruit ul li {
+		margin-top: 1px;
+	}
+	
+	.job-recruit li a {
+		font-size: 20px;
+		height: 60px;
+		line-height: 60px;
+		color: #666;
+		text-decoration: none;
+	}
+	
+	.job-recruit a.active,
+	.job-recruit a:hover {
+		display: inline-block;
+		width: 100%;
+		color: white;
+		background-color: #043e92;
+		border-radius: 2px;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		-o-border-radius: 2px;
+	}
+	
+	.concern p {
+		font-size: 20px;
+		color: #666;
+		width: 200px;
+		padding: 10px 0;
+		text-align: center;
+		border-bottom: 2px solid #043e92;
+	}
+	
+	.recent {
+		padding: 10px 30px;
+	}
+	
+	.job-search {
+		position: relative;
+		margin-top: 30px;
+		height: 30px;
+		border: 1px solid #043e92;
+	}
+	
+	.searchleft {
+		height: 28px;
+		line-height: 28px;
+		width: 90px;
+		text-align: center;
+		color: white;
+		font-size: 16px;
+		float: left;
+		background-color: #043e92;
+	}
+	
+	.searchcenter {
+		border: none;
+		outline: medium;
+		float: left;
+		height: 28px;
+		line-height: 28px;
+		border-right: 0px;
+		border: 1px solid:#043e92;
+	}
+	
+	.searchright {
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-color: #043e92;
+		color: white;
+		width: 36px;
+		height: 28px;
+		text-align: center;
+		line-height: 30px;
+		cursor: pointer;
+	}
+	
+	.job_env {
+		margin-top: 50px;
+	}
+	
+	.job_env span {
+		height: 20px;
+		line-height: 20px;
+		color: #043e92;
+		margin-right: 20px;
+		float: left;
+	}
+	
+	.job_env ul li {
+		display: inline-block;
+		margin: 0.15rem auto;
+		padding: 0 0.1rem;
+	}
+	
+	.job_env ul li a {
+		text-decoration: none;
+		display: inline-block;
+		color: #666;
+	}
+	
+	.job_env ul li a:hover {
+		border-bottom: 1px solid #043e92;
+	}
+	/*招聘职位表格:*/
+	
+	.job-list {
+		margin-top: 130px;
+		font-size: 12px;
+		color: #666;
+	}
+	
+	.jobtable {
+		height: 30px;
+		line-height: 30px;
+	}
+	
+	.thead-list {
+		color: #043e92;
+		border: 1px solid #f8f8f8;
+	}
+	
+	.tbody-list {
+		font-size: 12px;
+		font-weight: 400;
+		color: rgb(102, 102, 102);
+	}
+	
+	.line {
+		margin-top: 100px;
+		border-bottom: 1px dashed #eee;
+	}
+	/*联系我们*/
+	
+	.contacting {
+		margin: 80px auto;
+		color: #666;
+		text-align: center;
+		margin-bottom: 120px;
+	}
+	
+	.callways h2 {
+		margin: 30px auto;
+		color: #043e92;
+	}
+	
+	.companyshow {
+		margin: 30px auto;
+		padding: 0;
+	}
+	
+	.companyshow .col {
+		padding: 0;
+	}
+	
+	.companyshow img {
+		max-width: 320px;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		-o-border-radius: 4px;
+	}
+	
+	.companyshow .col span {
+		padding: 0;
+		width: 320px;
+		margin-top: 30px;
+		font-size: 16px;
+		line-height: 25px;
+		color: #444;
+	}
+	/*媒体查询*/
+	/* 小屏幕（平板，大于等于 768px） */
+	
+	@media (min-width: 768px) {
+		.carousel-caption {
+			bottom: 150px;
+		}
+		.joinus {
+			font-size: 35px;
+		}
+		.joinus span {
+			font-size: 40px;
+		}
+		.joinus p {
+			font-size: 22px;
+		}
+		.banner {
+			height: 580px;
+		}
+		.banner .info h2 {
+			font-weight: bold;
+			font-size: 28px;
+		}
+		.banner .info p {
+			font-weight: bold;
+			margin-top: 30px;
+			font-size: 24px;
+		}
+		.job-list {
+			font-size: 18px;
+		}
+		.jobtable {
+			height: 45px;
+			line-height: 45px;
+		}
+	}
+	/*媒体查询*/
+	/* 小屏幕（平板，大于等于 768px） */
+	
+	@media (min-width: 768px) {
+		.carousel-caption {
+			bottom: 150px;
+		}
+		.joinus {
+			font-size: 35px;
+		}
+		.joinus span {
+			font-size: 40px;
+		}
+		.joinus p {
+			font-size: 22px;
+		}
+		.banner {
+			height: 580px;
+		}
+		.banner .info h2 {
+			font-weight: bold;
+			font-size: 28px;
+		}
+		.banner .info p {
+			font-weight: bold;
+			margin-top: 30px;
+			font-size: 24px;
+		}
+		.job-list {
+			font-size: 18px;
+		}
+		.jobtable {
+			height: 45px;
+			line-height: 45px;
+		}
+		.news {
+			width: 700px;
+		}
+	}
+	/* 中等屏幕（桌面显示器，大于等于 992px） */
+	
+	@media (min-width: 992px) {
+		.carousel-caption {
+			bottom: 250px;
+		}
+		.joinus {
+			font-size: 40px;
+		}
+		.joinus span {
+			font-size: 45px;
+		}
+		.joinus p {
+			font-size: 24px;
+		}
+		.banner .info h2 {
+			font-size: 36px;
+		}
+		.banner .info p {
+			font-size: 30px;
+		}
+		.news {
+			width: 1020px;
+		}
+	}
+	/* 大屏幕（大桌面显示器，大于等于 1200px） */
+	
+	@media (min-width: 1200px) {
+		.carousel-caption {
+			bottom: 300px;
+		}
+		.joinus {
+			font-size: 46px;
+		}
+		.joinus span {
+			font-size: 52px;
+		}
+		.joinus p {
+			font-size: 30px;
+		}
+		.callways {
+			text-align: left;
+		}
+		
+	}

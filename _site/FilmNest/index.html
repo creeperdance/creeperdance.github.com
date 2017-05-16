@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<!-- 移动优先，自适应手机屏幕-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--解决bootstrap不支持IE兼容模式问题，为了让IE浏览器运行最新的渲染模式-->
+		<title>FilmNest</title>
+		<!--引入bootstrap css文件-->
+		<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="bootstrap/respond.min.js"></script>
+		<script src="bootstrap/html5.js"></script>
+		
+		<!--引入jquery-->
+		<script type="text/javascript" src="bootstrap/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+
+		<!--<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
+	</head>
+
+	<body>
+		
+		
+		<!--响应式导航栏-->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="nav_container">
+				<div class="navbar-header">
+					<a href="#"><img src="img/logo.png" /></a>
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myCollapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div id="myCollapse" class="collapse navbar-collapse ">
+					<ul class="nav navbar-nav navbar-right ">
+						<li>
+							<a href="#" class="login">登陆</a>
+						</li>
+						<li>
+							<a href="#" class="regist">注册</a>
+						</li>
+						<li id="active" class="person">
+							<a href="#">个人中心</a>
+							<ul class="person_center">
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-edit"></span> &nbsp;写影评</a>
+								</li>
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-question-sign"></span> &nbsp;提问题</a>
+								</li>
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-cloud-upload"></span> &nbsp;传资源</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--遮罩-->
+		<div class="lock_screen"></div>
+		<!--用户登录-->
+		<div id="user_login">
+			<form id="login_form" action="" method="post">
+				<label>登录FilmNest账号<span id="login_close" class="glyphicon glyphicon-remove pull-right"></span></label>
+				<input class="user_input username" name="username" type="text" placeholder=" 请输入用户名">
+				<input class="user_input password" type="password" placeholder=" 请输入密码">
+				<input type="submit" class="btn_submit" value="登陆FilmNest" />
+				<p class="other_login_options">
+					还没
+					<a class="join_to_regist">加入</a>FilmNest?
+					<a class="forget_password" href="#">忘记密码</a>
+				</p>
+			</form>
+		</div>
+		<!--用户注册-->
+		<div id="regist_container">
+			<div class="introduce">
+				<p>Join &nbsp;FilmNest
+					<p>
+						<ul>
+							<li>本站只是个实战项目，以下纯属虚构。</li>
+							<li>与大家分享您的影评，收获志同道合的朋友。</li>
+							<li>使用便捷的收藏夹功能，记录您发现的好电影。</li>
+							<li>收藏即送大礼，满额即送，详情可咨询客服人员</li>
+						</ul>
+						<label class="agreement">
+              		<input type="checkbox" id="agreement" name="agreement" tabindex="5">
+            		  我已经认真阅读并同意FilmNest的《<a href="#">使用协议</a>》。
+          		</label>
+			</div>
+			<div id="user_regist">
+				<form id="regist_form" action="" method="post">
+					<label>注册FilmNest账号<span id="regist_close" class="glyphicon glyphicon-remove pull-right"></span></label>
+					<input  class="user_input username" type="text" placeholder=" 请输入用户名">
+					<input  class="user_input password" type="password" placeholder=" 请输入密码">
+					<input  class="user_input password_confirm" type="password" placeholder="请确认密码">
+					<input type="submit" class="btn_submit" value="注册FilmNest" />
+					<p class="other_login_options">
+						已经加入FilmNest?
+						<a class="add_account" href="#">登陆</a>
+					</p>
+				</form>
+			</div>
+		</div>
+		
+		<!--提示弹窗-->
+		<div id="flip_frame"><i id="frame_close" class="glyphicon glyphicon-remove"></i><span>默认信息</span></div>
+		
+		<!--响应式轮播图-->
+		<div id="myCarousel" class="carousel slide">
+			<ol class="carousel-indicators ">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="img/bg_killer.jpg" class="img-side" alt="第一张" />
+					<div class="carousel-caption">
+						<h1>这个杀手不太冷</h1>
+						<p>Leon - The Professional</p>
+					</div>
+				</div>
+				<div class="item">
+					<img src="img/bg_crash.jpg" class="img-side" alt="第二张" />
+					<div class="carousel-caption">
+						<h1>怦然心动</h1>
+						<p>Flipped</p>
+					</div>
+				</div>
+				<div class="item">
+					<img src="img/bg_ring.jpg" class="img-side" alt="第二张" />
+					<div class="carousel-caption">
+						<h1>指环王</h1>
+						<p>The Lord of the Rings</p>
+					</div>
+				</div>
+			</div>
+			<a href="#myCarousel" data-slide="prev" class="carousel-control left">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a href="#myCarousel" data-slide="next" class="carousel-control right">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<div class="center_part row">
+			<!--侧边栏-->
+			<div class="col-lg-2">
+				<div class="sidebar">
+					<dic class="side_picture">
+						<div id="side1">
+							<p><a href="#film_list1">Mathilda<img src="img/side_Mathilda.jpg" alt="" /></a></p>
+						</div>
+						<div id="side2">
+							<p><a href="#film_list2">Flipped<img src="img/crash.jpg" alt="" /></a></p>
+						</div>
+						<div id="side3">
+							<p><a href="#film_list3">Gandalf<img src="img/ring.jpg" alt="" /></a></p>
+						</div>
+					</dic>
+				</div>
+			</div>
+			<!--电影小窝-->
+			<div class="myNest col-lg-10">
+				<div id="film_list1" class="film_atlas">
+					<p>Leon - The Professional</p>
+					<div>
+						<div id="role_name1">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active">
+									<a href="#1" role="tab" data-toggle="tab">里昂</a>
+								</li>
+								<li role="presentation">
+									<a href="#2" role="tab" data-toggle="tab">玛蒂尔达</a>
+								</li>
+							</ul>
+							<!--<span class="item item_active" id="0">里昂</span>
+						<span>&nbsp;|&nbsp;</span>
+						<span class="item" id="1">玛蒂尔达</span>
+						<span>&nbsp;|&nbsp;</span>-->
+						</div>
+						<div id="role_info1">
+							<div id="1" class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/leon.jpg" />
+									<p>Léon <span><a href="#"> 让·雷诺</a> 饰</span></p>
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief ">
+										<span>意大利裔的顶尖职业杀手，一直孤独的住在纽约小意大利，只有一株盆栽是他最好的朋友。他虽然身怀绝技，但内心非常缺乏安全感。甚至从不敢睡在床上，而是坐在椅子上睡，并把枪放在手边。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Shape Of My Heart</span>
+										<audio controls>
+											<source src="shape of my heart.mp3" type="audio/mpeg">
+										</audio>
+									</div>
+								</div>
+							</div>
+							<div id="2" class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/Mathilda.jpg" />
+									<p>Mathilda <span><a href="#"> 娜塔丽·波特曼</a> 饰</span></p>
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief">
+										<span>实际年龄只有12岁的小女孩，刚刚亲眼目睹全家被杀。她的生活经历以及悲惨的特殊遭遇令她的性格变的非常的倔强任性、独立自主，而且还有着与年龄极不相称的成熟。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Shape Of My Heart</span>
+										<audio controls>
+											<source src="shape of my heart.mp3" type="audio/mpeg"> 您的浏览器不支持 audio 元素。
+										</audio>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="film_list2" class="film_atlas">
+					<p>Flipped</p>
+					<div>
+						<div id="role_name2">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active">
+									<a href="#1" role="tab" data-toggle="tab">朱莉</a>
+								</li>
+								<li role="presentation">
+									<a href="#2" role="tab" data-toggle="tab">布莱斯</a>
+								</li>
+							</ul>
+						</div>
+						<div id="role_info2">
+							<div class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/juli.jpg" />
+									<p>Juli <span><a href="#"> 玛德琳·卡罗尔</a> 饰</span></p>
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief ">
+										<span>和树一样平凡的女孩朱莉，独立、勤劳、善解人意，愿意用生命去保卫一棵树，仿佛生命中一切美好事物的象征。布莱斯让她怦然心动，她的爱是那么幼稚和伟大，幼稚得以为布莱斯会和她一样为了一棵树不惜一切代价，伟大到她相信一个懦夫不配拥有这样的爱情。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Let It Be Me</span>
+										<audio controls>
+											<source src="let it be me.mp3" type="audio/mpeg"> 您的浏览器不支持 audio 元素。
+										</audio>
+									</div>
+								</div>
+							</div>
+							<div id="2" class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/brace.jpg" />
+									<p>Bryce <span><a href="#"> 卡兰·麦克奥利菲</a> 饰</span></p>
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief">
+										<span>布莱斯全家搬到小镇，邻家女孩朱丽前来帮忙。朱丽对布莱斯一见钟情，他却避之不及。朱丽的事迹上了报纸，外公对她颇有好感，令他十分困惑。她凭借鸡下蛋的项目获得了科技展第一名，成了全场焦点，令他黯然失色。她把自家鸡蛋送给他，他听家人怀疑她家鸡蛋不卫生，便偷偷把鸡蛋丢掉。向她道歉后，他开始关注她。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Let It Be Me</span>
+										<audio controls>
+											<source src="let it be me.mp3" type="audio/mpeg"> 您的浏览器不支持 audio 元素。
+										</audio>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="film_list3" class="film_atlas">
+					<p>The Lord of the Rings</p>
+					<div>
+						<div id="role_name3">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active">
+									<a href="#1" role="tab" data-toggle="tab">弗罗多</a>
+								</li>
+								<li role="presentation">
+									<a href="#2" role="tab" data-toggle="tab">甘道夫</a>
+								</li>
+								<li role="presentation">
+									<a href="#3" role="tab" data-toggle="tab">山姆</a>
+								</li>
+								<li role="presentation">
+									<a href="#4" role="tab" data-toggle="tab">阿尔文</a>
+								</li>
+								<li role="presentation">
+									<a href="#5" role="tab" data-toggle="tab">阿拉贡</a>
+								</li>
+								<li role="presentation">
+									<a href="#6" role="tab" data-toggle="tab">莱格拉斯</a>
+								</li>
+							</ul>
+						</div>
+						<div id="role_info3">
+							<div id="1" class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/Frodo.jpg" />
+									<p>Frodo Baggins <span><a href="#"> 伊利亚·伍德</a> 饰</span></p>
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief ">
+										<span>心地善良的霍比特人，是魔戒三部曲的主角。从叔叔比尔博处继承了魔戒，自此开始逃亡之旅，在林谷会议上自愿提出将魔戒带往末日火山销毁，获得了魔戒远征队的支持。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Concerning Hobbits</span>
+										<audio controls>
+											<source src="concerning Hobbits.mp3" type="audio/mpeg"> 您的浏览器不支持 audio 元素。
+										</audio>
+									</div>
+								</div>
+							</div>
+							<div id="2" class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/Gandalf.jpg" />
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief">
+										<span>最广为人知的迈雅，在第三纪元以巫师的身分暗助反抗索伦的中土势力。与比尔博交情极深，得知比尔博拥有至尊魔戒后劝其放弃戒指，吩咐佛罗多带魔戒到瑞文戴尔，是魔戒护卫队的精神领袖。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Concerning Hobbits</span>
+										<audio controls>
+											<source src="concerning Hobbits.mp3" type="audio/mpeg"> 您的浏览器不支持 audio 元素。
+										</audio>
+									</div>
+								</div>
+							</div>
+							<div id="3" class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/sam.jpg" />
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief">
+										<span>弗罗多的园丁和助手，陪同佛罗多前往末日火山。与其他几个霍比特人相比，山姆比较胆小，然而他对弗罗多的忠诚经常能够让他在意想不到的时刻发挥勇气。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Concerning Hobbits</span>
+										<audio controls>
+											<source src="concerning Hobbits.mp3" type="audio/mpeg"> 您的浏览器不支持 audio 元素。
+										</audio>
+									</div>
+								</div>
+							</div>
+							<div id="4" class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/Arwen.jpg" />
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief">
+										<span>林谷的精灵公主暮星，埃尔隆德之女。当弗罗多被戒灵刺伤垂死之时，她骑快马将弗罗多送往林谷医治。阿尔文深爱阿拉贡，但两人的种族差异也让这段爱情不被看好。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Concerning Hobbits</span>
+										<audio controls>
+											<source src="concerning Hobbits.mp3" type="audio/mpeg"> 您的浏览器不支持 audio 元素。
+										</audio>
+									</div>
+								</div>
+							</div>
+							<div id="5" class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/Aragorn.jpg" />
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief">
+										<span>刚铎国系嫡系传人，从小在精灵山谷瑞文戴尔长大，与精灵公主相恋。成年后以落魄游侠的装扮游走中土大陆各地区和荒野，成为一名优秀的战士。他发誓保护弗罗多摧毁魔戒，却对自己应该继承刚铎王位的命运十分犹疑。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Concerning Hobbits</span>
+										<audio controls>
+											<source src="concerning Hobbits.mp3" type="audio/mpeg"> 您的浏览器不支持 audio 元素。
+										</audio>
+									</div>
+								</div>
+							</div>
+							<div id="6" class="row role_avatar">
+								<div class="col-md-4">
+									<img class="img-circle" src="img/Legolas.jpg" />
+								</div>
+								<div class="col-md-8">
+									<div class="role_brief">
+										<span>心地善良的霍比特人，是魔戒三部曲的主角。从叔叔比尔博处继承了魔戒，自此开始逃亡之旅，在林谷会议上自愿提出将魔戒带往末日火山销毁，获得了魔戒远征队的支持。</span>
+									</div>
+									<div class="bgm">
+										<span><i class="glyphicon glyphicon-music"></i> &nbsp;&nbsp;Concerning Hobbits</span>
+										<audio controls>
+											<source src="concerning Hobbits.mp3" type="audio/mpeg"> 您的浏览器不支持 audio 元素。
+										</audio>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="clear" style="clear: both;"></div>
+		<footer id="footer" class="container">
+			<p>福建师范大学|软件工程专业|</p>
+			<p>Copyright © 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
+		</footer>
+	</body>
+
+</html>

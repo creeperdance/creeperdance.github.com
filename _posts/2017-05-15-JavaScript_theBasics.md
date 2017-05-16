@@ -65,7 +65,7 @@ categories:
 
 ## 第二章   javascript基本概念
 <br/><br/>
-**JavaScript 字面量（一种表示值的记法）**
+### JavaScript 字面量（一种表示值的记法）<br/><br/>
 
 1.数字（Number）字面量
 可为整数/小数（3.14  1001  123e5）
@@ -88,7 +88,7 @@ categories:
 定义一个函数
 function myFunction(a, b) { return a * b;}
 <br/><br/>
-**javascript变量**
+### javascript变量 <br/>
 
 1.变量用于存储信息的“容器”。<br/>
 2.ECMAScript的变量是松散类型的，其数据类型具有动态性。即：<br/>
@@ -106,7 +106,7 @@ length = 6;
 变量也能以 $ 和 _ 符号开头（不过我们不推荐这么做）
 变量名称对大小写敏感（y 和 Y 是不同的变量）
 <br/><br/>
-**JavaScript 关键字**
+### JavaScript 关键字<br/>
 <br/><br/>
 JavaScript 关键字用于标识要执行的操作。
 JavaScript 关键字必须以字母、下划线（_）或美元符（$）开始。
@@ -131,7 +131,7 @@ finally、new、true、const、with、default、for、null和try。
 <br/>2.其他字符可以为字母、下划线、数字;
 <br/>3.不能把关键字、保留字、true、false、null用作标识符。
 <br/><br/>
-**JavaScript 注释**
+### JavaScript 注释 <br/>
 <br/>
 单行注释   //
 <br/>
@@ -139,19 +139,138 @@ finally、new、true、const、with、default、for、null和try。
 
 
 <br/><br/><br/><br/><br/><br/>
-## 第三章   javascript运算符
+## 第三章   javascript操作符
 <br/><br/>
-**算数运算符**
+### 一元操作符<br/>
+#### 1.递增、递减操作符:<br>
+```
+	//前置型递增/递减操作符：借鉴C,变量的值在语句求值前改变
+	var age = 29;
+	var otherage = --age+2;
+	alert(age);			//28
+	alert(otherage); 	//30
+	//后置型递增/递减操作符：变量的值在语句求值后改变
+	var age = 29;
+	var otherage = age-- + 2;
+	alert(age);			//28
+	alert(otherage); 	//31
+	//适用整数外，还是用于字符串、布尔值、浮点数值、对象
+	var s1 = "2";
+	var s2 = "z";
+	var b = false;
+	var f = 1.1;
+	var o = {
+		valueOf:function(){
+			return -1;
+		}
+	};
+	s1++;	//值变成数值3
+	s2++;	//值变成NaN
+	b++;	//值变成数值1
+	f--;	//值变成0.10000000000000009(浮点数舍入错误)
+	o--;	//值变成-2
+```
+<br/><br/>
+#### 2.一元加和减操作符：<br>
+一元加(+)放在数值前，不对数值产生影响，应用非数值前则像Number()转型函数一样进行值转换.<br/>
+一元减(-)主要放在数值前，该值则变成负数，应用非数值规则同一元加操作符.<br/>
+<br/><br/>
+
+### 位操作符<br/>
+ECMAScript中所有数值都以IEEE-754 64位格式存储，位操作符则将64位值转为32位整数再执行操作，最后将结果换位64位.<br/>
+#### 1.按位非(~):<br/>
+返回数值的反码  (本质： 操作数的负值-1)<br/>
+```
+	var num = 25;
+	alert(~num); //-26
+```
+<br/><br/>
+#### 2.按位与(&)：<br>
+有两位操作符数，结果：为其每位对齐，对相同位置上的对应数作AND操作，得到的值.<br/>
+只在两个数值对应位都为1时才返回1，任何一位为0，结果都是0.<br/>
+```
+	var num = 25 & 3;
+	alert(num); //1
+	//0 0 0 1  1 0 0 1
+	//0 0 0 0  0 0 1 1
+	//0 0 0 0  0 0 0 1
+```
+<br/><br/>
+#### 3.按位或(|)：<br>
+有两位操作符数，结果：为其每位对齐，对相同位置上的对应数作OR操作，得到的值.<br/>
+只在两个数值对应位都为0时才返回0，任何一位为1，结果都是1.<br/>
+```
+	var num = 25 & 3;
+	alert(num); //27
+	//0 0 0 1  1 0 0 1
+	//0 0 0 0  0 0 1 1
+	//0 0 0 1  1 0 1 1
+```
+<br/><br/>
+#### 4.按位异或(^)：<br>
+有两位操作符数，结果：为其每位对齐，对相同位置上的对应数作XOR操作，得到的值.<br/>
+只在两个数值对应位都是0或都是1返回0，一个1一个0才返回1.<br/>
+```
+	var num = 25 & 3;
+	alert(num); //26
+	//0 0 0 1  1 0 0 1
+	//0 0 0 0  0 0 1 1
+	//0 0 0 1  1 0 1 0
+```
+<br/><br/>
+#### 5.左移(< <)：<br>
+将所有数值向左移动指定位数,原数值右侧多出的空位补0.<br/>
+相当于原数值乘以2的x次方,x为要移动的指定位数.<br/>
+```
+	var num = 2;
+	alert(num<<5); //26,相当于num*2^5
+```
+<br/><br/>
+#### 5.有符号右移(> >)：<br>
+将所有数值向右移动指定位数,原数值左侧多出的空位补0.<br/>
+相当于原数值除以2的x次方,x为要移动的指定位数.<br/>
+对于**有符号的右移**：会保留隐藏的符号位(不改变符号位)<br/>
+```
+	var num = 64;
+	alert(num>>5); //2,相当于num/(2^5)
+```
+<br/><br/>
+#### 6.无符号右移(> > >)：<br>
+而对于**无符号的右移**而言：正数同有符号右移结果相同，符号的话，右移结果会变得相当大(右移时左侧补0)<br/>
+```
+	var num = -64;
+	alert(num>>>5); //134217726
+```
+<br/><br/><br/>
+
+### 布尔操作符<br/>
+
+#### 1.逻辑非(!)：<br>
+应用ECMAScript中任何值,返回布尔值.<br/>
+!!相当于模拟Boolean()转型函数的行为.<br/>
+逻辑非操作符遵循规则：<br/>
+返回true的有：空字符串"" ,  数值0 , null , NaN ,undefined .
+<br/><br/>
+#### 2.逻辑与(&&)：<br>
+只有true&&true 才为true，否则为false.<br/>
+短路操作，若第一个操作符为false，则不会对第二个操作数求值.<br/>
+
+<br/><br/>
+#### 2.逻辑或(||)：<br>
+只有false||false 才为false，否则为true.<br/>
+短路操作，若第一个操作符为true，则不会对第二个操作数求值.<br/>
+
+<br/><br/>
+
+### 算数运算符 <br/>
 ＋   -    *  	  /	%	++	--
 
-**赋值运算符**
+### 赋值运算符 <br/>
 =    +=     -=      *=  	  /=	 %=	
 
-补充：
-+ 运算符用于把文本值或字符串变量加起来（连接起来）。（txt="what"+"?";）
-如果把数字与字符串相加，结果将成为字符串！
 
-**比较运算符**
+
+### 比较运算符 <br/>
 ==	  等于	
 ===	    绝对等于（值和类型均相等）	
 !=	 不等于	
@@ -161,13 +280,9 @@ finally、new、true、const、with、default、for、null和try。
 >=	 大于或等于	
 <=    小于或等于	
 
-**逻辑运算符**
-&&	and	(x < 10 && y > 1) 为 true
-||	or	(x==5 || y==5) 为 false
-!	not	!(x==y) 为 true
 
 
-**条件运算符**
+### 条件运算符 <br/>
 
 variablename=(condition)?value1:value2 
 如：var a = (100>50)?"yes":"no"  //a为"yes"
@@ -175,7 +290,7 @@ variablename=(condition)?value1:value2
 
 ## 第四章    javascript数据类型
 <br/><br/>
-**五种简单数据类型：**（基本数据类型）<br/>
+### 五种简单数据类型：（基本数据类型）<br/>
 字符串（String）<br/>
 数字(Number)<br/>
 布尔(Boolean)<br/>
@@ -184,7 +299,7 @@ variablename=(condition)?value1:value2
 **一种复杂数据类型:**<br/>
 对象(Object)<br/>
 
-**typeof 操作符：**<br/>
+### typeof 操作符：<br/>
 ECMAScript变量是松散类型的，需要提供检测给定变量数据类型的手段—**typeof**，对一个值使用typeof的返回结果：<br/>
 "undefined"    ->      该值未定义;<br/>
 "boolean"      ->      该值为布尔值;<br/>
@@ -210,7 +325,7 @@ ECMAScript变量是松散类型的，需要提供检测给定变量数据类型�
 	var x = "hi"; // 现在 x 为字符串
 ```
 <br/><br/><br/>
-**1.Undefined类型:**<br/>
+### 1.Undefined类型:<br/>
 Undefined 只有一个值，特殊的值undefined,这个值表示变量不含有值,使用var声明变量但未初始化，其变量值就是undefined。<br/>
 ```
 	var x;        
@@ -238,7 +353,7 @@ Undefined 只有一个值，特殊的值undefined,这个值表示变量不含有
 ```
 <br/><br/>
 
-**2. Null类型:**<br/>
+### 2. Null类型:<br/>
 Null 只有一个值，特殊的值null，null值表示一个空对象指针（所以typeof检测null返回"object"）.<br/>
 undefined值派生自null值，因而其相等性测试返回true.<br/>
 ```
@@ -250,7 +365,7 @@ undefined值派生自null值，因而其相等性测试返回true.<br/>
 
 <br/><br/>
 
-**3.Boolean类型:**<br/>
+### 3.Boolean类型:<br/>
 Boolean类型只能有两个子面值：true 和 false。<br/>
 要将一个值转换为Boolean值，可以掉用转型函数Boolean(),也用！！可实现boolean转型。<br/>
 多用于条件测试<br/>
@@ -267,7 +382,7 @@ String(空字符串""),Number(0和NaN,不包括无穷大),Object(null),Undefined
 
 <br/><br/>
 
-**4.Number类型：**<br/>
+### 4.Number类型：<br/>
 JavaScript 只有一种数字类型Number,使用IEEE754标准中的双精度浮点数,不区分整数和浮点数，数字可以带小数点，也可以不带。<br/>
 ```
 	var x1=34.00;      //使用小数点来写
@@ -301,10 +416,10 @@ ECMAScript能表示的最小数值 ->  Number.MAX_VALUE(1.7976931348623157e+308)
 	alert(isFinite(result));   //false;
 ```
 <br/><br/>
-	NaN (Not a Number):<br/>
-	一个特殊的数值,表示一个本来要返回数值的操作数未返回数值的情况(数值除以非数值不报错->返回NaN).<br/>
-	isNaN()，接受一个参数，尝试转为数值，不能转换为数值的值都会导致整个函数返回true。<br/>
-	也适用对象(->valueof()->tostring())
+NaN (Not a Number):<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;一个特殊的数值,表示一个本来要返回数值的操作数未返回数值的情况(数值除以非数值不报错->返回NaN).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;isNaN()，接受一个参数，尝试转为数值，不能转换为数值的值都会导致整个函数返回true。<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;也适用对象(->valueof()->tostring())
 <br/><br/>
 数值转换：<br/><br/>
 非数值转换为数值：Number() —用于任何数据类型、 parseInt()、parseFloat()  —用于字符串。<br/>
@@ -313,10 +428,10 @@ Boolean： true转换为1,false转换为0 ;<br/>
 null：    返回0 ;<br/>
 undefined : 返回NaN ;<br/>
 string:   
-		只包含数字(有效浮点格式)，直接转为10进制(浮点数值)(忽略前导零);<br/>
-		字符串为空,返回0;<br/>
-		包含有效的十六进制，转换为相同大小的10进制.<br/>
-		除了上述格式，返回NaN. <br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;只包含数字(有效浮点格式)，直接转为10进制(浮点数值)(忽略前导零);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;字符串为空,返回0;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;包含有效的十六进制，转换为相同大小的10进制.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;除了上述格式，返回NaN. <br/><br/>
 ```
 	var num1 = Number("hello world!"); //NaN
 	var num2 = Number(""); //0
@@ -324,11 +439,11 @@ string:
 	var num4 = Number(true);         //1
 ```
 parseInt()：(在转换字符串上更合理).<br/>
-		忽略字符串前面的空格，直至第一个非空字符,第一个字符不是数字字符或符号，parseInt()就会返回NaN;<br/>
-		如果第一个字符是数字字符或符号，会继续解析至非数字字符;<br/>
-		能解析各种数字格式(十六进制、八进制...)；<br/>
-		字符串为空，返回NaN;<br/>
-		第二个参数，转换时使用的基数（进制）。
+&nbsp;&nbsp;&nbsp;&nbsp;忽略字符串前面的空格，直至第一个非空字符,第一个字符不是数字字符或符号，parseInt()就会返回NaN;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;如果第一个字符是数字字符或符号，会继续解析至非数字字符;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;能解析各种数字格式(十六进制、八进制...)；<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;字符串为空，返回NaN;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;第二个参数，转换时使用的基数（进制）。
 <br/><br/>
 ```
 	var num1 = parseInt("1234blue"); //1234
@@ -343,38 +458,75 @@ parseInt()：(在转换字符串上更合理).<br/>
 ```
 <br/>
 parseFloat():<br/>
-		第一个小数点有效，第二个小数点无效;<br/>
-		始终忽略前导零;<br/>
-		只解析十进制，十六进制的字符串转换为0;<br/>
-		如果为一个可解析的整数，返回整数。<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;第一个小数点有效，第二个小数点无效;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;始终忽略前导零;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;只解析十进制，十六进制的字符串转换为0;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;如果为一个可解析的整数，返回整数。<br/>
 <br/><br/><br/>
 
-**5.String类型**
+### 5.String类型: <br/>
 String类型可以为引号的任意文本，可用单引号或双引号。<br/>
-ECMAScript中的字符串不可变，一旦创建，其值不可变。【待续...】
+ECMAScript中的字符串不可变，一旦创建，其值不可变。若要更改某个变量保存的字符串，会先销毁原来字符串，用包含新值的字符串填充。
 <br/><br/>
-1.字符字面量：<br/>
+1.特殊字符字面量(转义序列)：<br/>
 \n 换行, \t 制表 ,\b 退格,\r 回车,\\ 斜杠(\),\' 单引号,\ " 双引号 ,<br />
-\xnn 十六进制码nn为一字符 , \unnn 十六进制码nn为一Unicode字符
+\xnn 十六进制码nn为一字符 , \unnn 十六进制码nn为一Unicode字符<br/>
+2.转换为字符串:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;使用几乎所有值（除null和undefined值外)都有的toString()方法,可传参数：输出数值的基数<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;使用转型函数String(),适用所有值,null->"null",undefined->"undefined",其他->调用toString() <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;使用加法操作符,把它与""加在一起<br/>
 
 ```
 	var a=" hello ";
 	var b=" my name is 'Lee XX' ";
 	var c=' your name is "KangKang" ';
+	
+	var value1 = 10;
+	var value2 = true;
+	var value3 = null;
+	var value4;
+	
+	alert(value.toString());    //"10"
+	alert(value.toString(2));    //"1010"
+	
+	alert(String(value1));    //"10"
+	alert(String(value2));	  //"true";
+	alert(String(value3));	  //"null"
+	alert(String(value4));	  //"undefined"
+	
+	alert(typeof (value1+""));  //"string"  
+	
 ```
+<br/><br/><br/>
+
+### 6.Object类型:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;一组数据和功能的集合，通过new操作符跟要创建的对象名称创建;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Object类型是所有它的实例的基础，Object是所有对象的基础;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Object的每个实例都有下列属性和方法，因此所有对象都具有这些基本属性和方法<br/>
+
+```
+	var o = new Object();//不给构造函数传参可省略(),不推荐	
+```
+**Object实例都具有的属性和方法:**<br/>
+constructor  	 					->  保存创建当前对象的函数(构造函数).<br/>
+hasOwnProperty(propertyName)    	->  检查给定的属性在当前对象实例中(而非实例原型)是否存在.<br/>
+isPrototypeOf(Object)    			->  检查传入的对象是否是当前对象的原型.<br/>
+propertyIsEnumerable(propertyName)  ->  检查给定的属性是否能用for-in语句枚举.<br/>
+toLocaleString()					->  对象的字符串表示，与执行环境地区对应.<br/>
+toString()							->  返回对象的字符串表示.<br/>
+valueOf()							->  返回对象的字符串、数值、布尔值表示.<br/>
+<br/><br/><br/><br/><br/><br/>
 
 
 
 
 
+## 第五章   javascript对象
+<br/><br/>
+javascript 对象是  拥有属性和方法  的数据
 
-
-
-
-
-**5.JavaScript 对象**
-对象由花括号分隔。
-在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：
+&nbsp;&nbsp;&nbsp;&nbsp;对象由花括号分隔。
+&nbsp;&nbsp;&nbsp;&nbsp;在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：
 
 ```
 var person={
@@ -396,11 +548,6 @@ var x=      new Number;
 var y=      new Boolean;
 var person= new Object;
 ```
-
-<br/><br/><br/><br/><br/><br/>
-## 第五章   javascript对象
-<br/><br/>
-javascript 对象是  拥有属性和方法  的数据
 
 **对象定义：**
 
