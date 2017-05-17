@@ -6,7 +6,7 @@ categories:
   - javascript
 ---
 
-补充说明：之前学习javascript比较求成，很多基础知识都没有理解透彻，决定重温<<JavaScript高级程序设计>>，对之前csdn上的博文javascript基础做了延伸，
+说明：之前学习javascript比较求成，很多基础知识都没有理解透彻，决定重温<<JavaScript高级程序设计>>,也为了便于今后复习,对之前csdn上的博文javascript基础做了延伸，
 因此更博文如下：
 
 <br/><br/><br/><br/>
@@ -63,7 +63,7 @@ categories:
 ```
 <br/><br/><br/><br/><br/><br/>
 
-## 第二章   javascript基本概念
+## 第二章   Javascript基本概念
 <br/><br/>
 ### JavaScript 字面量（一种表示值的记法）<br/><br/>
 
@@ -88,7 +88,7 @@ categories:
 定义一个函数
 function myFunction(a, b) { return a * b;}
 <br/><br/>
-### javascript变量 <br/>
+### Javascript变量 <br/>
 
 1.变量用于存储信息的“容器”。<br/>
 2.ECMAScript的变量是松散类型的，其数据类型具有动态性。即：<br/>
@@ -139,7 +139,7 @@ finally、new、true、const、with、default、for、null和try。
 
 
 <br/><br/><br/><br/><br/><br/>
-## 第三章   javascript操作符
+## 第三章   Javascript操作符
 <br/><br/>
 ### 一元操作符<br/>
 #### 1.递增、递减操作符:<br>
@@ -256,29 +256,74 @@ ECMAScript中所有数值都以IEEE-754 64位格式存储，位操作符则将64
 短路操作，若第一个操作符为false，则不会对第二个操作数求值.<br/>
 
 <br/><br/>
-#### 2.逻辑或(||)：<br>
+#### 3.逻辑或(||)：<br>
 只有false||false 才为false，否则为true.<br/>
 短路操作，若第一个操作符为true，则不会对第二个操作数求值.<br/>
 
 <br/><br/>
 
-### 算数运算符 <br/>
+### 算数操作符符 <br/>
 ＋   -    *  	  /	%	++	--
+```
+	//注意点如下：
+	//忽略加法操作中的数据类型(若想对数值执行算术计算，可使用圆括号)
+	var num1 = 5;
+	var num2 = 10;
+	alert("The sum of 5 and 10 is "+num1+num2); //The sum of 5 and 10 is 510;
+	alert("The sum of 5 and 10 is "+(num1+num2)); //The sum of 5 and 10 is 15;
+	//减法操作符：
+	var result1 = 5 - true; //4
+	var result2 = NaN - 1;   //NaN
+	var result3 = 5 - "";		//5
+	var result4 = 5 - "3";		//2
+	var result5 = 5 - null;	//5
+```
+<br/><br/> 
+### 比较操作符 <br/>
+**相等、全等:**<br/>
+相等：转换成相似类型,再比较;<br/>
+==	  等于	<br/>
+!=	 不等于	<br/>
+```
+	//特殊情况：
+	alert(null == undefined);	//true, null和undefined是相等的
+	alert("NaN" == NaN);		//false,NaN和任何操作数比较都不相等(包括NaN自身)
+	alert(NaN == NaN);			//false
+	alert(false == 0);			//true
+	alert(true == 1);			//true
+	alert(undefined == 0);		//true
+	alert(null == 0);			//false
+	alert("5" == 5);			//true
+```
+相等和不相等操作符存在类型转换问题，建议使用全等。<br/>
+全等：不转换，直接进行比较。<br/>
+===	    绝对等于（值和类型均相等）<br/>	
+!==	 不绝对等于（值和类型有一个不相等，或两个都不相等）	<br/>
+```
+	alert("5" === 5);	//false;
+	alert(null === undefined);  //false;
+```
+**其他:**<br/>
+>	 大于 <br/>
+<	 小于 <br/>
+>=	 大于或等于	 <br/>
+<=    小于或等于 <br/>	
+<br/>
+```
+	//注意点如下:
+	//两个操作符都为数值，直接比较;都为字符串，比较字符编码值。
+	var result = "23" < "3";	//true 
+	//如果一个为数值，则将另一操作符转为数值再比较，如果为布尔值，先转为数值再比较。
+	var result = "23" < 3;		//false,字符串被转为数值23 
+	//任何数与NaN比较,都为false
+	var result = "a" < 3; //false (NaN < 3)
+```
+<br/>
+### 赋值操作符 <br/>
+=    +=     -=      *=  	  /=	 %=	<br/>
+仅简化赋值操作，不提升性能。<br/>
 
-### 赋值运算符 <br/>
-=    +=     -=      *=  	  /=	 %=	
 
-
-
-### 比较运算符 <br/>
-==	  等于	
-===	    绝对等于（值和类型均相等）	
-!=	 不等于	
-!==	 不绝对等于（值和类型有一个不相等，或两个都不相等）	
->	 大于	
-<	 小于
->=	 大于或等于	
-<=    小于或等于	
 
 
 
@@ -288,7 +333,7 @@ variablename=(condition)?value1:value2
 如：var a = (100>50)?"yes":"no"  //a为"yes"
 <br/><br/><br/><br/><br/><br/>
 
-## 第四章    javascript数据类型
+## 第四章    Javascript数据类型
 <br/><br/>
 ### 五种简单数据类型：（基本数据类型）<br/>
 字符串（String）<br/>
@@ -300,6 +345,7 @@ variablename=(condition)?value1:value2
 对象(Object)<br/>
 
 ### typeof 操作符：<br/>
+用于检测变量的数据类型<br/>
 ECMAScript变量是松散类型的，需要提供检测给定变量数据类型的手段—**typeof**，对一个值使用typeof的返回结果：<br/>
 "undefined"    ->      该值未定义;<br/>
 "boolean"      ->      该值为布尔值;<br/>
@@ -308,16 +354,22 @@ ECMAScript变量是松散类型的，需要提供检测给定变量数据类型�
 "object"       ->      该值为对象或者null;<br/>
 "function"     ->      该值为函数。<br/>
 <br/>
+
+
 ```
+	typeof "John"                // 返回 string 
+	typeof 3.14                  // 返回 number
+	typeof false                 // 返回 boolean
+	typeof [1,2,3,4]             // 返回 object，数组是一种特殊的对象类型
+	typeof {name:'John', age:34} // 返回 object
+	
 	var x;        
 	alert(typeof x);   //"undefined"
-	var x = 5;    
-	alert(typeof x)    //"number"
 	var x = null; 
 	alert(typeof x)    //"object"
 ```
 <br/>
-**JavaScript 拥有动态数据类型**，即相同的变量可用作不同的类型
+**JavaScript 拥有动态数据类型**,即相同的变量可用作不同的类型
 
 ```
 	var x;        // x 为 undefined
@@ -327,6 +379,7 @@ ECMAScript变量是松散类型的，需要提供检测给定变量数据类型�
 <br/><br/><br/>
 ### 1.Undefined类型:<br/>
 Undefined 只有一个值，特殊的值undefined,这个值表示变量不含有值,使用var声明变量但未初始化，其变量值就是undefined。<br/>
+Undefined典型应用：变量声明但未赋值、调用函数应提供参数却未提供、对象中未赋值的属性、函数无返回值默认返回undefined。<br/>
 ```
 	var x;        
 	alert(x == undefined);  //true
@@ -356,10 +409,12 @@ Undefined 只有一个值，特殊的值undefined,这个值表示变量不含有
 ### 2. Null类型:<br/>
 Null 只有一个值，特殊的值null，null值表示一个空对象指针（所以typeof检测null返回"object"）.<br/>
 undefined值派生自null值，因而其相等性测试返回true.<br/>
+null典型应用：作为函数的参数，表示该函数的参数不是对象，作为对象原型链的终点。<br/>
 ```
 	var x=null;        
 	alert(typeof x);  //"object"
 	alert(null == undefined);  //true
+	Object.getPrototypeOf(Object.prototype); // null,作为原型链终点
 ```
 可以通过将变量的值设置为 null 来清空变量。
 
@@ -518,12 +573,143 @@ valueOf()							->  返回对象的字符串、数值、布尔值表示.<br/>
 <br/><br/><br/><br/><br/><br/>
 
 
-
-
-
-## 第五章   javascript对象
+## 第五章   Javascript语句
 <br/><br/>
-javascript 对象是  拥有属性和方法  的数据
+**if else 语句:**
+
+```
+if (condition1)
+{
+    当条件 1 为 true 时执行的代码
+}
+else if (condition2)
+{
+    当条件 2 为 true 时执行的代码
+}
+else
+{
+  当条件 1 和 条件 2 都不为 true 时执行的代码
+}
+```
+
+**switch语句**
+
+```
+switch(n)
+{
+    case 1:
+        执行代码块 1
+        break;
+    case 2:
+        执行代码块 2
+        break;
+    default:
+        与 case 1 和 case 2 不同时执行的代码
+}
+```
+
+
+**for 循环**
+
+```
+//方式1：
+for (语句 1; 语句 2; 语句 3)
+{
+    被执行的代码块
+}
+//方式2：for/in
+var person={fname:"John",lname:"Doe",age:25}; 
+ 
+for (x in person)
+{
+    txt=txt + person[x];
+}
+```
+
+**while循环**
+
+```
+while (条件)
+{
+    需要执行的代码
+}
+
+//或
+
+do
+{
+    需要执行的代码
+}
+while (条件);
+```
+
+
+
+**break  continue 语句**<br/>
+break 语句可用于跳出循环。
+continue 语句跳出循环后，会继续执行该循环之后的代码
+
+```
+//break
+for (i=0;i<10;i++)
+{
+    if (i==3)  break;
+    x=x + "The number is " + i + "<br>";
+}//i==3后跳出循环体，即for循环不再执行
+//continue
+for (i=0;i<10;i++)
+{
+    if (i==3)  continue;
+    x=x + "The number is " + i + "<br>";
+}//跳过i==3,循环体继续执行
+```
+
+
+**实现label 标签跳出循环**
+ label标签可是任意名称（非关键字保留字）
+
+```
+ bk:for(var i=0;i<4;i++){
+	    for(varj=0;j<4;j++){
+	            if(i===1&&j===1)break bk;
+			    else console.log("i:"+i+"--j:"+j);
+   }
+ }
+```
+运行结果：
+
+```
+1 i:0--j:0
+2 i:0--j:1
+3 i:0--j:2
+4 i:0--j:3
+5 i:1--j:0
+//成功跳出外层循环
+```
+<br/><br/>
+**with语句**<br/>
+作用：将代码的作用域设置到一个特定对象中,简化多次编写同一个对象的工作<br/>
+```
+	var qs = location.search.substring(1);
+	var hostName = location.hostname;
+	var url = location.href;
+```
+使用with语句:<br/>
+```
+	with(location){
+		var qs = search.substring(1);
+		var hostName = hostname;
+		var url = href;
+	}
+```
+with语句在严格模式下视为语法错误,大量使用with会造成性能下降，调试错误，不建议使用<br/>
+
+<br/><br/><br/><br/><br/><br/>
+
+
+## 第六章   Javascript对象
+<br/><br/>
+Javascript 对象是  拥有属性和方法  的数据
 
 &nbsp;&nbsp;&nbsp;&nbsp;对象由花括号分隔。
 &nbsp;&nbsp;&nbsp;&nbsp;在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：
@@ -576,7 +762,7 @@ person["lastName"];
 objectName.methodName()
 ```
 <br/><br/><br/><br/><br/><br/>
-## 第六章   javascript函数
+## 第七章   Javascript函数
 <br/><br/>
 **JavaScript 函数语法**
 
@@ -600,7 +786,7 @@ function myFunction()
 }
 
 ```
-**声明方式：**
+**声明方式：**<br/>
 
 ```
 //1.普通的函数声明
@@ -615,36 +801,44 @@ var box = function(num1,num2){
 var box=new Function('num1','num2','return num1+num2');
 ```
 
-**函数内部属性：**
-1.arguments：一个类数组对象，包含着传入函数的所有参数。
+**函数内部属性：**<br/>
+1.arguments：一个类数组对象，包含着传入函数的所有参数。arguments[0]是第一个元素,length属性是传递参数.<br/>
+ECMAScript函数不介意传递的参数个数，数据类型。正是因为可以通过函数内部arguments对象访问这个参数数组.<br/>
+因而ECMAScript函数也不能像传统意义上那样实现重载，不过它可以模仿重载，对传入函数的类型和数量可作出不同反应。<br/>
+
+```
+	function doAdd(){
+		if(argumens.)
+	}
+```
 2.callee：一个指针，指向拥有这个arguments对象的函数。
 
 ```
 
-function box(num){
-	if(num<=1){
-		return 1;
-	}else {
-		return num*box(num-1);
+	function box(num){
+		if(num<=1){
+			return 1;
+		}else {
+			return num*box(num-1);
+		}
 	}
-}
 
-//上述递归函数内部会调用自身，如果函数名不该变则没有问题，若函数名改变，内部的自身调用则需要逐一改变，解决该问题：
-function box(num){
-	if(num<=1){
-		return 1;
-	}else {
-		return num*argumens.callee(num-1);//使用callee调用自身
+	//上述递归函数内部会调用自身，如果函数名不该变则没有问题，若函数名改变，内部的自身调用则需要逐一改变，解决该问题：
+	function box(num){
+		if(num<=1){
+			return 1;
+		}else {
+			return num*argumens.callee(num-1);//使用callee调用自身
+		}
 	}
-}
 ```
 
-**函数的属性和方法：**
-length：函数希望接收的命名参数的个数
-prototype：另行介绍
-prototype属性下的两个方法：通过冒充改变作用域
-apply()
-call()
+**函数的属性和方法：**<br/>
+length：函数希望接收的命名参数的个数<br/>
+prototype：另行介绍<br/>
+prototype属性下的两个方法：通过冒充改变作用域<br/>
+apply()<br/>
+call()<br/>
 
 ```
 function box (num1,num2) {
@@ -665,30 +859,7 @@ alert(sayBox2(10,10));//20
 
 
 
-**局部 JavaScript 变量**
-在 JavaScript 函数内部声明的变量（使用 var）是局部变量，所以只能在函数内部访问它。
-可以在不同的函数中使用名称相同的局部变量，因为只有声明过该变量的函数才能识别出该变量。
-只要函数运行完毕，本地变量就会被删除。
-
-
-**全局 JavaScript 变量**
-在函数外声明的变量是全局变量，网页上的所有脚本和函数都能访问它。
-
-```
-var carName = " Volvo";
-
-// 此处可调用 carName 变量
-
-function myFunction() {
-
-    // 函数内可调用 carName 变量 
-
-}
-```
-
-
-
-**JavaScript 变量的生存期**
+**JavaScript 变量的生存期**<br/>
 JavaScript 变量的生命期从它们被声明的时间开始。
 局部变量会在函数运行以后被删除。
 全局变量会在页面关闭后被删除
@@ -707,7 +878,7 @@ function myFunction() {
 }
 ```
 <br/><br/><br/><br/><br/><br/>
-## 第七章   javascript字符串
+## 第八章   Javascript字符串
 <br/><br/>
 **字符串长度**
 
@@ -787,192 +958,48 @@ trim()					移除字符串首尾空白
 valueOf()				返回某个字符串对象的原始值
 ```
 <br/><br/><br/><br/><br/><br/>
-## 第八章   javascript语句
+
+## 第九章   Javascript类型转换
 <br/><br/>
-**IF ELSE 语句:**
-
-```
-if (condition1)
-{
-    当条件 1 为 true 时执行的代码
-}
-else if (condition2)
-{
-    当条件 2 为 true 时执行的代码
-}
-else
-{
-  当条件 1 和 条件 2 都不为 true 时执行的代码
-}
-```
-
-**switch语句**
-
-```
-switch(n)
-{
-    case 1:
-        执行代码块 1
-        break;
-    case 2:
-        执行代码块 2
-        break;
-    default:
-        与 case 1 和 case 2 不同时执行的代码
-}
-```
-
-
-**for 循环**
-
-```
-//方式1：
-for (语句 1; 语句 2; 语句 3)
-{
-    被执行的代码块
-}
-//方式2：for/in
-var person={fname:"John",lname:"Doe",age:25}; 
- 
-for (x in person)
-{
-    txt=txt + person[x];
-}
-```
-
-**while循环**
-
-```
-while (条件)
-{
-    需要执行的代码
-}
-
-//或
-
-do
-{
-    需要执行的代码
-}
-while (条件);
-```
-
-
-
-**break  continue 语句**
-break 语句可用于跳出循环。
-continue 语句跳出循环后，会继续执行该循环之后的代码
-
-```
-//break
-for (i=0;i<10;i++)
-{
-    if (i==3)  break;
-    x=x + "The number is " + i + "<br>";
-}//i==3后跳出循环体，即for循环不再执行
-//continue
-for (i=0;i<10;i++)
-{
-    if (i==3)  continue;
-    x=x + "The number is " + i + "<br>";
-}//跳过i==3,循环体继续执行
-```
-
-
-**实现label 标签跳出循环 **
- label标签可是任意名称（非关键字保留字）
-
-```
- bk:for(var i=0;i<4;i++){
-	    for(varj=0;j<4;j++){
-	            if(i===1&&j===1)break bk;
-			    else console.log("i:"+i+"--j:"+j);
-   }
- }
-```
-运行结果：
-
-```
-1 i:0--j:0
-2 i:0--j:1
-3 i:0--j:2
-4 i:0--j:3
-5 i:1--j:0
-//成功跳出外层循环
-```
-
-
-
-**typeof操作符**
-用于检测变量的数据类型
-
-```
-typeof "John"                // 返回 string 
-typeof 3.14                  // 返回 number
-typeof false                 // 返回 boolean
-typeof [1,2,3,4]             // 返回 object，数组是一种特殊的对象类型
-typeof {name:'John', age:34} // 返回 object
-```
-
-**Null**
-null是一个只有一个值的特殊类型。表示一个空对象引用，用 typeof 检测 null 返回是object。
-（可以用null和undefined来清空对象）
-
-**Undefined**
-undefined 是一个没有设置值的变量。
-typeof 一个没有值的变量会返回 undefined。
-
-
-二者区别：
-
-```
-typeof undefined             // undefined
-typeof null                  // object
-null === undefined           // false
-null == undefined            // true
-```
-<br/><br/><br/><br/><br/><br/>
-## 第九章   javascript类型转换
-<br/><br/>
- 5 种不同的数据类型：
-string    number  boolean  object  function
-3 种对象类型：
-Object  Date  Array
-2 个不包含任何值的数据类型：
-null  undefined
+ 5 种不同的数据类型：<br/>
+string    number  boolean  object  function<br/>
+3 种对象类型：<br/>
+Object  Date  Array<br/>
+2 个不包含任何值的数据类型：<br/>
+null  undefined<br/>
 
 
 
 ```
-typeof "John"                 // 返回 string 
-typeof 3.14                   // 返回 number
-typeof NaN                    // 返回 number
-typeof false                  // 返回 boolean
-typeof [1,2,3,4]              // 返回 object
-typeof {name:'John', age:34}  // 返回 object
-typeof new Date()             // 返回 object
-typeof function () {}         // 返回 function
-typeof myCar                  // 返回 undefined (如果 myCar 没有声明)
-typeof null                   // 返回 object
+	typeof "John"                 // 返回 string 
+	typeof 3.14                   // 返回 number
+	typeof NaN                    // 返回 number
+	typeof false                  // 返回 boolean
+	typeof [1,2,3,4]              // 返回 object
+	typeof {name:'John', age:34}  // 返回 object
+	typeof new Date()             // 返回 object
+	typeof function () {}         // 返回 function
+	typeof myCar                  // 返回 undefined (如果 myCar 没有声明)
+	typeof null                   // 返回 object
 
-/*
+	/*
 
-NaN 的数据类型是 number
-数组(Array)的数据类型是 object
-日期(Date)的数据类型为 object
-null 的数据类型是 object
-未定义变量的数据类型为undefined
+	NaN 的数据类型是 number
+	数组(Array)的数据类型是 object
+	日期(Date)的数据类型为 object
+	null 的数据类型是 object
+	未定义变量的数据类型为undefined
 
-*/
+	*/
 ```
-**自动转换类型**
+**自动转换类型**<br/>
 当 JavaScript 尝试操作一个 "错误" 的数据类型时，会自动转换为 "正确" 的数据类型。
 
 ```
-5 + null    // 返回 5 ,  null 转换为 0
-"5" + null  // 返回"5null"   null 转换为 "null"
-"5" + 1     // 返回 "51" , 1 转换为 "1"  
-"5" - 1     // 返回 4 ,  "5" 转换为 5
+	5 + null    // 返回 5 ,  null 转换为 0
+	"5" + null  // 返回"5null"   null 转换为 "null"
+	"5" + 1     // 返回 "51" , 1 转换为 "1"  
+	"5" - 1     // 返回 4 ,  "5" 转换为 5
 ```
 当你尝试输出一个对象或一个变量时 JavaScript 会自动调用变量的 toString() 方法：
 
@@ -1059,7 +1086,7 @@ new Date().getTime()// 返回 1404568027739
 ```
 <br/><br/><br/><br/><br/><br/>
 
-## 第十章   javascript错误
+## 第十章   Javascript错误
 <br/><br/>
 **try:** 
  允许我们定义在执行时进行错误测试的代码块

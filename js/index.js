@@ -14,6 +14,11 @@ $(function() {
 		$(this).css('border-bottom','none');
 		$(this).css('font-size','-=2px');
 	});
+	$('.list-category a').hover(function(){
+		$(this).css('font-size','+=2px');
+	},function(){
+		$(this).css('font-size','-=2px');
+	});
 	//鼠标下滚导航栏消失，上滚导航栏出现
 	$(window).scroll(function(){
 		var scroll_top = $(document).scrollTop();
