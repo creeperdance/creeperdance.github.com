@@ -9,7 +9,7 @@
 @font-face{font-family:'museo_700regular';src:url('../fonts/museo700-regular-webfont.eot');src:url('../fonts/museo700-regular-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/museo700-regular-webfont.woff') format('woff'),url('../fonts/museo700-regular-webfont.ttf') format('truetype'),url('../fonts/museo700-regular-webfont.svg#museo_700regular') format('svg');font-weight:normal;font-style:normal}
 
 body {
-	color: #424242;
+	/*color: #424242;*/
 	/*font-family: 'Neucha', "PingFang SC", "Microsoft YaHei", sans-serif;*/
     /*font-family: 'Lucida Grande', 'Lucida Sans Unicode','Neucha', "PingFang SC", "Microsoft YaHei", sans-serif;*/
     font-family:MuseoSans,Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode","Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei",Verdana,sans-serif;
@@ -75,7 +75,7 @@ ul {
 /*content*/
 
 #content {
-	color: #555;
+	/*color: #555;*/
 	margin: 100px auto;
 	text-align: left;
 	position: relative;
@@ -89,7 +89,7 @@ ul {
 	padding-bottom: 15px;
 }
 #content #title a{
-	color:#555;
+	/*color:#555;*/
 }
 #content #post_title{
 	text-align:center;
@@ -97,7 +97,7 @@ ul {
 #content #post_info {
 	margin-top: -10px;
 	font-size: 14px;
-	color: #666;
+	/*color: #666;*/
 	letter-spacing: 1px;
 }
 #content #post_info .post_about {
@@ -114,7 +114,7 @@ ul {
 }
 
 #content .reading  a{
-	color:#555;
+	/*color:#555;*/
 	display:block;
 	letter-spacing:0;
 	margin-top:50px;

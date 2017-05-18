@@ -1,6 +1,7 @@
 ﻿permalink: /:year/:month/:title.html 
 markdown: kramdown
 highlights: pygments
+pygments:true
 
 safe: true
 #paginate: 8

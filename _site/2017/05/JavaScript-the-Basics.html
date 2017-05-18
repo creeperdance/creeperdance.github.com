@@ -68,7 +68,7 @@
 		<span class="fa fa-folder-o"> 分类于javascript</span>
 	</div>
 	<div class="article">
-		<p>补充说明：之前学习javascript比较求成，很多基础知识都没有理解透彻，决定重温«JavaScript高级程序设计»,也为了便于今后复习,对之前csdn上的博文javascript基础做了延伸，
+		<p>说明：之前学习javascript比较求成，很多基础知识都没有理解透彻，决定重温«JavaScript高级程序设计»,也为了便于今后复习,对之前csdn上的博文javascript基础做了延伸，
 因此更博文如下：</p>
 
 <p><br /><br /><br /><br /></p>
@@ -749,13 +749,21 @@ for (i=0;i&lt;10;i++)
 
 <p><br /><br /><br /><br /><br /><br /></p>
 
-<h2 id="第六章---javascript对象">第六章   Javascript对象</h2>
-<p><br /><br />
-Javascript 对象是  拥有属性和方法  的数据</p>
+<h2 id="第六章--引用类型">第六章  引用类型</h2>
+<p>引用类型的值(对象)是引用对象的一个实例,用于将数据和功能组织在一起。<br /><br /><br /></p>
+<h3 id="1object类型-">1.Object类型 <br /><br /></h3>
+<p>ECMAScript并不具备传统面向对象语言所支持的类和接口等基本结构。<br />
+<br /><br />
+在Javascript中, 对象是  拥有属性和方法  的数据，是某个特定引用类型的实例。<br />
+创建方式：<br />
+1.新对象使用new操作符后跟一个构造函数来创建:<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>var person = new Object();
+</code></pre>
+</div>
 
-<p>    对象由花括号分隔。
+<p>2.使用字面量表示法：<br />
+    由花括号分隔。
     在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>var person={
 firstname : "John",
 lastname  : "Doe",
@@ -767,25 +775,13 @@ id        :  5566
 <p><strong>声明变量类型</strong>
 当您声明新变量时，可以使用关键词 “new” 来声明其类型：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var carname=new String;
-var x=      new Number;
-var y=      new Boolean;
-var person= new Object;
+<div class="highlighter-rouge"><pre class="highlight"><code>	var carname =new String();
+	var x =      new Number();
+	var y =      new Boolean();
+	var person = new Object();
 </code></pre>
 </div>
 
-<p><strong>对象定义：</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>var person = {
-    firstName:"John",
-    lastName:"Doe",
-    age:50,
-    eyeColor:"blue"
-};
-
-
-</code></pre>
-</div>
 <p><strong>访问对象属性</strong></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>//方式1：
@@ -800,7 +796,140 @@ person["lastName"];
 <div class="highlighter-rouge"><pre class="highlight"><code>objectName.methodName()
 </code></pre>
 </div>
+
+<p><br /><br /><br /></p>
+<h3 id="2array类型-">2.Array类型 <br /><br /></h3>
+<p>ECMAScript与其他语言一样,数组都是数据的有序列表。<br />
+ECMAScript中的数组的大小是可以动态调整的,即可以随着数据的添加自动增长以容纳新增数据。<br />
+<strong>创建数组的基本方式：</strong><br />
+1.使用Array构造函数<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	var colors = new Array();
+	var colors = new Array(20);    //也可自定义数组长度。
+	var colors = new Array('red','blue','green');	//也可向构造函数传递数组应包含的项
+	var colors = Array(3);    //也可省略new操作符
+</code></pre>
+</div>
+<p>2.使用数组字面量法:<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	var colors = ['a','b','c'];
+	var colors = ['a','b',];	//会创建一个包含2或3项的数组，IE8及以前['a','b',undefined,其他['a','b'];
+</code></pre>
+</div>
+<p><br /><br />
+<strong>读取数组中数据项：</strong><br />
+使用方括号并提供相应值基于0的数字索引。<br />
+通过.length可访问数组的长度<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	var colors  = [1,2,3];
+	alert(colors[2]);	//3
+	alert(colors.length);	//3
+</code></pre>
+</div>
+<p><br /><br />
+<strong>检测数组</strong><br />
+通过instanceof操作符<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	if(value instanceof Array){	//
+		//...
+	}
+</code></pre>
+</div>
+<p>instanceof操作符不适用于多个框架的特殊情况,因为它假定只有一个全局执行环境.当网页有多框架时,就有多个全局执行环境,因而会存在两个版本的Array构造函数,当传入数组发生冲突时可能会出错。<br />
+ES5新增了Array.isArray()方法,用于解决该问题。<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	if(Array.isArray(value)){
+		//...
+	}
+</code></pre>
+</div>
+
+<p><br /><br />
+<strong>转换方法：</strong><br />
+所有对象都有toLocaleString()、toString()、valueOf()方法。<br />
+调用数组的toString()方法会返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。<br />
+调用数组的valueOf()方法返回的还是数组。<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	var colors = ['red','blue','green'];
+	alert(colors.toString());	//red,blue,green
+	alert(colors.valueOf());	//red,blue,green
+	alert(colors);	//red,blue,green  ,数组还要接受字符串参数，在后台调用toString()方法.
+</code></pre>
+</div>
+<p>数组继承的toLocaleString()、toString()、valueOf()方法默认情况都以逗号(,)分割,若想使用不同分隔符创建字符串，可使用join()方法。<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	var colors =['red','blue','green'];
+	alert(colors.join("||"));//red||blue||green
+</code></pre>
+</div>
+
+<p><br /><br />
+<strong>栈，队列方法：</strong><br />
+栈方法：<br />
+栈是一种LIFO（last-in-first-out）的数据结构,最新添加的项最早被移出。<br />
+ECMAScript为数组提供了push()、pop()方法，以实现类似栈行为。<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	var colos = new Array();
+	var count = colors.push('red','blue');
+	alert(count);	//2
+	count = count.push('green');
+	alert(count);	//3
+	
+	var item = colors.pop();
+	alert(item);	//'green'
+	alert(colors.length);	//2
+</code></pre>
+</div>
+<p><br /><br />
+队列方法：<br />
+队列是一种FIFO（first-in-first-out）的数据结构,最早添加的项最早被移出。<br />
+ECMAScript为数组提供了push()、shift()方法，以实现类似队列行为,队列的push()方法和栈的push()方法为同一方法。<br />
+ECMAScript还提供了unshift()方法，使用方法与shift()方法相反,向数组前端添加任意个项并返回新数组长度。同时使用unshift()和pop()可以模拟相反方向的队列。<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	var colos = new Array();
+	var count = colors.push('red','blue');
+	alert(count);	//2
+	count = count.push('green');
+	alert(count);	//3
+	
+	var item = colors.shift();
+	alert(item);	//'red'
+	alert(colors.length);	//2
+</code></pre>
+</div>
+
+<p><br /><br />
+<strong>重排序方法：</strong><br />
+数值中已存在两个可用于排序的方法：reverse()、sort()方法.
+reverse()-&gt;反转数组顺序。<br />
+sort()-&gt;按升序排列数组项（调用每个数组项的头String()转型方法,得到比较的字符串，确定排序）</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	var values = [1,2,4,10,3];
+	values.reverse();
+	alert(values);	//3,10,4,2,1;
+	values.sort();
+	alert(values);	//1,10,2,3,4,即使每一项都是数值,也会转型成字符串再排序。
+</code></pre>
+</div>
+<p>sort()方法可以接收一个比较函数作为参数，以便指定哪个值位于哪个值之前。<br />
+比较函数接收两个参数,第一个参数应该位于第二个参数之前则返回一个负数，相等则返回0，若第一个参数应位于第二个参数之后返回1。<br /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	function compare(value1 ,value2){
+		if(value1 &lt; value2){
+			return -1;
+		}else if(value1 &gt; value2){
+			retunrn 1;
+		}else{
+			return 0;
+		}
+	}
+	var values = [1,2,4,10,3];
+	values.sort();
+	alert(values);	//1,2,3,4,10
+</code></pre>
+</div>
+<p><br /><br />
+<strong>操作方法：</strong><br />
+<strong>concat():基于当前函数数组创建一个新数组(当前数组副本),将接收到的参数添加到这个副本的末尾。<br /></strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	var colors = ['red','green','blue'];
+	var colors2 = colors.concat();
+	alert(colors);
+</code></pre>
+</div>
+<p><br /><br /></p>
+
 <p><br /><br /><br /><br /><br /><br /></p>
+
 <h2 id="第七章---javascript函数">第七章   Javascript函数</h2>
 <p><br /><br />
 <strong>JavaScript 函数语法</strong></p>
