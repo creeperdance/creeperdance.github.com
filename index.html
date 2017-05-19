@@ -11,8 +11,8 @@ layout: default
 	</div>
 	<div id="post_info">
 		<div class="post_about">
-			<span class="fa fa-calendar-o"> 发表于{{ post.date | date: "%Y-%m-%d"}}</span>|
-			<span class="fa fa-folder-o"> 分类于{{post.categories}}</span>
+			<span class="fa fa-calendar-o"> <i id="mobile_hide">发表于</i>{{ post.date | date: "%Y-%m-%d"}}</span>|
+			<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>{{post.categories}}</span>
 		</div>
 		<div class="summary">
 			{{ post.excerpt | remove: '<p>' | remove: '</p>' }}

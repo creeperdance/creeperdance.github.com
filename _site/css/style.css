@@ -9,7 +9,6 @@
 @font-face{font-family:'museo_700regular';src:url('../fonts/museo700-regular-webfont.eot');src:url('../fonts/museo700-regular-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/museo700-regular-webfont.woff') format('woff'),url('../fonts/museo700-regular-webfont.ttf') format('truetype'),url('../fonts/museo700-regular-webfont.svg#museo_700regular') format('svg');font-weight:normal;font-style:normal}
 
 body {
-	color: #000;
 	/*font-family: 'Neucha', "PingFang SC", "Microsoft YaHei", sans-serif;*/
     /*font-family: 'Lucida Grande', 'Lucida Sans Unicode','Neucha', "PingFang SC", "Microsoft YaHei", sans-serif;*/
     font-family:MuseoSans,Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode","Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei",Verdana,sans-serif;
@@ -37,6 +36,7 @@ ul {
 	font-weight: bold;
 	margin-top: 10px;
 	letter-spacing: 2px;
+	margin-left:20px;
 }
 
 #main a img {
@@ -45,7 +45,7 @@ ul {
 }
 
 .navbar {
-	padding: 30px 0 0 30px;
+	padding: 10px 0 0 10px;
 	background-color: white;
 }
 
@@ -69,6 +69,7 @@ ul {
 #main .navbar-header p {
 	text-align: center;
 	font-family: "Josefin Sans";
+	display:none;
 }
 
 
@@ -81,17 +82,28 @@ ul {
 	position: relative;
 	left: 0;
 }
-
-#content #title h3,#content #post_title{
-	font-size: 24px;
-	letter-spacing:3px;
+#mobile_hide{
+	display:none;
+	font-style:normal;
+	margin-right:5px;
+}
+#content #title h3{
+	font-size:22px;
+	letter-spacing:1px;
 	font-weight: lighter;
 	padding-bottom: 15px;
 }
+#content #post_title h3{
+	font-size:24px;
+	letter-spacing:1px;
+	margin-top:-20px;
+	padding-bottom: 15px;
+}
 #content #title a{
-	color:#000;
+	color:#222;
 }
 #content #post_title{
+	margin-top:50px;
 	text-align:center;
 }
 #content #post_info {
@@ -112,7 +124,10 @@ ul {
 #content #post_info .summary {
 	margin-top: 20px;
 }
-
+#content .post_about span{
+	margin-right:15px;
+	margin-left:10px;
+}
 #content .reading  a{
 	color:#000;
 	display:block;
@@ -124,7 +139,8 @@ ul {
 	border-bottom:2px solid #555;
 }
 #content .entries li {
-	margin-bottom: 120px;
+	margin-top: 30px;
+	margin-bottom: 130px;
 }
 /*post content*/
 #content #post_info .article{
@@ -142,7 +158,7 @@ ul {
 #side_to_top{
 	width:50px;
 	position: fixed;
-	right: 60px;
+	right: 2%;
 	bottom:30px;
 	display:none;
 	z-index:9998;
@@ -239,6 +255,20 @@ footer p {
 		width: 80%;
 		margin-top: 150px;
 	}
+	#content #title h3{
+		font-size: 26px;
+		letter-spacing:2px;
+	}
+	#content #post_title h3{
+		font-size: 30px;
+		letter-spacing:2px;
+	}
+	#main .navbar-header p{
+		display:block;
+	}
+	#mobile_hide{
+		display:inline-block;
+	}
 }
 
 
@@ -264,5 +294,11 @@ footer p {
 		width: 100px;
 		margin-top: -10px;
 		display: block;
+	}
+	#content{
+	    width:70%;
+	}
+	#side_to_top{
+		right: 60px;
 	}
 }

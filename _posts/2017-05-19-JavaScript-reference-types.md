@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScript  —  引用类型
+title: JavaScript引用类型
 date: 2017-05-19 01:05:13 +0800
 categories:
   - javascript

@@ -6,8 +6,8 @@ layout: default
 </div>
 <div id="post_info">
 	<div class="post_about post_about_center">
-		<span class="fa fa-calendar-o"> 发表于{{ page.date | date: "%Y-%m-%d"}}</span>|
-		<span class="fa fa-folder-o"> 分类于{{page.categories}}</span>
+		<span class="fa fa-calendar-o"> <i id="mobile_hide">发表于</i>{{ page.date | date: "%Y-%m-%d"}}</span>|
+		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>{{page.categories}}</span>
 	</div>
 	<div class="article">
 		{{ content}}

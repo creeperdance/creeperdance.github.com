@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScript  —  变量、作用域
+title: JavaScript变量及作用域
 date: 2017-05-17 01:05:13 +0800
 categories:
   - javascript

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScript  — 基础
+title: JavaScript基础
 date: 2017-05-15 01:05:13 +0800
 categories:
   - javascript
