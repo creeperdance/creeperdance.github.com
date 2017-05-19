@@ -1,5 +1,5 @@
 $(function() {
-	$('#totoro_fixed img').mouseenter(function(){
+	$('#totoro_fixed').find('img').mouseenter(function(){
 		$('#right_sidebar').animate({right:"+=260px"},300);
 		$('#content').animate({left:'-=150px'},300);
 	});
@@ -7,14 +7,19 @@ $(function() {
 		$('#right_sidebar').animate({right:"-=260px"},300);
 		$('#content').animate({left:'+=150px'},300);
 	});
-	$('.list-category h2').hover(function(){
+	$('.list-category').find('h2').hover(function(){
 		$(this).css('border-bottom','2px solid #555');
 		$(this).css('font-size','+=2px');
 	},function(){
 		$(this).css('border-bottom','none');
 		$(this).css('font-size','-=2px');
 	});
-	$('.list-category a').hover(function(){
+	$('.list-category').find('a').hover(function(){
+		$(this).css('font-size','+=2px');
+	},function(){
+		$(this).css('font-size','-=2px');
+	});
+	$('#content #title h3').hover(function(){
 		$(this).css('font-size','+=2px');
 	},function(){
 		$(this).css('font-size','-=2px');

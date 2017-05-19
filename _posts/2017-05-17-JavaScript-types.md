@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScript  —  types
+title: JavaScript  —  变量、作用域
 date: 2017-05-17 01:05:13 +0800
 categories:
   - javascript
@@ -8,7 +8,7 @@ categories:
 
 说明：关于javascript基本类型及引用类型、执行环境及作用域等...  -参考《JavaScript高级程序设计(第3版)》
 
-<br/><br/>
+<br/><br/><br/><br/>
 ## 1.基本类型和引用类型的值
 <br/>
 ECMAScript变量包含两种不同数据类型的值：基本类型值和引用值。<br/><br/>
@@ -30,7 +30,7 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 <br/>
 引用类型：<br/>
 若变量A要复制变量B的引用类型的值，也会把存储在变量A中的值赋值给变量B,但由于存放在变量处的是一个指向对象内存地址的指针，所以它们操作的其实是同一个对象。<br/>
-```
+```javascript
 	//基本类型值的复制
 	var num1 = 5;
 	var num2 = num1;
@@ -50,7 +50,7 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 ECMAScript中所有函数的参数都是按值传递的。但基本类型和引用类型在传参时还是有差别。其主要原因主要是上述讲到的内存分配不同导致的。<br/>
 对于基本类型的值传递还是一样,独立各不影响。<br/>
 对于引用类型：引用类型变量存放的值仍是其对象在堆内存中的内存地址，因此它传递的值也就是这个内存地址，因此若在函数内部修改了该参数，也会体现在外部，因为它们都指向同一个对象。<br/>
-```
+```javascript
 	//基本类型：
 	function addTen(num){
 		num+=10;
@@ -71,7 +71,7 @@ ECMAScript中所有函数的参数都是按值传递的。但基本类型和引�
 ```
 <br/>
 《JavaScript高级程序设计(第3版)》书中证明对象是按值传递部分：<br/>
-```
+```javascript
 	function setName(obj){
 		obj.name = "Nicholas";
 		obj = new Object();
@@ -84,7 +84,7 @@ ECMAScript中所有函数的参数都是按值传递的。但基本类型和引�
 对于上次代码，书中的解释为：**如果person是按引用传递的,那么person就会自动被修改为指向其name属性值为"Greg"的新对象，但实际访问person.name,得到的仍是"Nicholas",说明即使在函数内部
 改了参数的值，但原始的引用仍未改变。**<br/>
 上述代码中setName部分其实就是：
-```
+```javascript
 	function setName(person){
 		arguments[0] = person;
 		arguments[0].name="Nicholas"; //即person.name="Nicholas";
@@ -98,7 +98,7 @@ ECMAScript中所有函数的参数都是按值传递的。但基本类型和引�
 <br/><br/><br/>
 ### 检测类型：<br/>
 typeof操作符用于检测String、Number、Boolean、Undefined类型的最佳工具。不过无法检测object和null<br/>
-```
+```javascript
 	var n = null;
 	var o = new Object();
 	alert(n);	//object
@@ -107,7 +107,7 @@ typeof操作符用于检测String、Number、Boolean、Undefined类型的最佳�
 在检测引用类型时,我们可以使用**instanceof操作符**<br/>
 如果变量是给定引用类型的实例,instanceof操作符就会返回true。<br/>
 补充：所有的引用类型都是Object的实例,因此用instanceof检测一个引用类型值和Object始终为true,用instanceof检测基本类型值则始终为false.<br/>
-```
+```javascript
 	alert(person instanceof Object);    //变量person是否为Object的实例?
 	//举例如下:
 	function Animal(){};
@@ -125,7 +125,7 @@ typeof操作符用于检测String、Number、Boolean、Undefined类型的最佳�
 5. 内层环境可以引用外层环境的变量和函数,而外层环境则无法访问内层变量的变量和函数。<br/>
 6. 全局执行环境的变量对象始终都是作用域链的最后一个对象。<br/>
 
-```
+```javascript
 	var color = "blue";
 	function changeColor(){
 		var anotherColor = "red";
@@ -169,7 +169,7 @@ typeof操作符用于检测String、Number、Boolean、Undefined类型的最佳�
 什么是无块级作用域？<br/>
 在其他类C语言中,花括号{}封闭的代码(if,for,while...)都有自己的作用域,但在ECMAScript中经常会遇到下列问题：<br/>
 
-```
+```javascript
 	//在javascript中,if,for语句等没有自己的执行环境,而是会把其变量添加到当前执行环境(在此为全局环境).
 	//if语句中：
 	if(true){
