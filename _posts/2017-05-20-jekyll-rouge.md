@@ -1,13 +1,12 @@
 ---
 layout: post
 title: rouge语法高亮 — 错误及解决方案
-date: 2017-05-19 01:05:13 +0800
+date: 2017-05-20 01:04:13 +0800
 categories:
   - jekyll
 ---
 说明：从开始学习用jekyll如何自己创建模板,搭建博客,到现在各种功能的逐步完善过程中,遇到问题不断,解决完后就都不了了之了,
 今天使用rouge语法高亮时遇到几个问题，ok...记录一下解决问题的过程。
-<br/><br/><br/><br/>
 
 <br/><br/>
 
@@ -39,7 +38,8 @@ ok...问题来了...报错如下：<br/><br/>
 <img class ="img-responsive center-block" src="{{site.url}}/img/4.png" alt="rouge_error"  />
 
 <br/><br/>
-那么具体的解决过程如下：<br/>
+那么如何解决呢？<br/>
+具体的解决过程如下：<br/>
 首先打开报错文件(C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\rouge-2.0.7\bin\rougify)<br/>
 文件内容如下：<br/><br/>
 ```	
@@ -103,8 +103,8 @@ end
 
 <br/><br/>
 #### **5.修改rouge**<br/><br/>
-well...满心欢喜,jekyll serve后查看结果...sadly~~显示效果为：浅色背景+浅色字体！！？
-解决方案如下：
+well...满心欢喜,jekyll serve后查看结果...sadly~~显示效果为：浅色背景+浅色字体！！？<br/>
+解决方案如下：<br/>
 在上述rouge_monikai.css中添加如下代码：<br/>
 ```	
 pre[class='highlight'] {background-color:#000000;}

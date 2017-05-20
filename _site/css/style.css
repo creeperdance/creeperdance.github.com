@@ -16,7 +16,7 @@ body {
 	padding: 0;
 }
 
-ul {
+.list-category,.entries{
 	list-style: none;
 	margin:0;
 	padding:0;

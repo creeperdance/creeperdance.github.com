@@ -70,270 +70,674 @@
 		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>javascript</span>
 	</div>
 	<div class="article">
-		<p>说明：常见引用类型：Object类型、Array类型、Date类型、RepExp类型、Function类型,及基本包装类型…</p>
+		<p>说明：ECMAScript中常见引用类型有：Object类型、Array类型、Date类型、RepExp类型、Function类型。
+除此之外,ECMAScript还提供了三个特殊的引用类型：Boolean、Number、String，以便操作基本类型值。-参考《JavaScript高级程序设计(第3版)》</p>
 
 <p><br /><br /><br /><br /></p>
-<h2 id="引用类型">引用类型</h2>
-<p>引用类型的值(对象)是引用对象的一个实例,用于将数据和功能组织在一起。<br /><br /><br /></p>
-<h3 id="1object类型-">1.Object类型 <br /><br /></h3>
-<p>ECMAScript并不具备传统面向对象语言所支持的类和接口等基本结构。<br />
-<br /><br />
-在Javascript中, 对象是  拥有属性和方法  的数据，是某个特定引用类型的实例。<br />
+<h2 id="引用类型"><strong>引用类型</strong><br /></h2>
+<p><br />
+引用类型用于描述一类对象所具有的属性和方法，引用类型的值(对象，保存于堆内存中)是引用对象的一个实例。<br />
+引用类型常被称作类,但ECMAScript并不具备传统面向对象语言所支持的类和接口等基本结构，这种称呼并不恰当，它与类相似，但概念不同。<br /> <br /></p>
+<h3 id="1object类型"><strong>1.Object类型</strong></h3>
+<p><br /><br />
+在Javascript中, 对象是  拥有属性和方法  的数据，<strong>是某个特定引用类型的实例。</strong><br />
 创建方式：<br />
-1.新对象使用new操作符后跟一个构造函数来创建:<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<strong>1.新对象使用new操作符后跟一个构造函数来创建:</strong><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 </code></pre>
 </div>
 
-<p>2.使用字面量表示法：<br />
+<p><strong>2.使用字面量表示法：</strong><br />
     由花括号分隔。
     在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">person</span><span class="o">=</span><span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person</span><span class="o">=</span><span class="p">{</span>
 	<span class="na">firstname</span> <span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
 	<span class="na">lastname</span>  <span class="p">:</span> <span class="s2">"Doe"</span><span class="p">,</span>
 	<span class="na">id</span>        <span class="p">:</span>  <span class="mi">5566</span>
-	<span class="p">};</span>
+<span class="p">};</span>
 </code></pre>
 </div>
 
-<p><strong>声明变量类型</strong>
+<p><strong>声明变量类型：</strong><br />
 当您声明新变量时，可以使用关键词 “new” 来声明其类型：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">carname</span> <span class="o">=</span><span class="k">new</span> <span class="nb">String</span><span class="p">();</span>
-	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span>      <span class="k">new</span> <span class="nb">Number</span><span class="p">();</span>
-	<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span>      <span class="k">new</span> <span class="nb">Boolean</span><span class="p">();</span>
-	<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">carname</span> <span class="o">=</span><span class="k">new</span> <span class="nb">String</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span>      <span class="k">new</span> <span class="nb">Number</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span>      <span class="k">new</span> <span class="nb">Boolean</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 </code></pre>
 </div>
 
-<p><strong>访问对象属性</strong></p>
+<p><strong>访问对象属性:</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//方式1：</span>
-	<span class="nx">person</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
-	<span class="c1">//方式2：</span>
-	<span class="nx">person</span><span class="p">[</span><span class="s2">"lastName"</span><span class="p">];</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//方式1：</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+<span class="c1">//方式2：</span>
+<span class="nx">person</span><span class="p">[</span><span class="s2">"lastName"</span><span class="p">];</span>
 </code></pre>
 </div>
 
-<p><strong>访问对象方法</strong></p>
+<p><strong>访问对象方法:</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="nx">objectName</span><span class="p">.</span><span class="nx">methodName</span><span class="p">()</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">objectName</span><span class="p">.</span><span class="nx">methodName</span><span class="p">()</span>
 </code></pre>
 </div>
 
-<p><br /><br /><br /></p>
-<h3 id="2array类型-">2.Array类型 <br /><br /></h3>
+<p><br /><br /><br /><br /></p>
+<h3 id="2array类型"><strong>2.Array类型</strong><br /></h3>
 <p>ECMAScript与其他语言一样,数组都是数据的有序列表。<br />
-ECMAScript中的数组的大小是可以动态调整的,即可以随着数据的添加自动增长以容纳新增数据。<br />
-<strong>创建数组的基本方式：</strong><br />
-1.使用Array构造函数<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
-	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>    <span class="c1">//也可自定义数组长度。</span>
-	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">);</span>	<span class="c1">//也可向构造函数传递数组应包含的项</span>
-	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>    <span class="c1">//也可省略new操作符</span>
+ECMAScript中的<strong>数组中的元素可以是不同类型。</strong><br />
+ECMAScript中的<strong>数组的大小是可以动态调整的,即可以随着数据的添加自动增长以容纳新增数据。</strong><br /><br /></p>
+<h4 id="创建数组的两种方式"><strong>创建数组的两种方式：</strong><br /></h4>
+<p><strong>1.使用Array构造函数：</strong><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>    <span class="c1">//也可自定义数组长度。</span>
+<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">);</span>	<span class="c1">//也可向构造函数传递数组应包含的项</span>
+<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>    <span class="c1">//也可省略new操作符</span>
 </code></pre>
 </div>
-<p>2.使用数组字面量法:<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">];</span>
-	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,];</span>	<span class="c1">//会创建一个包含2或3项的数组，IE8及以前['a','b',undefined,其他['a','b'];</span>
+<p><strong>2.使用数组字面量法:</strong><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,];</span>	<span class="c1">//会创建一个包含2或3项的数组，IE8及以前['a','b',undefined,其他['a','b'];</span>
 </code></pre>
 </div>
-<p><br /><br />
-<strong>读取数组中数据项：</strong><br />
-使用方括号并提供相应值基于0的数字索引。<br />
+<p><br /><br /></p>
+<h4 id="读取数组的数据项"><strong>读取数组的数据项</strong><br /></h4>
+<p>使用方括号并提供相应值基于0的数字索引。<br />
 通过.length可访问数组的长度<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">colors</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>	<span class="c1">//3</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>	<span class="c1">//3</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>	<span class="c1">//3</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>	<span class="c1">//3</span>
 </code></pre>
 </div>
-<p><br /><br />
-<strong>检测数组</strong><br />
-通过instanceof操作符<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="k">if</span><span class="p">(</span><span class="nx">value</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">){</span>	<span class="c1">//</span>
-		<span class="c1">//...</span>
-	<span class="p">}</span>
+<p><br /><br /></p>
+<h4 id="检测数组"><strong>检测数组</strong><br /></h4>
+<p><strong>通过instanceof操作符</strong><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">value</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">){</span>	<span class="c1">//</span>
+	<span class="c1">//...</span>
+<span class="p">}</span>
 </code></pre>
 </div>
-<p>instanceof操作符不适用于多个框架的特殊情况,因为它假定只有一个全局执行环境.当网页有多框架时,就有多个全局执行环境,因而会存在两个版本的Array构造函数,当传入数组发生冲突时可能会出错。<br />
+<p><strong>instanceof操作符</strong>不适用于多个框架的特殊情况,因为它假定只有一个全局执行环境.当网页有多框架时,就有多个全局执行环境,因而会存在两个版本的Array构造函数,当传入数组发生冲突时可能会出错。<br />
 ES5新增了Array.isArray()方法,用于解决该问题。<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="k">if</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">value</span><span class="p">)){</span>
-		<span class="c1">//...</span>
-	<span class="p">}</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">value</span><span class="p">)){</span>
+	<span class="c1">//...</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
-<p><br /><br />
-<strong>转换方法：</strong><br />
-所有对象都有toLocaleString()、toString()、valueOf()方法。<br />
-调用数组的toString()方法会返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。<br />
-调用数组的valueOf()方法返回的还是数组。<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">];</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>	<span class="c1">//red,blue,green</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">());</span>	<span class="c1">//red,blue,green</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">);</span>	<span class="c1">//red,blue,green  ,数组还要接受字符串参数，在后台调用toString()方法.</span>
+<p><br /><br /></p>
+<h4 id="转换方法"><strong>转换方法</strong><br /></h4>
+<p>所有对象都有<strong>toLocaleString()</strong>、<strong>toString()</strong>、<strong>valueOf()</strong>方法。<br />
+调用数组的<strong>toString()</strong>方法：返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。<br />
+调用数组的<strong>valueOf()</strong>方法：返回的还是数组。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">];</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>	<span class="c1">//red,blue,green</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">());</span>	<span class="c1">//red,blue,green</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">);</span>	<span class="c1">//red,blue,green  ,数组还要接受字符串参数，在后台调用toString()方法.</span>
 </code></pre>
 </div>
+<p><br /></p>
+<h4 id="join"><strong>join()</strong></h4>
 <p>数组继承的toLocaleString()、toString()、valueOf()方法默认情况都以逗号(,)分割,若想使用不同分隔符创建字符串，可使用join()方法。<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span><span class="p">[</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">];</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">"||"</span><span class="p">));</span><span class="c1">//red||blue||green</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span><span class="p">[</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">];</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">"||"</span><span class="p">));</span><span class="c1">//red||blue||green</span>
 </code></pre>
 </div>
 
-<p><br /><br />
-<strong>栈，队列方法：</strong><br />
-栈方法：<br />
-栈是一种LIFO（last-in-first-out）的数据结构,最新添加的项最早被移出。<br />
-ECMAScript为数组提供了push()、pop()方法，以实现类似栈行为。<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">colos</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
-	<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">);</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>	<span class="c1">//2</span>
-	<span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>	<span class="c1">//3</span>
-	
-	<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>	<span class="c1">//'green'</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>	<span class="c1">//2</span>
-</code></pre>
-</div>
-<p><br /><br />
-队列方法：<br />
-队列是一种FIFO（first-in-first-out）的数据结构,最早添加的项最早被移出。<br />
-ECMAScript为数组提供了push()、shift()方法，以实现类似队列行为,队列的push()方法和栈的push()方法为同一方法。<br />
-ECMAScript还提供了unshift()方法，使用方法与shift()方法相反,向数组前端添加任意个项并返回新数组长度。同时使用unshift()和pop()可以模拟相反方向的队列。<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">colos</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
-	<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">);</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>	<span class="c1">//2</span>
-	<span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>	<span class="c1">//3</span>
-	
-	<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>	<span class="c1">//'red'</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>	<span class="c1">//2</span>
-</code></pre>
-</div>
+<p><br /><br /></p>
+<h4 id="栈队列方法"><strong>栈，队列方法</strong><br /></h4>
+<h4 id="栈方法"><strong>栈方法</strong><br /></h4>
+<p>栈是一种LIFO（last-in-first-out）的数据结构,最新添加的项最早被移出。<br />
+ECMAScript为数组提供了push()、pop()方法，以实现类似栈行为。<br /><br /></p>
+<h4 id="push"><strong>push()</strong><br /></h4>
 
-<p><br /><br />
-<strong>重排序方法：</strong><br />
-数值中已存在两个可用于排序的方法：reverse()、sort()方法.
-reverse()-&gt;反转数组顺序。<br />
-sort()-&gt;按升序排列数组项（调用每个数组项的头String()转型方法,得到比较的字符串，确定排序）</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
-	<span class="nx">values</span><span class="p">.</span><span class="nx">reverse</span><span class="p">();</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span>	<span class="c1">//3,10,4,2,1;</span>
-	<span class="nx">values</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span>	<span class="c1">//1,10,2,3,4,即使每一项都是数值,也会转型成字符串再排序。</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colos</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>	<span class="c1">//2</span>
+<span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>	<span class="c1">//3</span>
+</code></pre>
+</div>
+<h4 id="pop"><strong>pop()</strong><br /></h4>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>	<span class="c1">//'green'</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>	<span class="c1">//2</span>
+</code></pre>
+</div>
+<p><br /><br /></p>
+<h4 id="队列方法"><strong>队列方法</strong><br /></h4>
+<p>队列是一种FIFO（first-in-first-out）的数据结构,最早添加的项最早被移出。<br />
+ECMAScript为数组提供了push()、shift()方法，以实现类似队列行为,队列的push()方法和栈的push()方法为同一方法。<br /></p>
+<h4 id="push-1"><strong>push()</strong><br /></h4>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colos</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>	<span class="c1">//2</span>
+<span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'green'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>	<span class="c1">//3</span>
+</code></pre>
+</div>
+<h4 id="shift"><strong>shift()</strong><br /></h4>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>	<span class="c1">//'red'</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>	<span class="c1">//2</span>
+</code></pre>
+</div>
+<h4 id="unshift"><strong>unshift()</strong><br /></h4>
+<p>ECMAScript还提供了unshift()方法，使用方法与shift()方法相反,向数组前端添加任意个项并返回新数组长度。同时使用unshift()和pop()可以模拟相反方向的队列。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">);</span>
+<span class="nx">count</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="s1">'black'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>	<span class="c1">//3</span>
+
+<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>	<span class="c1">//'green'</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>	<span class="c1">//2</span>
+</code></pre>
+</div>
+<p><br /><br /></p>
+<h4 id="重排序方法"><strong>重排序方法</strong><br /></h4>
+<p>数值中已存在两个可用于排序的方法：reverse()、sort()方法.</p>
+<h4 id="reverse"><strong>reverse()</strong><br /></h4>
+<p>反转数组顺序。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nx">values</span><span class="p">.</span><span class="nx">reverse</span><span class="p">();</span>
+</code></pre>
+</div>
+<h4 id="sort"><strong>sort</strong>()<br /></h4>
+<p>按升序排列数组项（调用每个数组项的头String()转型方法,得到比较的字符串，确定排序）</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nx">values</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span>	<span class="c1">//1,10,2,3,4,即使每一项都是数值,也会转型成字符串再排序。</span>
 </code></pre>
 </div>
 <p>sort()方法可以接收一个比较函数作为参数，以便指定哪个值位于哪个值之前。<br />
 比较函数接收两个参数,第一个参数应该位于第二个参数之前则返回一个负数，相等则返回0，若第一个参数应位于第二个参数之后返回1。<br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">function</span> <span class="nx">compare</span><span class="p">(</span><span class="nx">value1</span> <span class="p">,</span><span class="nx">value2</span><span class="p">){</span>
-		<span class="k">if</span><span class="p">(</span><span class="nx">value1</span> <span class="o">&lt;</span> <span class="nx">value2</span><span class="p">){</span>
-			<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">value1</span> <span class="o">&gt;</span> <span class="nx">value2</span><span class="p">){</span>
-			<span class="nx">retunrn</span> <span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span><span class="k">else</span><span class="p">{</span>
-			<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="p">}</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">compare</span><span class="p">(</span><span class="nx">value1</span> <span class="p">,</span><span class="nx">value2</span><span class="p">){</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">value1</span> <span class="o">&lt;</span> <span class="nx">value2</span><span class="p">){</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">value1</span> <span class="o">&gt;</span> <span class="nx">value2</span><span class="p">){</span>
+		<span class="nx">retunrn</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 	<span class="p">}</span>
-	<span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
-	<span class="nx">values</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span>	<span class="c1">//1,2,3,4,10</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nx">values</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span>	<span class="c1">//1,2,3,4,10</span>
 </code></pre>
 </div>
-<p><br /><br />
-<strong>操作方法：</strong><br />
-<strong>concat():基于当前函数数组创建一个新数组(当前数组副本),将接收到的参数添加到这个副本的末尾。<br /></strong></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">];</span>
-	<span class="kd">var</span> <span class="nx">colors2</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="s2">"yellow"</span><span class="p">,[</span><span class="s2">"black"</span><span class="p">,</span><span class="s2">"brown"</span><span class="p">]);</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">);</span>    <span class="c1">//red,green,blue</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors2</span><span class="p">);</span>    <span class="c1">//red,green,blue,yellow,black,brown</span>
+<p><br /><br /></p>
+<h4 id="操作方法"><strong>操作方法</strong><br /></h4>
+<h4 id="concat"><strong>concat()</strong><br /></h4>
+<p>基于当前函数数组创建一个新数组(当前数组副本),将接收到的参数添加到这个副本的末尾。<br />
+不改变原数组<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">colors2</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="s2">"yellow"</span><span class="p">,[</span><span class="s2">"black"</span><span class="p">,</span><span class="s2">"brown"</span><span class="p">]);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">);</span>    <span class="c1">//red,green,blue</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors2</span><span class="p">);</span>    <span class="c1">//red,green,blue,yellow,black,brown</span>
 </code></pre>
 </div>
 <p><br /><br /></p>
 
-<p><strong>slice():基于当前数组中的一或多项创建一个新数组,接收一或两个参数(要返回的起始和结束位置)<br /></strong></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">,</span><span class="s1">'yellow'</span><span class="p">,</span><span class="s1">'purple'</span><span class="p">];</span>
-	<span class="kd">var</span> <span class="nx">colors2</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-	<span class="kd">var</span> <span class="nx">colors3</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors2</span><span class="p">);</span>    <span class="c1">//green,blue,yellow,purple</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">colors3</span><span class="p">);</span>	   <span class="c1">//green,blue,yellow</span>
+<h4 id="slice"><strong>slice()</strong><br /></h4>
+<p>基于当前数组中的一或多项创建一个新数组,接收一或两个参数(要返回的起始和结束位置)<br />
+不改变原数组,包括起始位置的项，不包括结束位置的项<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">,</span><span class="s1">'yellow'</span><span class="p">,</span><span class="s1">'purple'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">colors2</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">colors3</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors2</span><span class="p">);</span>    <span class="c1">//green,blue,yellow,purple</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors3</span><span class="p">);</span>	   <span class="c1">//green,blue,yellow</span>
 </code></pre>
 </div>
 <p><br /><br /></p>
 
-<p><strong>splice():向数组中部插入项<br /></strong>
-<strong>删除：</strong><br />
-<br /><br /><br /><br /><br /><br /></p>
+<h4 id="splice"><strong>splice()</strong><br /></h4>
+<p>splice()有很多种用法，主要操作方式有：删除、插入、替换。<br />
+splice()会改变原数组，返回的是删除后的元素，若未删除任何项，则返回空数组。<br />
+<strong>接受参数：</strong><br /></p>
+<ul>
+  <li>第一个参数：操作的起始位置</li>
+  <li>第二个参数：要删除项的个数,从操作的起始位置算起,如果为0,则表示不删除，返回空数组。</li>
+  <li>第三个参数：要添加的元素(可多个),在执行删除操作后进行添加。</li>
+</ul>
 
-<h2 id="javascript函数">Javascript函数</h2>
-<p><br /><br />
-<strong>JavaScript 函数语法</strong></p>
+<p><br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//无参</span>
-	<span class="kd">function</span> <span class="nx">functionname</span><span class="p">()</span>
-	<span class="p">{</span>
-		<span class="c1">//执行代码</span>
-	<span class="p">}</span>
-	<span class="c1">//带参</span>
-	<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">(</span><span class="nx">var1</span><span class="p">,</span><span class="nx">var2</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="c1">//代码</span>
-	<span class="p">}</span>
-	<span class="c1">//带有返回值</span>
-	<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span>
-	<span class="p">{</span>
-		<span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
-		<span class="k">return</span> <span class="nx">x</span><span class="p">;</span>
-	<span class="p">}</span>
-
+<p><strong>删除：</strong><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'green'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">removed</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>	<span class="c1">//删除第一项</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">);</span>    <span class="c1">//'green','blue'</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">removed</span><span class="p">);</span>    <span class="c1">//'red'</span>
 </code></pre>
 </div>
-<p><strong>声明方式：</strong><br /></p>
+<p><strong>插入：</strong><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'green'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">removed</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">'yellow'</span><span class="p">,</span><span class="s1">'orange'</span><span class="p">);</span>	<span class="c1">//不删除，从位置1开始插入两项</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">);</span>    <span class="c1">//'green','blue','yellow','orange'</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">removed</span><span class="p">);</span>    <span class="c1">//返回的是一个空数组</span>
+</code></pre>
+</div>
+<p><strong>替换：</strong><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'green'</span><span class="p">,</span><span class="s1">'yellow'</span><span class="p">,</span><span class="s1">'orange'</span><span class="p">,</span><span class="s1">'blue'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">removed</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">'red'</span><span class="p">,</span><span class="s1">'purple'</span><span class="p">);</span>	<span class="c1">//删除1项,并从位置1开始添加两项</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">colors</span><span class="p">);</span>    <span class="c1">//'green','red','purple','orange','blue'</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">removed</span><span class="p">);</span>    <span class="c1">//'yellow'</span>
+</code></pre>
+</div>
+<p><br /><br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//1.普通的函数声明</span>
-	<span class="kd">function</span> <span class="nx">box</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">){</span>
-		<span class="k">return</span> <span class="nx">num1</span><span class="o">+</span><span class="nx">num2</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="c1">//2.使用变量初始化函数</span>
-	<span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">){</span>
-		<span class="k">return</span> <span class="nx">num1</span><span class="o">+</span><span class="nx">num2</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="c1">//3.使用Function构造函数,不推荐，导致解析两次代码</span>
-	<span class="kd">var</span> <span class="nx">box</span><span class="o">=</span><span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s1">'num1'</span><span class="p">,</span><span class="s1">'num2'</span><span class="p">,</span><span class="s1">'return num1+num2'</span><span class="p">);</span>
+<h4 id="位置方法"><strong>位置方法</strong><br /></h4>
+<p>ECMAScript5为数组实例新增了两个位置方法,indexOf()和lastIndexOf()。<br />
+这两个函数都返回查找的项在数组中的位置,未找到则返回-1。<br />
+在比较第一个参数与数组的每一项时，使用全等操作符(===)。<br /> 
+这两个方法都接收两个参数：<br /></p>
+<ol>
+  <li>要查找的项</li>
+  <li>查找起点位置的索引(可选)</li>
+</ol>
+
+<h4 id="indexof"><strong>indexOf()</strong><br /></h4>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>	  <span class="c1">//3</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>	<span class="c1">//5;</span>
+
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"Nicholas"</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">people</span> <span class="o">=</span> <span class="p">[{</span><span class="na">name</span><span class="p">:</span><span class="s2">"Nicholas"</span><span class="p">}];</span>
+<span class="kd">var</span> <span class="nx">morePeople</span> <span class="o">=</span> <span class="p">[</span><span class="nx">person</span><span class="p">];</span>
+
+<span class="nx">alert</span><span class="p">(</span><span class="nx">people</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">person</span><span class="p">));</span>	  <span class="c1">//-1,类型不匹配</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">morePeople</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">person</span><span class="p">));</span>	  <span class="c1">//0</span>
+</code></pre>
+</div>
+<h4 id="lastindexof"><strong>lastIndexOf()</strong><br /></h4>
+<p>lastIndexOf()方法从数组末尾开始向前查找,其他同indexOf。<br /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>	  <span class="c1">//5</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>	<span class="c1">//3;</span>
 </code></pre>
 </div>
 
-<p><strong>函数内部属性：</strong><br />
-1.arguments：一个类数组对象，包含着传入函数的所有参数。arguments[0]是第一个元素,length属性是传递参数.<br />
+<p><br /><br /></p>
+
+<h4 id="迭代方法"><strong>迭代方法</strong><br /></h4>
+<p>ECMAScript为数组定义了5个迭代方法，每个迭代方法都需要传入一个这样的函数:<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">array</span><span class="p">){</span>
+	
+<span class="p">}</span>
+</code></pre>
+</div>
+<p><strong>参数意义</strong>：<br /></p>
+<ul>
+  <li>数组项的值</li>
+  <li>该项在数组的位置</li>
+  <li>数组对象本身</li>
+</ul>
+
+<h4 id="every"><strong>every()</strong><br /></h4>
+<p>检测数组中的每一项是否符合条件,返回结果为布尔值,仅当函数中所有条件满足才返回true。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">array</span><span class="p">){</span>
+	<span class="k">return</span> <span class="p">(</span><span class="nx">item</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>	  <span class="c1">//false</span>
+</code></pre>
+</div>
+
+<p><br /><br /></p>
+
+<h4 id="some"><strong>some()</strong><br /></h4>
+<p>与every()相似,不同的是some()只要函数中有一个条件满足就返回true。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">array</span><span class="p">){</span>
+	<span class="k">return</span> <span class="p">(</span><span class="nx">item</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>	  <span class="c1">//true</span>
+</code></pre>
+</div>
+
+<p><br /><br /></p>
+
+<h4 id="filter"><strong>filter()</strong><br /></h4>
+<p>筛选出数组中符合条件的值,组成新数组。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">array</span><span class="p">){</span>
+	<span class="k">return</span> <span class="p">(</span><span class="nx">item</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>	  <span class="c1">//[3,4,5,4,3]</span>
+</code></pre>
+</div>
+
+<p><br /><br /></p>
+
+<h4 id="map"><strong>map()</strong><br /></h4>
+<p>让数组的每一项通过某种操作产生一个新数组。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">array</span><span class="p">){</span>
+	<span class="k">return</span> <span class="nx">item</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>	  <span class="c1">//[2,4,6,8,10,8,6,4,2]</span>
+</code></pre>
+</div>
+
+<p><br /><br /></p>
+
+<h4 id="foreach"><strong>forEach()</strong><br /></h4>
+<p>让数组的每一项执行某些操作,无返回值。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">array</span><span class="p">){</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">//在控制台打印numbers数组</span>
+</code></pre>
+</div>
+
+<p><br /><br /></p>
+
+<h4 id="归并方法"><strong>归并方法</strong><br /></h4>
+<p>迭代数组的所有项,构建一个最终返回的值。<br />
+可传入参数：<br />
+如下执行函数和作为归并基础的初始值(可选)<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span><span class="p">(</span><span class="nx">pre</span><span class="p">,</span><span class="nx">cur</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">array</span><span class="p">){</span>
+	
+<span class="p">}</span>
+</code></pre>
+</div>
+<p><strong>参数意义</strong>：<br /></p>
+<ul>
+  <li>前一个值</li>
+  <li>当前值</li>
+  <li>数组项的索引</li>
+  <li>数组对象本身</li>
+</ul>
+
+<h4 id="reduce"><strong>reduce()</strong><br /></h4>
+<p>从数组的第一项开始，逐个遍历，可以执行。</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">values</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">prev</span><span class="p">,</span><span class="nx">cur</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">array</span><span class="p">){</span>
+		<span class="k">return</span> <span class="nx">prev</span><span class="o">+</span><span class="nx">cur</span><span class="p">;</span>
+	<span class="p">},</span><span class="mi">2</span><span class="p">);</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>	   <span class="c1">//17</span>
+</code></pre>
+</div>
+<h4 id="reduceright"><strong>reduceRight()</strong><br /></h4>
+<p>与reduce()作用相似，只不过方向相反。</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">values</span><span class="p">.</span><span class="nx">reduceRight</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">prev</span><span class="p">,</span><span class="nx">cur</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">array</span><span class="p">){</span>
+		<span class="k">return</span> <span class="nx">prev</span><span class="o">+</span><span class="nx">cur</span><span class="p">;</span>
+	<span class="p">},</span><span class="mi">2</span><span class="p">);</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>	   <span class="c1">//17</span>
+</code></pre>
+</div>
+<p><br /><br /><br /><br /><br /><br /></p>
+
+<h3 id="3date类型"><strong>3.Date类型</strong><br /></h3>
+<p>ECMAScript的Date类型是在早期Java的java.util.Date基础上上创建的。因此Date类型使用自UTC至1970年1月1日0时起经过的毫秒
+数来保存日期。<br /></p>
+<h4 id="创建日期对象"><strong>创建日期对象</strong><br /></h4>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">now</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>	<span class="c1">//不传参，则自动获取当前时间</span>
+<span class="kd">var</span> <span class="nx">someDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>	   <span class="c1">//传参，获取UTC时间1970年1月1日0时起经过10000毫秒后的时间</span>
+</code></pre>
+</div>
+<p><br />
+为简化上述计算过程，ECMAScript提供了两个方法:Date.parse()、Date.UTC()。<br /></p>
+<h4 id="dateparse"><strong>Date.parse()</strong><br /></h4>
+<p>接收参数:表示日期的字符串参数，若传入的字符串不能表示日期，则返回NaN。<br />
+返回值：返回相应日期的毫秒数。<br />
+<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">someDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s2">"May 25,2004"</span><span class="p">));</span>
+</code></pre>
+</div>
+<p>如果将表示日期的字符串传给Date构造函数，也会在后台调用Date.parse()，所以上述代码等价于:<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">someDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s2">"May 25,2004"</span><span class="p">);</span>
+</code></pre>
+</div>
+<p><br /></p>
+<h4 id="dateutc"><strong>Date.UTC()</strong><br /></h4>
+<p>接收参数：年份、基于0的月份、月中的哪天、小时数、分钟、秒、毫秒数(仅年月必须)，如果没提供天数则为1，其他缺省都为0。<br />
+返回值：返回相应日期的毫秒数。<br />
+同上，如果将表示日期的字符串传给Date构造函数，也会在后台调用Date.UTC()。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">y2k</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">UTC</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
+<span class="kd">var</span> <span class="nx">allFives</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">UTC</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">55</span><span class="p">));</span>
+<span class="c1">//直接传给Date()构造函数</span>
+<span class="kd">var</span> <span class="nx">y2k</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">allFives</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">55</span><span class="p">);</span>
+</code></pre>
+</div>
+<p><br /></p>
+<h4 id="datenow"><strong>Date.now()</strong><br /></h4>
+<p>ECMAScript5添加了Date.now()方法，返回表示调用这个方法时的日期和时间的毫秒数。<br />
+该方法主要应用于分析代码工作。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+<span class="c1">//调用函数</span>
+<span class="nx">doSomething</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span><span class="p">;</span>
+</code></pre>
+</div>
+<p>对于一些不支持该方法的浏览器,实现同效果的代码：<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="o">+</span><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="c1">//调用函数</span>
+<span class="nx">doSomething</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="o">+</span><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span><span class="p">;</span>
+</code></pre>
+</div>
+<p><br /></p>
+<h4 id="重写object方法"><strong>重写Object方法</strong><br /></h4>
+<p>Date类型也重写了toLocaleString(),toString(),valueOf()方法，但这些方法返回的值与其他类型中的方法不同。<br />
+toLocaleString():按照与浏览器设置的地区适应的格式返回日期和时间。<br />
+toString():返回带有时区信息的日期和时间。<br />
+valueOf():返回日期的毫秒表示。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">date1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">date2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">date1</span><span class="err">　</span><span class="o">&lt;</span> <span class="nx">date2</span><span class="p">);</span>	  <span class="c1">//true</span>
+</code></pre>
+</div>
+
+<p><br /></p>
+<h4 id="日期时间组件方法"><strong>日期/时间组件方法</strong><br /></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">方法</th>
+      <th style="text-align: center">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">getFullYear()：</td>
+      <td style="text-align: center">返回四位数的年份。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getYear()：</td>
+      <td style="text-align: center">返回两位数的年份。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getMonth()：</td>
+      <td style="text-align: center">返回月份。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getDate()：</td>
+      <td style="text-align: center">返回月份里的日期。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getDay()：</td>
+      <td style="text-align: center">返回星期几。每周从星期六开始（0－6）。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getHours()：</td>
+      <td style="text-align: center">返回时间的小时部分。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getMinutes()：</td>
+      <td style="text-align: center">返回时间的分钟部分。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getSeconds()：</td>
+      <td style="text-align: center">返回时间的秒部分。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getTime()：</td>
+      <td style="text-align: center">返回自从1970年1月1日午夜以来的毫秒数。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getUTCFullYear()：</td>
+      <td style="text-align: center">根据协调世界时返回四位数的年份。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getUTCMonth()：</td>
+      <td style="text-align: center">根据协调世界时（0－11）返回月份。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getUTCDate()：</td>
+      <td style="text-align: center">根据协调世界时（UTC）返回月份里的日期。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getUTCHours()：</td>
+      <td style="text-align: center">根据协调世界时返回时间的小时部分。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getUTCMinutes()：</td>
+      <td style="text-align: center">根据协调世界时返回时间的分钟部分。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getUTCSeconds()：</td>
+      <td style="text-align: center">根据协调世界时返回时间的秒部分。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getMilliseconds()：</td>
+      <td style="text-align: center">返回时间的毫秒部分。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getUTCMilliseconds()：</td>
+      <td style="text-align: center">根据协调世界时返回时间的毫秒部分。</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">getTimezoneOffset()：</td>
+      <td style="text-align: center">返回本地时间与格里尼治标准时间（GMT）之间的分钟差。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+<h4 id="与上述get方法对应的set方法"><strong>与上述get方法对应的set方法：</strong><br /></h4>
+<p>setFullYear <br />
+setMonth <br />
+setDate	<br />
+setHours <br />
+setMinutes <br />
+setSeconds <br />
+setTime <br />
+setMilliseconds <br />
+setUTCFullYear <br />
+setUTCMonth <br />
+setUTCHours <br />
+setUTCSeconds <br />
+setUTCMilliseconds <br /></p>
+
+<p><br /><br /><br /><br /><br /><br /></p>
+
+<h3 id="4regexp类型"><strong>4.RegExp类型</strong><br /><br /></h3>
+<p>ECMAScript通过RegExp类型来支持正则表达式，对此的介绍将集中在<a href="http://localhost:4000/2017/05/Javascript-RegExp.html">《Javascript正则表达式》</a>介绍。
+<br /><br /><br /><br /></p>
+
+<h3 id="5function类型"><strong>5.Function类型</strong><br /></h3>
+<p>在ECMAScript中，<strong>函数实际上就是对象。</strong><br />
+<strong>每个函数都是都是Function类型的实例，都和其他引用类型一样具有属性和方法。</strong><br />
+<strong>函数名实际是一个指向函数对象的指针，不会与某个函数绑定。</strong><br />
+<br /><br /></p>
+<h4 id="声明方式"><strong>声明方式：</strong><br /></h4>
+<ol>
+  <li>普通的函数声明
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">box</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">){</span>
+ <span class="k">return</span> <span class="nx">num1</span><span class="o">+</span><span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+  </li>
+  <li>使用变量初始化函数
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">){</span>
+ <span class="k">return</span> <span class="nx">num1</span><span class="o">+</span><span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+  </li>
+  <li>使用Function构造函数,不推荐，导致解析两次代码
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">box</span><span class="o">=</span><span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s1">'num1'</span><span class="p">,</span><span class="s1">'num2'</span><span class="p">,</span><span class="s1">'return num1+num2'</span><span class="p">);</span>
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p><br /><br /></p>
+<h4 id="函数语法"><strong>函数语法</strong></h4>
+
+<ul>
+  <li>无参
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">functionname</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//执行代码</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+  </li>
+  <li>带参
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunction</span><span class="p">(</span><span class="nx">var1</span><span class="p">,</span><span class="nx">var2</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">//代码</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+  </li>
+  <li>带有返回值
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">x</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+    <p><br /></p>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+<h4 id="没有重载"><strong>没有重载</strong><br /></h4>
+<p>ECMAScript中的函数完全<strong>靠函数名称唯一确定，不存在函数签名，不将参数列表作为区分函数的依据。</strong>且函数为特殊对象，
+<strong>其函数名只是一个普通变量，且当定义两个名字相同的函数时，该名字只属于后定义的函数</strong>，因而无法实现重载。
+<br /><br /></p>
+<h4 id="函数内部属性"><strong>函数内部属性：</strong><br /></h4>
+<p>1.arguments：一个类数组对象，包含着传入函数的所有参数。arguments[0]是第一个元素,length属性是传递参数.<br />
 ECMAScript函数不介意传递的参数个数，数据类型。正是因为可以通过函数内部arguments对象访问这个参数数组.<br />
 因而ECMAScript函数也不能像传统意义上那样实现重载，不过它可以模仿重载，对传入函数的类型和数量可作出不同反应。<br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">function</span> <span class="nx">doAdd</span><span class="p">(){</span>
-		<span class="k">if</span><span class="p">(</span><span class="nx">argumens</span><span class="p">.)</span>
-	<span class="p">}</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">doAdd</span><span class="p">(){</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">argumens</span><span class="p">.)</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 <p>2.callee：一个指针，指向拥有这个arguments对象的函数。</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
-	<span class="kd">function</span> <span class="nx">box</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
-		<span class="k">if</span><span class="p">(</span><span class="nx">num</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">){</span>
-			<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="nx">num</span><span class="o">*</span><span class="nx">box</span><span class="p">(</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-		<span class="p">}</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">box</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">num</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">){</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">num</span><span class="o">*</span><span class="nx">box</span><span class="p">(</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 	<span class="p">}</span>
+<span class="p">}</span>
 
-	<span class="c1">//上述递归函数内部会调用自身，如果函数名不该变则没有问题，若函数名改变，内部的自身调用则需要逐一改变，解决该问题：</span>
-	<span class="kd">function</span> <span class="nx">box</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
-		<span class="k">if</span><span class="p">(</span><span class="nx">num</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">){</span>
-			<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="nx">num</span><span class="o">*</span><span class="nx">argumens</span><span class="p">.</span><span class="nx">callee</span><span class="p">(</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="c1">//使用callee调用自身</span>
-		<span class="p">}</span>
+<span class="c1">//上述递归函数内部会调用自身，如果函数名不该变则没有问题，若函数名改变，内部的自身调用则需要逐一改变，解决该问题：</span>
+<span class="kd">function</span> <span class="nx">box</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">num</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">){</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">num</span><span class="o">*</span><span class="nx">argumens</span><span class="p">.</span><span class="nx">callee</span><span class="p">(</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="c1">//使用callee调用自身</span>
 	<span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
@@ -344,20 +748,19 @@ prototype属性下的两个方法：通过冒充改变作用域<br />
 apply()<br />
 call()<br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">function</span> <span class="nx">box</span> <span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nx">num1</span><span class="o">+</span><span class="nx">num2</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="kd">function</span> <span class="nx">sayBox1</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">){</span>
-		<span class="k">return</span> <span class="nx">box</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,[</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">]);</span><span class="c1">//this为作用域，这里即window,[]表示box需要的参数</span>
-		<span class="c1">//或  return box.apply(this,arguments);</span>
-	<span class="p">}</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">box</span> <span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">num1</span><span class="o">+</span><span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">sayBox1</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">){</span>
+	<span class="k">return</span> <span class="nx">box</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,[</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">]);</span><span class="c1">//this为作用域，这里即window,[]表示box需要的参数</span>
+	<span class="c1">//或  return box.apply(this,arguments);</span>
+<span class="p">}</span>
 
-	<span class="kd">function</span> <span class="nx">sayBox2</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">){</span>
-		<span class="k">return</span> <span class="nx">box</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">);</span><span class="c1">//call与apply仅传参不同</span>
-	<span class="p">}</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">sayBox1</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span><span class="c1">//20</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">sayBox2</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span><span class="c1">//20</span>
-
+<span class="kd">function</span> <span class="nx">sayBox2</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">){</span>
+	<span class="k">return</span> <span class="nx">box</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="nx">num1</span><span class="p">,</span><span class="nx">num2</span><span class="p">);</span><span class="c1">//call与apply仅传参不同</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">sayBox1</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span><span class="c1">//20</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">sayBox2</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span><span class="c1">//20</span>
 </code></pre>
 </div>
 
@@ -371,12 +774,12 @@ JavaScript 变量的生命期从它们被声明的时间开始。
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// 此处可调用 carName 变量</span>
 
-	<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
-		<span class="nx">carName</span> <span class="o">=</span> <span class="s2">"Volvo"</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">carName</span> <span class="o">=</span> <span class="s2">"Volvo"</span><span class="p">;</span>
 
-		<span class="c1">// 此处可调用 carName 变量</span>
+	<span class="c1">// 此处可调用 carName 变量</span>
 
-	<span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 <p><br /><br /><br /><br /><br /><br /></p>
@@ -386,32 +789,32 @@ JavaScript 变量的生命期从它们被声明的时间开始。
 
 <p>可以使用内置属性 length 来计算字符串的长度：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">txt</span> <span class="o">=</span> <span class="s2">"ABCDEFG"</span><span class="p">;</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">txt</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">//7</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">txt</span> <span class="o">=</span> <span class="s2">"ABCDEFG"</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">txt</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">//7</span>
 </code></pre>
 </div>
 <p><strong>特殊字符</strong>
 字符串卸载单引号或双引号中，但以下实例</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"We are the so-called "</span><span class="nx">Vikings</span><span class="s2">" from the north."</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"We are the so-called "</span><span class="nx">Vikings</span><span class="s2">" from the north."</span>
 </code></pre>
 </div>
 <p>无法解析，解决方法：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//方式1：反斜杠(\)转义</span>
-	 <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"We are the so-called \"Vikings\" from the north."</span>
-	<span class="c1">//方式2：改成" '' "  或 '  "" '</span>
-	<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"We are the so-called 'Vikings' from the north."</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//方式1：反斜杠(\)转义</span>
+ <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"We are the so-called \"Vikings\" from the north."</span>
+<span class="c1">//方式2：改成" '' "  或 '  "" '</span>
+<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"We are the so-called 'Vikings' from the north."</span>
 
 </code></pre>
 </div>
 
 <p><strong>字符串可以是对象</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="s2">"John"</span><span class="p">;</span> <span class="c1">//typeof-&gt;String          </span>
-	<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">"John"</span><span class="p">);</span><span class="c1">// typeof-&gt;Object </span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 结果为true</span>
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 结果为 false，因为 x 是字符串，y 是对象</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="s2">"John"</span><span class="p">;</span> <span class="c1">//typeof-&gt;String          </span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">"John"</span><span class="p">);</span><span class="c1">// typeof-&gt;Object </span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 结果为true</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 结果为 false，因为 x 是字符串，y 是对象</span>
 </code></pre>
 </div>
 
@@ -554,35 +957,35 @@ Object  Date  Array<br />
 2 个不包含任何值的数据类型：<br />
 null  undefined<br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="k">typeof</span> <span class="s2">"John"</span>                 <span class="c1">// 返回 string </span>
-	<span class="k">typeof</span> <span class="mf">3.14</span>                   <span class="c1">// 返回 number</span>
-	<span class="k">typeof</span> <span class="kc">NaN</span>                    <span class="c1">// 返回 number</span>
-	<span class="k">typeof</span> <span class="kc">false</span>                  <span class="c1">// 返回 boolean</span>
-	<span class="k">typeof</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>              <span class="c1">// 返回 object</span>
-	<span class="k">typeof</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s1">'John'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span><span class="mi">34</span><span class="p">}</span>  <span class="c1">// 返回 object</span>
-	<span class="k">typeof</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>             <span class="c1">// 返回 object</span>
-	<span class="k">typeof</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>         <span class="c1">// 返回 function</span>
-	<span class="k">typeof</span> <span class="nx">myCar</span>                  <span class="c1">// 返回 undefined (如果 myCar 没有声明)</span>
-	<span class="k">typeof</span> <span class="kc">null</span>                   <span class="c1">// 返回 object</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">typeof</span> <span class="s2">"John"</span>                 <span class="c1">// 返回 string </span>
+<span class="k">typeof</span> <span class="mf">3.14</span>                   <span class="c1">// 返回 number</span>
+<span class="k">typeof</span> <span class="kc">NaN</span>                    <span class="c1">// 返回 number</span>
+<span class="k">typeof</span> <span class="kc">false</span>                  <span class="c1">// 返回 boolean</span>
+<span class="k">typeof</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>              <span class="c1">// 返回 object</span>
+<span class="k">typeof</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s1">'John'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span><span class="mi">34</span><span class="p">}</span>  <span class="c1">// 返回 object</span>
+<span class="k">typeof</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>             <span class="c1">// 返回 object</span>
+<span class="k">typeof</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>         <span class="c1">// 返回 function</span>
+<span class="k">typeof</span> <span class="nx">myCar</span>                  <span class="c1">// 返回 undefined (如果 myCar 没有声明)</span>
+<span class="k">typeof</span> <span class="kc">null</span>                   <span class="c1">// 返回 object</span>
 
-	<span class="cm">/*
+<span class="cm">/*
 
-	NaN 的数据类型是 number
-	数组(Array)的数据类型是 object
-	日期(Date)的数据类型为 object
-	null 的数据类型是 object
-	未定义变量的数据类型为undefined
+NaN 的数据类型是 number
+数组(Array)的数据类型是 object
+日期(Date)的数据类型为 object
+null 的数据类型是 object
+未定义变量的数据类型为undefined
 
-	*/</span>
+*/</span>
 </code></pre>
 </div>
 <p><strong>自动转换类型</strong><br />
 当 JavaScript 尝试操作一个 “错误” 的数据类型时，会自动转换为 “正确” 的数据类型。</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="mi">5</span> <span class="o">+</span> <span class="kc">null</span>    <span class="c1">// 返回 5 ,  null 转换为 0</span>
-	<span class="s2">"5"</span> <span class="o">+</span> <span class="kc">null</span>  <span class="c1">// 返回"5null"   null 转换为 "null"</span>
-	<span class="s2">"5"</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1">// 返回 "51" , 1 转换为 "1"  </span>
-	<span class="s2">"5"</span> <span class="o">-</span> <span class="mi">1</span>     <span class="c1">// 返回 4 ,  "5" 转换为 5</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="mi">5</span> <span class="o">+</span> <span class="kc">null</span>    <span class="c1">// 返回 5 ,  null 转换为 0</span>
+<span class="s2">"5"</span> <span class="o">+</span> <span class="kc">null</span>  <span class="c1">// 返回"5null"   null 转换为 "null"</span>
+<span class="s2">"5"</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1">// 返回 "51" , 1 转换为 "1"  </span>
+<span class="s2">"5"</span> <span class="o">-</span> <span class="mi">1</span>     <span class="c1">// 返回 4 ,  "5" 转换为 5</span>
 </code></pre>
 </div>
 <p>当你尝试输出一个对象或一个变量时 JavaScript 会自动调用变量的 toString() 方法：</p>
