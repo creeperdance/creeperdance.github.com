@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		 	﻿<meta charset="utf-8" />
+<title>  rouge语法高亮 — 错误及解决方案 |  Creeperdance </title>
+
+<!-- 移动优先，自适应手机屏幕-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--解决bootstrap不支持IE兼容模式问题，为了让IE浏览器运行最新的渲染模式-->
+
+<!--引入bootstrap css文件-->
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/css/bootstrap.min.css" />
+<!--引入图标库-->
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"/>
+
+<!--引入css文件-->
+<link rel="stylesheet" href="http://localhost:4000/css/style.css" /></link>
+<!--引入jquery-->
+<script type="text/javascript" src="http://localhost:4000/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/index.js"></script>
+
+<link rel="stylesheet" href="http://localhost:4000/css/rouge.css" type="text/css"> 
+	</head>
+
+	<body>
+		<div id="main" class="container">
+			﻿<!--响应式导航栏-->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="nav_container">
+		<div class="navbar-header">
+			<a class="pull-left" href="#"><img src="http://localhost:4000/img/totoro.jpg" alt="" /></a>
+			<header class="pull-left">
+				<h1>Creeperdance</h1>
+				<p> Still Bave , Still Young</p>
+			</header>
+			<button class="navbar-toggle pull-right" type="button" data-toggle="collapse" data-target="#myCollapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div id="myCollapse" class="collapse navbar-collapse ">
+			<ul class="nav navbar-nav navbar-right ">
+				<li>
+					<a href="http://localhost:4000/index.html"><span class="glyphicon  glyphicon-home"></span> &nbsp;&nbsp;Home</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/category.html"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> &nbsp;&nbsp;Category</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/about.html"><span class="glyphicon glyphicon-user"></span>  &nbsp;&nbsp;About</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/contact.html"><span class="glyphicon glyphicon-envelope"></span>  &nbsp;&nbsp;Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+			<div id="content" class="container">
+				 <div id="post_title">
+	  <h3>rouge语法高亮 — 错误及解决方案</h3>
+</div>
+<div id="post_info">
+	<div class="post_about post_about_center">
+		<span class="fa fa-calendar-o"> <i id="mobile_hide">发表于</i>2017-05-19</span>|
+		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>jekyll</span>
+	</div>
+	<div class="article">
+		<p>说明：从开始学习用jekyll如何自己创建模板,搭建博客,到现在各种功能的逐步完善过程中,遇到问题不断,解决完后就都不了了之了,
+今天使用rouge语法高亮时遇到几个问题，ok…记录一下解决问题的过程。
+<br /><br /><br /><br /></p>
+
+<p><br /><br /></p>
+
+<h3 id="使用rouge语法高亮"><strong>使用rouge语法高亮</strong><br /><br /><br /></h3>
+
+<h4 id="1安装rouge"><strong>1.安装rouge</strong><br /><br /></h4>
+<p>使用gem安装rouge、kramdown<br /><br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	gem install kramdown
+	gem install rouge
+</code></pre>
+</div>
+<p><br /><br /></p>
+<h4 id="2配置_configyml文件"><strong>2.配置_config.yml文件</strong><br /><br /></h4>
+<p>在_config.yml文件中添加如下代码：<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	highlighter: rouge
+	markdown: kramdown
+</code></pre>
+</div>
+<p><br /><br /></p>
+<h4 id="3生成rouge-css"><strong>3.生成rouge css</strong><br /><br /></h4>
+<p>安装rouge 后，就可以用附带的 rougify 工具来生成多种高亮主题的CSS文件，个人比较喜欢monokai.sublime 主题.<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	rougify style monokai.sublime &gt; rouge_monokai.css
+</code></pre>
+</div>
+<p><br />
+ok…问题来了…报错如下：<br /><br />
+“unsupported signal SIGPIPE (ArgumentError)”<br /><br /><br />
+<img class="img-responsive center-block" src="http://localhost:4000/img/4.png" alt="rouge_error" /></p>
+
+<p><br /><br />
+那么具体的解决过程如下：<br />
+首先打开报错文件(C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\rouge-2.0.7\bin\rougify)<br />
+文件内容如下：<br /><br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">#!/usr/bin/env ruby</span>
+
+<span class="nb">require</span> <span class="s1">'pathname'</span>
+<span class="no">ROOT_DIR</span> <span class="o">=</span> <span class="no">Pathname</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="kp">__FILE__</span><span class="p">).</span><span class="nf">dirname</span><span class="p">.</span><span class="nf">parent</span>
+<span class="nb">load</span> <span class="no">ROOT_DIR</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'lib/rouge.rb'</span><span class="p">)</span>
+<span class="nb">load</span> <span class="no">ROOT_DIR</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'lib/rouge/cli.rb'</span><span class="p">)</span>
+<span class="no">Signal</span><span class="p">.</span><span class="nf">trap</span><span class="p">(</span><span class="s1">'SIGPIPE'</span><span class="p">,</span> <span class="s1">'SYSTEM_DEFAULT'</span><span class="p">)</span>
+
+
+<span class="k">begin</span>
+  <span class="no">Rouge</span><span class="o">::</span><span class="no">CLI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="no">ARGV</span><span class="p">).</span><span class="nf">run</span>
+<span class="k">rescue</span> <span class="no">Rouge</span><span class="o">::</span><span class="no">CLI</span><span class="o">::</span><span class="no">Error</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="n">e</span><span class="p">.</span><span class="nf">message</span>
+  <span class="nb">exit</span> <span class="n">e</span><span class="p">.</span><span class="nf">status</span>
+<span class="k">rescue</span> <span class="no">Interrupt</span>
+  <span class="vg">$stderr</span><span class="p">.</span><span class="nf">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">rouge: interrupted"</span>
+  <span class="nb">exit</span> <span class="mi">2</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+<p><br /><br />
+ok…修改文件内容,得到如下结果：
+<br /><br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">#!/usr/bin/env ruby</span>
+
+<span class="nb">require</span> <span class="s1">'pathname'</span>
+<span class="no">ROOT_DIR</span> <span class="o">=</span> <span class="no">Pathname</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="kp">__FILE__</span><span class="p">).</span><span class="nf">dirname</span><span class="p">.</span><span class="nf">parent</span>
+<span class="nb">load</span> <span class="no">ROOT_DIR</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'lib/rouge.rb'</span><span class="p">)</span>
+<span class="nb">load</span> <span class="no">ROOT_DIR</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'lib/rouge/cli.rb'</span><span class="p">)</span>
+<span class="c1">#Signal.trap('SIGPIPE', 'SYSTEM_DEFAULT')</span>
+<span class="k">if</span> <span class="no">Signal</span><span class="p">.</span><span class="nf">list</span><span class="p">.</span><span class="nf">include?</span> <span class="s1">'PIPE'</span>
+<span class="no">Signal</span><span class="p">.</span><span class="nf">trap</span><span class="p">(</span><span class="s1">'SIGPIPE'</span><span class="p">,</span> <span class="s1">'SYSTEM_DEFAULT'</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">begin</span>
+  <span class="no">Rouge</span><span class="o">::</span><span class="no">CLI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="no">ARGV</span><span class="p">).</span><span class="nf">run</span>
+<span class="k">rescue</span> <span class="no">Rouge</span><span class="o">::</span><span class="no">CLI</span><span class="o">::</span><span class="no">Error</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="n">e</span><span class="p">.</span><span class="nf">message</span>
+  <span class="nb">exit</span> <span class="n">e</span><span class="p">.</span><span class="nf">status</span>
+<span class="k">rescue</span> <span class="no">Interrupt</span>
+  <span class="vg">$stderr</span><span class="p">.</span><span class="nf">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">rouge: interrupted"</span>
+  <span class="nb">exit</span> <span class="mi">2</span>
+<span class="k">end</span>
+
+</code></pre>
+</div>
+
+<p><br /><br />
+检验解决方案是否有效,重试上述rougify…很好…问题解决!在当前路径生成rouge_monikai.css文件<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	rougify style monokai.sublime &gt; rouge_monokai.css
+</code></pre>
+</div>
+<p><br /><br /></p>
+<h4 id="4使用rouge"><strong>4.使用rouge</strong><br /><br /></h4>
+<p>将上述生成的rouge_monokai.css文件拷到css目录下,在HTML代码的&lt;head&gt;标签内加载之…<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	&lt;link rel="stylesheet" href="http://localhost:4000/css/rouge_monikai.css" type="text/css"&gt;
+</code></pre>
+</div>
+
+<p><br /><br /></p>
+<h4 id="5修改rouge"><strong>5.修改rouge</strong><br /><br /></h4>
+<p>well…满心欢喜,jekyll serve后查看结果…sadly~~显示效果为：浅色背景+浅色字体！！？
+解决方案如下：
+在上述rouge_monikai.css中添加如下代码：<br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>pre[class='highlight'] {background-color:#000000;}
+</code></pre>
+</div>
+<p>将背景颜色改为黑色,finally…使用rouge语法高亮完结。
+<br /><br /><br /><br /></p>
+
+	</div>
+</div>
+			</div>
+			<div id="totoro_fixed" >
+	<a href="#"><img src="http://localhost:4000/img/totoro2.jpg" alt="" /></a>
+</div>
+<div id="right_sidebar">
+	<img src="http://localhost:4000/img/header.jpg" class="img-circle"/>
+	<div id="sidebar_content">
+		<p>xuee Wei</p>
+		<span>You can't fly if you never try.</span>
+	</div>
+	<div id="sidebar_link">
+		<a href="https://github.com/creeperdance"><span class="fa fa-fw fa-github"></span> Github</a>
+		<a href="#"><span class="fa fa-fw fa-weibo"></span> Weibo</a>
+		<a href="#"><span class="fa fa-fw fa-wechat"></span> Wechat</a>
+	</div>
+</div>
+			<div id="side_to_top">
+				<a href="#"><span class="fa fa-2x fa-arrow-up"></span></a>
+			</div>
+			﻿<footer class="container">
+	<p>福建师范大学|软件工程专业|</p>
+	<p>Copyright ? 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
+</footer>
+
+		</div>
+	</body>
+</html>
