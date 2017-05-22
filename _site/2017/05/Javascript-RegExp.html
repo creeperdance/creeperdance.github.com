@@ -70,9 +70,33 @@
 		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>javascript</span>
 	</div>
 	<div class="article">
-		<p>说明：JavaScript正则表达式：用途、RegExp类型、字符串的模式匹配方法、元字符、贪婪模式与惰性模式、多行模式、分组与非捕获性分组。。。</p>
+		<p>说明：正则表达式：用途、JavaScript中的RegExp类型、字符串的模式匹配方法、元字符、贪婪模式与惰性模式、多行模式、分组与非捕获性分组。。。</p>
 
 <p><br /><br /></p>
+
+<ul id="markdown-toc">
+  <li><a href="#正则表达式" id="markdown-toc-正则表达式"><strong>正则表达式</strong></a>    <ul>
+      <li><a href="#正则表达式用途" id="markdown-toc-正则表达式用途"><strong>正则表达式用途</strong></a></li>
+      <li><a href="#1创建正则表达式" id="markdown-toc-1创建正则表达式"><strong>1.创建正则表达式</strong></a></li>
+      <li><a href="#2正则表达式匹配模式支持下列3个标志" id="markdown-toc-2正则表达式匹配模式支持下列3个标志"><strong>2.正则表达式匹配模式支持下列3个标志：</strong></a></li>
+      <li><a href="#3支持正则表达式对象的方法" id="markdown-toc-3支持正则表达式对象的方法"><strong>3.支持正则表达式对象的方法：</strong><br /></a></li>
+      <li><a href="#test方法" id="markdown-toc-test方法"><strong>test()方法：</strong><br /></a></li>
+      <li><a href="#exec方法-" id="markdown-toc-exec方法-"><strong>exec()方法:</strong> <br /></a></li>
+      <li><a href="#支持正则表达式对象的属性" id="markdown-toc-支持正则表达式对象的属性"><strong>支持正则表达式对象的属性：</strong><br /></a></li>
+      <li><a href="#4和正则表达式相关的方法和属性" id="markdown-toc-4和正则表达式相关的方法和属性"><strong>4.和正则表达式相关的方法和属性</strong></a></li>
+      <li><a href="#正则表达式语法" id="markdown-toc-正则表达式语法"><strong>正则表达式语法</strong><br /></a></li>
+      <li><a href="#元字符" id="markdown-toc-元字符"><strong>元字符</strong></a></li>
+      <li><a href="#含义" id="markdown-toc-含义"><strong>[]含义</strong></a></li>
+      <li><a href="#含义-1" id="markdown-toc-含义-1"><strong>（）含义</strong></a></li>
+      <li><a href="#字符类" id="markdown-toc-字符类"><strong>字符类</strong></a></li>
+      <li><a href="#贪婪模式与惰性模式" id="markdown-toc-贪婪模式与惰性模式"><strong>贪婪模式与惰性模式</strong></a></li>
+      <li><a href="#多行模式" id="markdown-toc-多行模式"><strong>多行模式</strong></a></li>
+      <li><a href="#分组与非捕获性分组" id="markdown-toc-分组与非捕获性分组"><strong>分组与非捕获性分组</strong></a></li>
+      <li><a href="#候选也就是所说的或" id="markdown-toc-候选也就是所说的或"><strong>候选（也就是所说的“或”）</strong></a></li>
+      <li><a href="#实例" id="markdown-toc-实例"><strong>实例</strong></a></li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="正则表达式"><strong>正则表达式</strong></h3>
 <p><br /><br /></p>
@@ -84,60 +108,131 @@
   <li>根据模式匹配从字符串中提取的一个子字符串。</li>
 </ul>
 
-<p><br /></p>
-
-<h4 id="正则表达式对象"><strong>正则表达式对象</strong></h4>
-<p><br /></p>
-<ol>
-  <li>
-    <h4 id="创建正则表达式"><strong>创建正则表达式</strong></h4>
-    <ul>
-      <li><strong>字面量写法（Perl写法）</strong><br />
+<p><br />
+<br /></p>
+<h4 id="1创建正则表达式"><strong>1.创建正则表达式</strong></h4>
+<ul>
+  <li><strong>字面量写法（Perl写法）</strong><br />
 <strong>语法：/pattern/attributes</strong>
 <br />
-        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/abcd/g</span><span class="p">;</span>
-<span class="c1">//alert(re.test("abcde"))   返回true</span>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/abcd/g</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">re</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"abcde"</span><span class="p">));</span>   <span class="c1">//true</span>
 </code></pre>
-        </div>
-      </li>
-      <li><strong>RegExp构造函数</strong>
-        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">();</span><span class="c1">//没什么效果，需要将正则表达式的内容作为字符串传递进去。</span>
+    </div>
+  </li>
+  <li><strong>RegExp构造函数</strong>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">();</span><span class="c1">//没什么效果，需要将正则表达式的内容作为字符串传递进去。</span>
 <span class="nx">re</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">"abcd"</span><span class="p">);</span><span class="c1">//匹配字母a</span>
 <span class="nx">re</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span><span class="s2">"i"</span><span class="p">);</span>
-<span class="c1">//alert(re.test("abcde"))   返回true</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">re</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"abcde"</span><span class="p">));</span>   <span class="c1">//true</span>
 </code></pre>
-        </div>
-      </li>
-    </ul>
+    </div>
   </li>
-  <li>
-    <h4 id="正则表达式匹配模式支持下列3个标志"><strong>正则表达式匹配模式支持下列3个标志：</strong></h4>
-    <ul>
-      <li><strong>g</strong>(全文查找):<br />
+</ul>
+
+<p>同其他语言中的正则表达式，模式中使用的<strong>元字符</strong>都必须转义。<br />
+正则表达式中的元字符有：<br />
+( [ { \ ^ $ | ) ? * + . ] } <br />
+若想匹配字符中包含这些字符，必须进行转义。<br />
+<strong>两种方式的转义区别：</strong>
+由于RepExp构造函数的模式参数是字符串，所以在某些情况下要对字符进行<strong>双重转义</strong>。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//匹配第一个"bat"或"cat",不区分大小写。</span>
+<span class="kd">var</span> <span class="nx">pattern1</span> <span class="o">=</span> <span class="sr">/</span><span class="se">[</span><span class="sr">bc</span><span class="se">]</span><span class="sr">at/i</span><span class="p">;</span>
+<span class="c1">//匹配第一个"[bc]at",不区分大小写</span>
+<span class="kd">var</span> <span class="nx">pattern2</span> <span class="o">=</span> <span class="sr">/</span><span class="se">\[</span><span class="sr">bc</span><span class="se">\]</span><span class="sr">at/i</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p><br /><br /></p>
+<h4 id="2正则表达式匹配模式支持下列3个标志"><strong>2.正则表达式匹配模式支持下列3个标志：</strong></h4>
+<ul>
+  <li><strong>g</strong>(全文查找):<br />
 表示全局(global)模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止</li>
-      <li><strong>i</strong>（忽略大小写）:<br />
+  <li><strong>i</strong>（忽略大小写）:<br />
 表示不区分大小写(case-insensitive)模式，即在确定匹配项时忽略模式与字符串的大小写</li>
-      <li><strong>m</strong>（多行查找）:
+  <li><strong>m</strong>（多行查找）:
 表示多行(multiline)模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项</li>
-    </ul>
+</ul>
+
+<p><br /><br /></p>
+<h4 id="3支持正则表达式对象的方法"><strong>3.支持正则表达式对象的方法：</strong><br /></h4>
+<ul>
+  <li>
+    <h4 id="test方法"><strong>test()方法：</strong><br /></h4>
+    <p>用于检测一个字符串是否匹配某个模式；<br />
+<strong>语法：</strong>RegExpObject.test(str);<br />
+<strong>参数：</strong>需要检测的字符串；<br />
+<strong>返回值：</strong>如果字符串str中含有与RegExpObject匹配的文本的话，返回true，否则返回false；<br /></p>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/abcd/g</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">re</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"abcde"</span><span class="p">));</span><span class="c1">//true</span>
+<span class="nx">re</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="sr">/abcd/g</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">re</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"abcde"</span><span class="p">));</span><span class="c1">//true</span>
+</code></pre>
+    </div>
   </li>
   <li>
-    <h4 id="和正则表达式相关的方法和属性"><strong>和正则表达式相关的方法和属性</strong></h4>
-    <p><strong>支持正则表达式的String对象的方法：</strong></p>
-    <ul>
-      <li><strong>search()</strong>
+    <h4 id="exec方法-"><strong>exec()方法:</strong> <br /></h4>
+    <p>用于检索字符串中的正则表达式的匹配:<br />
+<strong>语法：</strong>RegExpObject.exec(string)<br />
+<strong>参数：</strong>string【必填项】要检索的字符串。<br />
+<strong>返回值：</strong>返回一个数组，存放匹配的结果，如果未找到匹配，则返回值为null；<br /></p>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"abc"</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="sr">/longen/</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">str</span><span class="p">));</span> 
+<span class="c1">// ["a", index: 0, input: "abc"]</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <h4 id="支持正则表达式对象的属性"><strong>支持正则表达式对象的属性：</strong><br /></h4>
+    <p>•source,返回正则表达式模式的文本的复本。只读。 <br />
+•lastIndex,返回字符位置，它是被查找字符串中下一次成功匹配的开始位置。 <br />
+•$1…$9,返回九个在模式匹配期间找到的、最近保存的部分。只读。 <br />
+•input ($_),返回执行规范表述查找的字符串。只读。 <br />
+•lastMatch ($\&amp;),返回任何正则表达式搜索过程中的最后匹配的字符。只读。 <br />
+•lastParen ($+),如果有的话，返回任何正则表达式查找过程中最后括的子匹配。只读。 <br />
+•leftContext ($’),返回被查找的字符串中从字符串开始位置到最后匹配之前的位置之间的字符。只读。 <br />
+•rightContext ($’),返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符。只读。<br /></p>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"you never tell back"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">regx</span> <span class="o">=</span> <span class="sr">/</span><span class="se">(</span><span class="sr">.</span><span class="se">)</span><span class="sr">e/g</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">regx</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">text</span><span class="p">)){</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">$1</span><span class="p">);</span><span class="c1">//n</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">input</span><span class="p">);</span><span class="c1">//you never tell back</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">$_</span><span class="p">);</span><span class="c1">//you never tell back</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">lastMatch</span><span class="p">);</span><span class="c1">//ne</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$&amp;"</span><span class="p">]);</span><span class="c1">//ne</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">lastParent</span><span class="p">);</span><span class="c1">//undefined</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$+"</span><span class="p">]);</span><span class="c1">//n</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">leftContext</span><span class="p">);</span><span class="c1">//you</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$`"</span><span class="p">]);</span><span class="c1">//you</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">rightContext</span><span class="p">);</span><span class="c1">//ver tell back</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$'"</span><span class="p">]);</span><span class="c1">//ver tell back</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">multiline</span><span class="p">);</span><span class="c1">//false  </span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$*"</span><span class="p">]);</span><span class="c1">//false</span>
+<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="s2">"flase"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+<h4 id="4和正则表达式相关的方法和属性"><strong>4.和正则表达式相关的方法和属性</strong></h4>
+<p><strong>支持正则表达式的String对象的方法：</strong></p>
+<ul>
+  <li><strong>search()</strong>
 检测与正则表达式相匹配的值，或检测字符串中指定的子字符串。&lt;/br&gt;
 <strong>语法：</strong>StringObject.search(regexp);<br />
 <strong>参数：</strong>需要在StringObject中检索的字符串/需要检索的RegExp对象。<br />
 <strong>返回值：</strong>StringObject中第一个与要检索字符串/regexp对象匹配的子串的起始位置，未找到返回-1。<br />
-        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"helloworld"</span><span class="p">;</span>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"helloworld"</span><span class="p">;</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">"wo"</span><span class="p">));</span><span class="c1">//5</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/hello/g</span><span class="p">));</span>  <span class="c1">//0</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/world/g</span><span class="p">));</span>  <span class="c1">//5</span>
 </code></pre>
-        </div>
-      </li>
-      <li><strong>match()方法:</strong>
+    </div>
+  </li>
+  <li><strong>match()方法:</strong>
 找到一个或多个正则表达式的匹配。<br />
 <strong>语法：</strong>StringObject.match(regexp)。<br />
 <strong>参数：</strong>可以是需检索字符串的值/需匹配模式的regexp对象。<br />
@@ -149,7 +244,7 @@
 还有二个对象属性；index属性表明的是匹配文本的起始字符在stringObject中的位置<br />
 input属性声明的是对stringObject对象的引用；<br />
 <br />
-        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"hello world"</span><span class="p">;</span>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"hello world"</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">));</span> <span class="c1">// ["hello", index: 0, input: "hello world"]</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">));</span> <span class="c1">// null</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/hello/</span><span class="p">));</span> <span class="c1">// ["hello", index: 0, input: "hello world"]</span>
@@ -157,9 +252,9 @@ input属性声明的是对stringObject对象的引用；<br />
 <span class="kd">var</span> <span class="nx">str2</span><span class="o">=</span><span class="s2">"1 plus 2 equal 3"</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str2</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">\d</span><span class="sr">+/g</span><span class="p">));</span> <span class="c1">//["1", "2", "3"]</span>
 </code></pre>
-        </div>
-      </li>
-      <li><strong>split()方法:</strong>
+    </div>
+  </li>
+  <li><strong>split()方法:</strong>
 将字符串分割为字符串数组。<br />
 <strong>语法：</strong>SstringObject.split(separator,howmany);<br />
 <strong>参数：</strong><br />
@@ -167,7 +262,7 @@ input属性声明的是对stringObject对象的引用；<br />
 separator[必填项]，字符串或正则表达式，该参数指定的地方分割stringObject;<br />
 howmany[可选] 该参数指定返回的数组的最大长度，如果设置了该参数，返回的子字符串不会多于这个参数指定的数组。否则不考虑其长度。<br />
 <strong>返回值：</strong> 一个字符串数组。该数组通过在separator指定的边界处将字符串stringObject分割成子字符串。<br />
-        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"what are you doing?"</span><span class="p">;</span>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"what are you doing?"</span><span class="p">;</span>
 <span class="c1">// 以" "分割字符串</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">));</span>
 <span class="c1">//  ["what", "are", "you", "doing?"]</span>
@@ -175,15 +270,15 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>
 <span class="c1">// 打印 ["w", "h", "a"]</span>
 </code></pre>
-        </div>
-      </li>
-      <li><strong>replace()方法:</strong><br />
+    </div>
+  </li>
+  <li><strong>replace()方法:</strong><br />
 查找和替换与正则表达式匹配的子串。<br />
 <strong>语法</strong>StringObject.replace(regexp，replacement);<br />
 <strong>参数:</strong>字符串/需要替换模式的RegExp对象，被替换的文本或者生成替换文本的函数。<br />
 <strong>返回值:</strong>返回替换后的新字符串<br />
 加修饰符gi表示全局替换，否则只替换第一个匹配的字符串<br />
-        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"hello world"</span><span class="p">;</span>
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"hello world"</span><span class="p">;</span>
 <span class="c1">//替换字符串</span>
 <span class="kd">var</span> <span class="nx">s1</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span><span class="s2">"a"</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">s1</span><span class="p">);</span> <span class="c1">//a world</span>
@@ -194,73 +289,9 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 <span class="kd">var</span> <span class="nx">s3</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/l/g</span><span class="p">,</span><span class="s1">''</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">s3</span><span class="p">);</span>  <span class="c1">//heo word</span>
 </code></pre>
-        </div>
-      </li>
-    </ul>
+    </div>
   </li>
-  <li>
-    <h4 id="支持正则表达式对象的方法"><strong>支持正则表达式对象的方法：</strong><br /></h4>
-    <ul>
-      <li>
-        <h4 id="test方法"><strong>test()方法：</strong><br /></h4>
-        <p>用于检测一个字符串是否匹配某个模式；<br />
-<strong>语法：</strong>RegExpObject.test(str);<br />
-<strong>参数：</strong>需要检测的字符串；<br />
-<strong>返回值：</strong>如果字符串str中含有与RegExpObject匹配的文本的话，返回true，否则返回false；<br /></p>
-        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/abcd/g</span><span class="p">;</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">re</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"abcde"</span><span class="p">));</span><span class="c1">//true</span>
-<span class="nx">re</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="sr">/abcd/g</span><span class="p">);</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">re</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"abcde"</span><span class="p">));</span><span class="c1">//true</span>
-</code></pre>
-        </div>
-      </li>
-      <li>
-        <h4 id="exec方法-"><strong>exec()方法:</strong> <br /></h4>
-        <p>用于检索字符串中的正则表达式的匹配:<br />
-<strong>语法：</strong>RegExpObject.exec(string)<br />
-<strong>参数：</strong>string【必填项】要检索的字符串。<br />
-<strong>返回值：</strong>返回一个数组，存放匹配的结果，如果未找到匹配，则返回值为null；<br /></p>
-        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"abc"</span><span class="p">;</span>
-<span class="nx">alert</span><span class="p">(</span><span class="sr">/longen/</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">str</span><span class="p">));</span> 
-<span class="c1">// ["a", index: 0, input: "abc"]</span>
-</code></pre>
-        </div>
-      </li>
-      <li>
-        <h4 id="支持正则表达式对象的属性"><strong>支持正则表达式对象的属性：</strong><br /></h4>
-        <p>•source,返回正则表达式模式的文本的复本。只读。 <br />
-•lastIndex,返回字符位置，它是被查找字符串中下一次成功匹配的开始位置。 <br />
-•$1…$9,返回九个在模式匹配期间找到的、最近保存的部分。只读。 <br />
-•input ($_),返回执行规范表述查找的字符串。只读。 <br />
-•lastMatch ($\&amp;),返回任何正则表达式搜索过程中的最后匹配的字符。只读。 <br />
-•lastParen ($+),如果有的话，返回任何正则表达式查找过程中最后括的子匹配。只读。 <br />
-•leftContext ($’),返回被查找的字符串中从字符串开始位置到最后匹配之前的位置之间的字符。只读。 <br />
-•rightContext ($’),返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符。只读。<br /></p>
-        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"you never tell back"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">regx</span> <span class="o">=</span> <span class="sr">/</span><span class="se">(</span><span class="sr">.</span><span class="se">)</span><span class="sr">e/g</span><span class="p">;</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">regx</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">text</span><span class="p">)){</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">$1</span><span class="p">);</span><span class="c1">//n</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">input</span><span class="p">);</span><span class="c1">//you never tell back</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">$_</span><span class="p">);</span><span class="c1">//you never tell back</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">lastMatch</span><span class="p">);</span><span class="c1">//ne</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$&amp;"</span><span class="p">]);</span><span class="c1">//ne</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">lastParent</span><span class="p">);</span><span class="c1">//undefined</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$+"</span><span class="p">]);</span><span class="c1">//n</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">leftContext</span><span class="p">);</span><span class="c1">//you</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$`"</span><span class="p">]);</span><span class="c1">//you</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">rightContext</span><span class="p">);</span><span class="c1">//ver tell back</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$'"</span><span class="p">]);</span><span class="c1">//ver tell back</span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">multiline</span><span class="p">);</span><span class="c1">//false  </span>
- <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$*"</span><span class="p">]);</span><span class="c1">//false</span>
-<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
- <span class="nx">alert</span><span class="p">(</span><span class="s2">"flase"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-        </div>
-      </li>
-    </ul>
-  </li>
-</ol>
+</ul>
 
 <p><br /><br /><br /></p>
 <h4 id="正则表达式语法"><strong>正则表达式语法</strong><br /></h4>
@@ -545,16 +576,26 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 	<a href="#"><img src="http://localhost:4000/img/totoro2.jpg" alt="" /></a>
 </div>
 <div id="right_sidebar">
-	<img src="http://localhost:4000/img/header.jpg" class="img-circle"/>
-	<div id="sidebar_content">
-		<p>xuee Wei</p>
-		<span>You can't fly if you never try.</span>
+	<div id ="sidebar_switch">
+		<a href="#" class="a_catelog">文章目录</a>
+		<a href="#" class ="a_bloginfo active">站点概要</a>
 	</div>
-	<div id="sidebar_link">
-		<a href="https://github.com/creeperdance"><span class="fa fa-fw fa-github"></span> Github</a>
-		<a href="#"><span class="fa fa-fw fa-weibo"></span> Weibo</a>
-		<a href="#"><span class="fa fa-fw fa-wechat"></span> Wechat</a>
+	<div class="sidebar_index">
+		<img src="http://localhost:4000/img/header.jpg" class="img-circle"/>
+		<div id="sidebar_content">
+			<p>xuee Wei</p>
+			<span>You can't fly if you never try.</span>
+		</div>
+		<div id="sidebar_link">
+				<a href="https://github.com/creeperdance"><span class="fa fa-fw fa-github"></span> Github</a>
+				<a href="#"><span class="fa fa-fw fa-weibo"></span> Weibo</a>
+				<a href="#"><span class="fa fa-fw fa-wechat"></span> Wechat</a>
+		</div>
 	</div>
+	<div class = "sidebar_catelog">
+		
+	</div>
+	<div>
 </div>
 			<div id="side_to_top">
 				<a href="#"><span class="fa fa-2x fa-arrow-up"></span></a>

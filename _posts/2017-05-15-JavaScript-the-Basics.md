@@ -10,6 +10,10 @@ categories:
 因此更博文如下：
 
 <br/><br/><br/><br/>
+
+- 目录
+{:toc #markdown-toc}
+
 ## 第一章   在html中使用
 <br/><br/>
 向HTML页面插入javascript的方法就是使用&lt;script>元素。

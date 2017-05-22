@@ -5,9 +5,12 @@ date: 2017-05-20 01:05:13 +0800
 categories:
   - javascript
 ---
-说明：JavaScript正则表达式：用途、RegExp类型、字符串的模式匹配方法、元字符、贪婪模式与惰性模式、多行模式、分组与非捕获性分组。。。
+说明：正则表达式：用途、JavaScript中的RegExp类型、字符串的模式匹配方法、元字符、贪婪模式与惰性模式、多行模式、分组与非捕获性分组。。。
 
 <br/><br/>
+
+- 目录
+{:toc #markdown-toc}
 
 ### **正则表达式**
 <br/><br/>
@@ -18,32 +21,103 @@ categories:
 - 根据模式匹配从字符串中提取的一个子字符串。
 
 <br/>
-
-#### **正则表达式对象**
 <br/>
-1. #### **创建正则表达式**
+#### **1.创建正则表达式**
 - **字面量写法（Perl写法）**<br/>
 **语法：/pattern/attributes**
 <br/>
 ```javascript
 var re = /abcd/g;
-//alert(re.test("abcde"))   返回true
+alert(re.test("abcde"));   //true
 ```
 -  **RegExp构造函数**
 ```javascript
 var re = new RegExp();//没什么效果，需要将正则表达式的内容作为字符串传递进去。
 re = new RegExp("abcd");//匹配字母a
 re = new RegExp("a","i");
-//alert(re.test("abcde"))   返回true
+alert(re.test("abcde"));   //true
 ```
-2. #### **正则表达式匹配模式支持下列3个标志：**
+
+同其他语言中的正则表达式，模式中使用的**元字符**都必须转义。<br/>
+正则表达式中的元字符有：<br/>
+( [ { \ ^ $ | ) ? * + . ] } <br/>
+若想匹配字符中包含这些字符，必须进行转义。<br/>
+**两种方式的转义区别：**
+由于RepExp构造函数的模式参数是字符串，所以在某些情况下要对字符进行**双重转义**。<br/>
+```javascript
+//匹配第一个"bat"或"cat",不区分大小写。
+var pattern1 = /[bc]at/i;
+//匹配第一个"[bc]at",不区分大小写
+var pattern2 = /\[bc\]at/i;
+```
+
+<br/><br/>
+#### **2.正则表达式匹配模式支持下列3个标志：**
 - **g**(全文查找):<br/>
 表示全局(global)模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止
 - **i**（忽略大小写）:<br/>
 表示不区分大小写(case-insensitive)模式，即在确定匹配项时忽略模式与字符串的大小写
 - **m**（多行查找）:
 表示多行(multiline)模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项
-3. #### **和正则表达式相关的方法和属性**
+
+
+<br/><br/>
+#### **3.支持正则表达式对象的方法：**<br/>
+- #### **test()方法：**<br/>
+用于检测一个字符串是否匹配某个模式；<br/>
+**语法：**RegExpObject.test(str);<br/>
+**参数：**需要检测的字符串；<br/>
+**返回值：**如果字符串str中含有与RegExpObject匹配的文本的话，返回true，否则返回false；<br/>
+```javascript
+var re = /abcd/g;
+alert(re.test("abcde"));//true
+re = new RegExp(/abcd/g);
+alert(re.test("abcde"));//true
+```
+- #### **exec()方法:** <br/>
+用于检索字符串中的正则表达式的匹配:<br/>
+**语法：**RegExpObject.exec(string)<br/>
+**参数：**string【必填项】要检索的字符串。<br/>
+**返回值：**返回一个数组，存放匹配的结果，如果未找到匹配，则返回值为null；<br/>
+```javascript
+var str = "abc";
+alert(/longen/.exec(str)); 
+// ["a", index: 0, input: "abc"]
+```
+- #### **支持正则表达式对象的属性：**<br/>
+•source,返回正则表达式模式的文本的复本。只读。 <br/>
+•lastIndex,返回字符位置，它是被查找字符串中下一次成功匹配的开始位置。 <br/>
+•\$1...\$9,返回九个在模式匹配期间找到的、最近保存的部分。只读。 <br/>
+•input (\$_),返回执行规范表述查找的字符串。只读。 <br/>
+•lastMatch (\$\&),返回任何正则表达式搜索过程中的最后匹配的字符。只读。 <br/>
+•lastParen (\$+),如果有的话，返回任何正则表达式查找过程中最后括的子匹配。只读。 <br/>
+•leftContext (\$'),返回被查找的字符串中从字符串开始位置到最后匹配之前的位置之间的字符。只读。 <br/>
+•rightContext (\$'),返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符。只读。<br/>
+```javascript
+var text = "you never tell back";
+var regx = /(.)e/g;
+if(regx.test(text)){
+	alert(RegExp.$1);//n
+	alert(RegExp.input);//you never tell back
+	alert(RegExp.$_);//you never tell back
+	alert(RegExp.lastMatch);//ne
+	alert(RegExp["$&"]);//ne
+	alert(RegExp.lastParent);//undefined
+	alert(RegExp["$+"]);//n
+	alert(RegExp.leftContext);//you
+	alert(RegExp["$`"]);//you
+	alert(RegExp.rightContext);//ver tell back
+	alert(RegExp["$'"]);//ver tell back
+	alert(RegExp.multiline);//false  
+	alert(RegExp["$*"]);//false
+}else {
+	alert("flase");
+}
+```
+
+
+<br/><br/>
+#### **4.和正则表达式相关的方法和属性**
 **支持正则表达式的String对象的方法：**
 - **search()**
 检测与正则表达式相匹配的值，或检测字符串中指定的子字符串。</br>
@@ -111,58 +185,6 @@ alert(s2); // b world
 //正则全局替换
 var s3 = str.replace(/l/g,'');
 alert(s3);  //heo word
-```
-4. #### **支持正则表达式对象的方法：**<br/>
-- #### **test()方法：**<br/>
-用于检测一个字符串是否匹配某个模式；<br/>
-**语法：**RegExpObject.test(str);<br/>
-**参数：**需要检测的字符串；<br/>
-**返回值：**如果字符串str中含有与RegExpObject匹配的文本的话，返回true，否则返回false；<br/>
-```javascript
-var re = /abcd/g;
-alert(re.test("abcde"));//true
-re = new RegExp(/abcd/g);
-alert(re.test("abcde"));//true
-```
-- #### **exec()方法:** <br/>
-用于检索字符串中的正则表达式的匹配:<br/>
-**语法：**RegExpObject.exec(string)<br/>
-**参数：**string【必填项】要检索的字符串。<br/>
-**返回值：**返回一个数组，存放匹配的结果，如果未找到匹配，则返回值为null；<br/>
-```javascript
-var str = "abc";
-alert(/longen/.exec(str)); 
-// ["a", index: 0, input: "abc"]
-```
-- #### **支持正则表达式对象的属性：**<br/>
-•source,返回正则表达式模式的文本的复本。只读。 <br/>
-•lastIndex,返回字符位置，它是被查找字符串中下一次成功匹配的开始位置。 <br/>
-•\$1...\$9,返回九个在模式匹配期间找到的、最近保存的部分。只读。 <br/>
-•input (\$_),返回执行规范表述查找的字符串。只读。 <br/>
-•lastMatch (\$\&),返回任何正则表达式搜索过程中的最后匹配的字符。只读。 <br/>
-•lastParen (\$+),如果有的话，返回任何正则表达式查找过程中最后括的子匹配。只读。 <br/>
-•leftContext (\$'),返回被查找的字符串中从字符串开始位置到最后匹配之前的位置之间的字符。只读。 <br/>
-•rightContext (\$'),返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符。只读。<br/>
-```javascript
-var text = "you never tell back";
-var regx = /(.)e/g;
-if(regx.test(text)){
-	alert(RegExp.$1);//n
-	alert(RegExp.input);//you never tell back
-	alert(RegExp.$_);//you never tell back
-	alert(RegExp.lastMatch);//ne
-	alert(RegExp["$&"]);//ne
-	alert(RegExp.lastParent);//undefined
-	alert(RegExp["$+"]);//n
-	alert(RegExp.leftContext);//you
-	alert(RegExp["$`"]);//you
-	alert(RegExp.rightContext);//ver tell back
-	alert(RegExp["$'"]);//ver tell back
-	alert(RegExp.multiline);//false  
-	alert(RegExp["$*"]);//false
-}else {
-	alert("flase");
-}
 ```
 
 <br/><br/><br/>

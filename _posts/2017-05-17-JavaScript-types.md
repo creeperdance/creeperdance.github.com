@@ -9,6 +9,10 @@ categories:
 说明：关于javascript基本类型及引用类型、执行环境及作用域等...  -参考《JavaScript高级程序设计(第3版)》
 
 <br/><br/><br/><br/>
+
+- 目录
+{:toc #markdown-toc}
+
 ## 1.基本类型和引用类型的值
 <br/>
 ECMAScript变量包含两种不同数据类型的值：基本类型值和引用值。<br/><br/>
