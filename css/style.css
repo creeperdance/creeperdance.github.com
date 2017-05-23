@@ -142,6 +142,25 @@ body {
 	margin-top: 30px;
 	margin-bottom: 130px;
 }
+/*文章内容的标题部分*/
+#content .article h1{
+	font-size:26px;
+}
+#content .article h2{
+	font-size:24px;
+}
+#content .article h3{
+	font-size:22px;
+}
+#content .article h4{
+	font-size:20px;
+}
+#content .article h5{
+	font-size:18px;
+}
+#content .article h6{
+	font-size:16px;
+}
 /*post content*/
 #content #post_info .article{
 	margin-top: 30px;
@@ -161,7 +180,7 @@ body {
 	right: 2%;
 	bottom:30px;
 	display:none;
-	z-index:9998;
+	z-index:9997;
 }
 #side_to_top span{
 	color:#B8AB9B;
@@ -199,9 +218,9 @@ body {
 	margin-right:15px;
 }
 #sidebar_switch a.active{
-	color:#40bbee;
+	color:#1874CD;
 	text-shadow: 0 0 1px #8EE5EE;
-	border-bottom:1px solid #87daff;
+	border-bottom:1px solid #1874CD;
 }
 /*站点概要*/
 .sidebar_index img {
@@ -252,16 +271,23 @@ body {
 	list-style:none;
 }
 .sidebar_catelog li a{
-	color:#222;
-	font-size:15px;
-	text-shadow: 0 0 2px #999;
+	color:#666;
+	font-size:16px;
+	font-weight:100;
+	letter-spacing:1px;
 	font-family:'Microsoft JhengHei';
 	text-decoration:none;
 }
 .sidebar_catelog li .list_click{
-	color:#40bbee;
+	color:#1874CD;
 	text-shadow: 0 0 1px #8EE5EE;
-	border-bottom:1px solid #87daff;
+	border-bottom:1px dashed #1874CD;
+}
+/*关闭侧边栏*/
+#sidebar_close {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
 }
 /*category*/
 .list-category  .list_category {

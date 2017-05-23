@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		 	﻿<meta charset="utf-8" />
+<title>  jekyll - 侧边栏目录的滚动效果 |  Creeperdance </title>
+
+<!-- 移动优先，自适应手机屏幕-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--解决bootstrap不支持IE兼容模式问题，为了让IE浏览器运行最新的渲染模式-->
+
+<!--引入bootstrap css文件-->
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/css/bootstrap.min.css" />
+<!--引入图标库-->
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"/>
+
+<!--引入css文件-->
+<link rel="stylesheet" href="http://localhost:4000/css/style.css" /></link>
+<!--引入jquery-->
+<script type="text/javascript" src="http://localhost:4000/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/index.js"></script>
+
+<link rel="stylesheet" href="http://localhost:4000/css/rouge.css" type="text/css"> 
+	</head>
+
+	<body>
+		<div id="main" class="container">
+			﻿<!--响应式导航栏-->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="nav_container">
+		<div class="navbar-header">
+			<a class="pull-left" href="#"><img src="http://localhost:4000/img/totoro.jpg" alt="" /></a>
+			<header class="pull-left">
+				<h1>Creeperdance</h1>
+				<p> Still Bave , Still Young</p>
+			</header>
+			<button class="navbar-toggle pull-right" type="button" data-toggle="collapse" data-target="#myCollapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div id="myCollapse" class="collapse navbar-collapse ">
+			<ul class="nav navbar-nav navbar-right ">
+				<li>
+					<a href="http://localhost:4000/index.html"><span class="glyphicon  glyphicon-home"></span> &nbsp;&nbsp;Home</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/category.html"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> &nbsp;&nbsp;Category</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/about.html"><span class="glyphicon glyphicon-user"></span>  &nbsp;&nbsp;About</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/contact.html"><span class="glyphicon glyphicon-envelope"></span>  &nbsp;&nbsp;Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+			<div id="content" class="container">
+				 <div id="post_title">
+	  <h3>jekyll - 侧边栏目录的滚动效果</h3>
+</div>
+<div id="post_info">
+	<div class="post_about post_about_center">
+		<span class="fa fa-calendar-o"> <i id="mobile_hide">发表于</i>2017-05-23</span>|
+		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>jekyll</span>
+	</div>
+	<div class="article">
+		<p>说明：发现自己写的有关javascript的学习总结的博文，内容都相当长,没有目录实在不便。
+然后看到人家的博客有侧边栏文章目录，可跟随滚动条移动定位，心水已久，索性自己也来写一个。</p>
+
+<p><br /><br /></p>
+
+<ul id="markdown-toc">
+  <li><a href="#侧边栏目录的滚动效果" id="markdown-toc-侧边栏目录的滚动效果"><strong>侧边栏目录的滚动效果</strong></a>    <ul>
+      <li><a href="#步骤一生成文章目录" id="markdown-toc-步骤一生成文章目录"><strong>步骤一：生成文章目录</strong></a></li>
+      <li><a href="#步骤二添加滚动定位效果" id="markdown-toc-步骤二添加滚动定位效果"><strong>步骤二：添加滚动定位效果</strong></a></li>
+    </ul>
+  </li>
+</ul>
+<h1 id="侧边栏目录的滚动效果"><strong>侧边栏目录的滚动效果</strong></h1>
+<p>达到的效果见-&gt;本博客的右侧的侧边栏目录。<br />
+滚动时，会自动跟随，移动定位，高亮显示。
+<br /></p>
+<h2 id="步骤一生成文章目录"><strong>步骤一：生成文章目录</strong></h2>
+<p><br /><br /></p>
+<ol>
+  <li><strong>首先，我们该怎么生成文章目录呢？</strong><br />
+Markdown 渲染器 kramdown提供了一个插件：jekyll-toc-generator，所以我们在配置文件中确保使用的是kramdown即可。<br />
+即在_config.yml文件中添加以下代码：<br /><br />
+    <div class="highlighter-rouge"><pre class="highlight"><code>markdown:kramdown
+</code></pre>
+    </div>
+    <p><br /><br /></p>
+  </li>
+  <li><strong>如何在文章中标识toc生成位置：</strong><br />
+在文章中任意处(一般在开头),添加如下两行。&lt;/br&gt;
+    <div class="highlighter-rouge"><pre class="highlight"><code>* 目录   //必须，*号后面的内容随意。
+{:toc #markdown-toc}	//生成的目录列表id="markdown-toc",也可改为其他。
+</code></pre>
+    </div>
+    <p>添加完上述代码后，你会发现，在你添加的位置处，已经有目录了。可见下图：<br /><br /><br />
+<img class="img-responsive center-block" src="http://localhost:4000/img/toc.png" alt="markdown-toc" />
+<br /><br />
+当然，今天的目标不是这样的目录。若想达到预期效果该怎么做呢？<br />
+<br /></p>
+  </li>
+  <li><strong>如何在侧边栏显示目录：</strong><br />
+我们现在已经可以通过id=”markdown-toc”来获取生成的目录列表了，那接下来就可以直接显示在侧边栏中了。<br />
+代码如下:(注释部分带解释)<br />
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="cm">/*可通过下列语句判断是否生成了目录(有的文章内容短无目录)*/</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#markdown-toc'</span><span class="p">).</span><span class="nx">html</span><span class="p">()</span> <span class="o">===</span> <span class="s1">'undefined'</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">//...	</span>
+<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+ <span class="cm">/*将其显示在侧边栏*/</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar_catelog'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'&lt;ul class="list_catelog"&gt;'</span> <span class="o">+</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#markdown-toc'</span><span class="p">).</span><span class="nx">html</span><span class="p">()</span> <span class="o">+</span> <span class="s1">'&lt;/ul&gt;'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+    <p><br /><br /></p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h2 id="步骤二添加滚动定位效果"><strong>步骤二：添加滚动定位效果</strong></h2>
+<p><br /><br /></p>
+<ol>
+  <li><strong>获取文章内容的锚点集合</strong><br />
+首先，先解释一下，通过步骤一，我们只是在侧边栏显示了文章目录列表，我们仅有的是当前文章目录的列表集合(仅供显示)，那么当页面滚动时，我们想达到有效的定位并高亮显示，
+暂时还是无法实现的。为什么呢？当页面滚动时，随之滚动的是文章内容，而侧边栏的文章目录列表固定，那我们只能根据<strong>文章内容中的锚点集合</strong>的滚动来判断当前页面显示的是哪个锚点元素，从而实现对应的高亮效果。<br />
+也就是要获取什么呢，我们编写的.md文件转为.html文件后的锚点集合。<br />
+<strong>怎么获取？</strong>
+我们知道，_site目录下会自动根据_posts目录下的.md文件(即我们编写的博文)生成对应的.html文件，并最终显示在页面。<br />
+打开后，我们会发现:<br />
+<br /><br />
+    <blockquote>
+      <table>
+        <thead>
+          <tr>
+            <th>.md文件</th>
+            <th style="text-align: center">.html文件</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td># 一级标题	-&gt;</td>
+            <td style="text-align: center">    &lt;h1 id="一级标题"&gt;一级标题&lt;/h1&gt;</td>
+          </tr>
+          <tr>
+            <td># 二级标题	-&gt;</td>
+            <td style="text-align: center">    &lt;h2 id="二级标题"&gt;二级标题&lt;/h2&gt;</td>
+          </tr>
+          <tr>
+            <td># 三级标题	-&gt;</td>
+            <td style="text-align: center">    &lt;h3 id="三级标题"&gt;三级标题&lt;/h3&gt;</td>
+          </tr>
+          <tr>
+            <td>…</td>
+            <td style="text-align: center">…</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><br /><br />
+由此可见，我们只需要获取h1~h6的标题集合即可。</p>
+    </blockquote>
+  </li>
+  <li><strong>实现滚动定位效果</strong><br />
+上面解释了为什么需要获取文章内容的锚点集合。<br />
+那么获取后如何实现呢?<br />
+<strong>当滚动屏幕时，根据滚动条据顶部的距离，得到该锚点集合中的据顶部有同距离的锚点，再实现与之对应的侧边栏目录列表项的高亮效果。</strong><br />
+首先：必不可少的<strong>scroll事件</strong><br />
+其次：<br />
+<strong>滚动条到顶部的距离</strong>  –&gt;  <strong>$(window).scrollTop()</strong> <br />
+<strong>锚点集合中的元素分别到顶点的距离</strong>  –&gt;  <strong>$(‘锚点集合中的元素’).offset().top</strong> <br />
+最终代码如下：
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">locateCatelogList</span><span class="p">(){</span>
+ <span class="cm">/*获取文章目录集合,可通过：header过滤器*/</span>
+ <span class="kd">var</span> <span class="nx">alis</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.article :header'</span><span class="p">);</span>
+ <span class="cm">/*获取侧边栏目录列表集合**/</span>
+ <span class="kd">var</span> <span class="nx">sidebar_alis</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar_catelog'</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'a'</span><span class="p">);</span>
+ <span class="cm">/*获取滚动条到顶部的距离*/</span>
+ <span class="kd">var</span> <span class="nx">scroll_height</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">();</span>
+ <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">alis</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+     <span class="cm">/*获取锚点集合中的元素分别到顶点的距离*/</span>
+     <span class="kd">var</span> <span class="nx">a_height</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">alis</span><span class="p">[</span><span class="nx">i</span><span class="p">]).</span><span class="nx">offset</span><span class="p">().</span><span class="nx">top</span><span class="p">;</span>
+     <span class="k">if</span> <span class="p">(</span><span class="nx">a_height</span><span class="o">&lt;</span><span class="nx">scroll_height</span><span class="p">){</span>
+         <span class="cm">/*高亮显示*/</span>
+         <span class="nx">sidebar_alis</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'list_click'</span><span class="p">);</span>
+         <span class="nx">$</span><span class="p">(</span><span class="nx">sidebar_alis</span><span class="p">[</span><span class="nx">i</span><span class="p">]).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'list_click'</span><span class="p">);</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+ <span class="cm">/*绑定滚动事件 */</span> 
+ <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span><span class="nx">locateCatelogList</span><span class="p">);</span> 
+<span class="p">});</span>
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p><br /><br /><br /><br /></p>
+
+
+	</div>
+</div>
+			</div>
+			<div id="totoro_fixed" >
+	<a href="#"><img src="http://localhost:4000/img/totoro2.jpg" alt="" /></a>
+</div>
+<div id="right_sidebar">
+	<div id ="sidebar_switch">
+		<a href="#" class="a_catelog">文章目录</a>
+		<a href="#" class ="a_bloginfo active">站点概要</a>
+	</div>
+	<div class="sidebar_index">
+		<img src="http://localhost:4000/img/header.jpg" class="img-circle"/>
+		<div id="sidebar_content">
+			<p>xuee Wei</p>
+			<span>You can't fly if you never try.</span>
+		</div>
+		<div id="sidebar_link">
+				<a href="https://github.com/creeperdance"><span class="fa fa-fw fa-github"></span> Github</a>
+				<a href="#"><span class="fa fa-fw fa-weibo"></span> Weibo</a>
+				<a href="#"><span class="fa fa-fw fa-wechat"></span> Wechat</a>
+		</div>
+	</div>
+	<div class = "sidebar_catelog">
+		
+	</div>
+	<div id = "sidebar_close">
+	    <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+	</div>
+</div>
+			<div id="side_to_top">
+				<a href="#"><span class="fa fa-2x fa-arrow-up"></span></a>
+			</div>
+			﻿<footer class="container">
+	<p>福建师范大学|软件工程专业|</p>
+	<p>Copyright ? 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
+</footer>
+
+		</div>
+	</body>
+</html>

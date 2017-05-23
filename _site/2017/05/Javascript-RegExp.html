@@ -75,33 +75,34 @@
 <p><br /><br /></p>
 
 <ul id="markdown-toc">
-  <li><a href="#正则表达式" id="markdown-toc-正则表达式"><strong>正则表达式</strong></a>    <ul>
-      <li><a href="#正则表达式用途" id="markdown-toc-正则表达式用途"><strong>正则表达式用途</strong></a></li>
-      <li><a href="#1创建正则表达式" id="markdown-toc-1创建正则表达式"><strong>1.创建正则表达式</strong></a></li>
-      <li><a href="#2正则表达式匹配模式支持下列3个标志" id="markdown-toc-2正则表达式匹配模式支持下列3个标志"><strong>2.正则表达式匹配模式支持下列3个标志：</strong></a></li>
-      <li><a href="#3支持正则表达式对象的方法" id="markdown-toc-3支持正则表达式对象的方法"><strong>3.支持正则表达式对象的方法：</strong><br /></a></li>
-      <li><a href="#test方法" id="markdown-toc-test方法"><strong>test()方法：</strong><br /></a></li>
-      <li><a href="#exec方法-" id="markdown-toc-exec方法-"><strong>exec()方法:</strong> <br /></a></li>
-      <li><a href="#支持正则表达式对象的属性" id="markdown-toc-支持正则表达式对象的属性"><strong>支持正则表达式对象的属性：</strong><br /></a></li>
-      <li><a href="#4和正则表达式相关的方法和属性" id="markdown-toc-4和正则表达式相关的方法和属性"><strong>4.和正则表达式相关的方法和属性</strong></a></li>
-      <li><a href="#正则表达式语法" id="markdown-toc-正则表达式语法"><strong>正则表达式语法</strong><br /></a></li>
-      <li><a href="#元字符" id="markdown-toc-元字符"><strong>元字符</strong></a></li>
-      <li><a href="#含义" id="markdown-toc-含义"><strong>[]含义</strong></a></li>
-      <li><a href="#含义-1" id="markdown-toc-含义-1"><strong>（）含义</strong></a></li>
-      <li><a href="#字符类" id="markdown-toc-字符类"><strong>字符类</strong></a></li>
-      <li><a href="#贪婪模式与惰性模式" id="markdown-toc-贪婪模式与惰性模式"><strong>贪婪模式与惰性模式</strong></a></li>
-      <li><a href="#多行模式" id="markdown-toc-多行模式"><strong>多行模式</strong></a></li>
-      <li><a href="#分组与非捕获性分组" id="markdown-toc-分组与非捕获性分组"><strong>分组与非捕获性分组</strong></a></li>
-      <li><a href="#候选也就是所说的或" id="markdown-toc-候选也就是所说的或"><strong>候选（也就是所说的“或”）</strong></a></li>
-      <li><a href="#实例" id="markdown-toc-实例"><strong>实例</strong></a></li>
+  <li><a href="#正则表达式用途" id="markdown-toc-正则表达式用途"><strong>正则表达式用途</strong></a></li>
+  <li><a href="#正则表达式对象" id="markdown-toc-正则表达式对象"><strong>正则表达式对象</strong></a>    <ul>
+      <li><a href="#创建正则表达式" id="markdown-toc-创建正则表达式"><strong>创建正则表达式</strong></a></li>
+      <li><a href="#正则表达式匹配模式支持下列3个标志" id="markdown-toc-正则表达式匹配模式支持下列3个标志"><strong>正则表达式匹配模式支持下列3个标志</strong></a></li>
+      <li><a href="#支持正则表达式对象的方法" id="markdown-toc-支持正则表达式对象的方法"><strong>支持正则表达式对象的方法</strong><br /></a>        <ul>
+          <li><a href="#test方法" id="markdown-toc-test方法"><strong>test()方法</strong><br /></a></li>
+          <li><a href="#exec方法-" id="markdown-toc-exec方法-"><strong>exec()方法</strong> <br /></a></li>
+        </ul>
+      </li>
+      <li><a href="#支持正则表达式对象的属性" id="markdown-toc-支持正则表达式对象的属性"><strong>支持正则表达式对象的属性</strong><br /></a></li>
     </ul>
   </li>
+  <li><a href="#和正则表达式相关的方法和属性" id="markdown-toc-和正则表达式相关的方法和属性"><strong>和正则表达式相关的方法和属性</strong></a></li>
+  <li><a href="#正则表达式语法" id="markdown-toc-正则表达式语法"><strong>正则表达式语法</strong><br /></a></li>
+  <li><a href="#元字符" id="markdown-toc-元字符"><strong>元字符</strong></a>    <ul>
+      <li><a href="#含义" id="markdown-toc-含义"><strong>[]含义</strong></a></li>
+      <li><a href="#含义-1" id="markdown-toc-含义-1"><strong>()含义</strong></a></li>
+    </ul>
+  </li>
+  <li><a href="#字符类" id="markdown-toc-字符类"><strong>字符类</strong></a></li>
+  <li><a href="#贪婪模式与惰性模式" id="markdown-toc-贪婪模式与惰性模式"><strong>贪婪模式与惰性模式</strong></a></li>
+  <li><a href="#多行模式" id="markdown-toc-多行模式"><strong>多行模式</strong></a></li>
+  <li><a href="#分组与非捕获性分组" id="markdown-toc-分组与非捕获性分组"><strong>分组与非捕获性分组</strong></a></li>
+  <li><a href="#正向前瞻-" id="markdown-toc-正向前瞻-"><strong>正向前瞻</strong> <br /></a></li>
+  <li><a href="#实例" id="markdown-toc-实例"><strong>实例</strong></a></li>
 </ul>
 
-<h3 id="正则表达式"><strong>正则表达式</strong></h3>
-<p><br /><br /></p>
-<h4 id="正则表达式用途"><strong>正则表达式用途</strong></h4>
-
+<h1 id="正则表达式用途"><strong>正则表达式用途</strong></h1>
 <ul>
   <li>检测字符串的某个模式。（对数据进行有效性验证）</li>
   <li>替换文本。</li>
@@ -110,7 +111,10 @@
 
 <p><br />
 <br /></p>
-<h4 id="1创建正则表达式"><strong>1.创建正则表达式</strong></h4>
+<h1 id="正则表达式对象"><strong>正则表达式对象</strong></h1>
+<p><br /><br /></p>
+
+<h2 id="创建正则表达式"><strong>创建正则表达式</strong></h2>
 <ul>
   <li><strong>字面量写法（Perl写法）</strong><br />
 <strong>语法：/pattern/attributes</strong>
@@ -144,7 +148,7 @@
 </div>
 
 <p><br /><br /></p>
-<h4 id="2正则表达式匹配模式支持下列3个标志"><strong>2.正则表达式匹配模式支持下列3个标志：</strong></h4>
+<h2 id="正则表达式匹配模式支持下列3个标志"><strong>正则表达式匹配模式支持下列3个标志</strong></h2>
 <ul>
   <li><strong>g</strong>(全文查找):<br />
 表示全局(global)模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止</li>
@@ -155,10 +159,10 @@
 </ul>
 
 <p><br /><br /></p>
-<h4 id="3支持正则表达式对象的方法"><strong>3.支持正则表达式对象的方法：</strong><br /></h4>
+<h2 id="支持正则表达式对象的方法"><strong>支持正则表达式对象的方法</strong><br /></h2>
 <ul>
   <li>
-    <h4 id="test方法"><strong>test()方法：</strong><br /></h4>
+    <h3 id="test方法"><strong>test()方法</strong><br /></h3>
     <p>用于检测一个字符串是否匹配某个模式；<br />
 <strong>语法：</strong>RegExpObject.test(str);<br />
 <strong>参数：</strong>需要检测的字符串；<br />
@@ -171,7 +175,7 @@
     </div>
   </li>
   <li>
-    <h4 id="exec方法-"><strong>exec()方法:</strong> <br /></h4>
+    <h3 id="exec方法-"><strong>exec()方法</strong> <br /></h3>
     <p>用于检索字符串中的正则表达式的匹配:<br />
 <strong>语法：</strong>RegExpObject.exec(string)<br />
 <strong>参数：</strong>string【必填项】要检索的字符串。<br />
@@ -183,7 +187,7 @@
     </div>
   </li>
   <li>
-    <h4 id="支持正则表达式对象的属性"><strong>支持正则表达式对象的属性：</strong><br /></h4>
+    <h2 id="支持正则表达式对象的属性"><strong>支持正则表达式对象的属性</strong><br /></h2>
     <p>•source,返回正则表达式模式的文本的复本。只读。 <br />
 •lastIndex,返回字符位置，它是被查找字符串中下一次成功匹配的开始位置。 <br />
 •$1…$9,返回九个在模式匹配期间找到的、最近保存的部分。只读。 <br />
@@ -217,7 +221,7 @@
 </ul>
 
 <p><br /><br /></p>
-<h4 id="4和正则表达式相关的方法和属性"><strong>4.和正则表达式相关的方法和属性</strong></h4>
+<h1 id="和正则表达式相关的方法和属性"><strong>和正则表达式相关的方法和属性</strong></h1>
 <p><strong>支持正则表达式的String对象的方法：</strong></p>
 <ul>
   <li><strong>search()</strong>
@@ -294,13 +298,13 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </ul>
 
 <p><br /><br /><br /></p>
-<h4 id="正则表达式语法"><strong>正则表达式语法</strong><br /></h4>
+<h1 id="正则表达式语法"><strong>正则表达式语法</strong><br /></h1>
 <p>一个正则表达式是由普通字符（a-z）及特殊字符（元字符）组成的文字模式。<br />
 该模式描述在查找文字主体时匹配的一个或多个字符串。<br />
 <br /></p>
 
 <p><br /><br /></p>
-<h4 id="元字符"><strong>元字符</strong></h4>
+<h1 id="元字符"><strong>元字符</strong></h1>
 
 <table>
   <thead>
@@ -430,10 +434,10 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </table>
 
 <p><br /></p>
-<h4 id="含义"><strong>[]含义</strong></h4>
+<h2 id="含义"><strong>[]含义</strong></h2>
 <p>[abc]能匹配abc中任意一个字符<br />
 [^abc]能匹配除abc外任意一个字符<br /></p>
-<h4 id="含义-1"><strong>（）含义</strong></h4>
+<h2 id="含义-1"><strong>()含义</strong></h2>
 <p>在被修饰匹配次数时，括号中的表达式可以作为整体修饰。<br />
 实例如下：<br /></p>
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="nx">alert</span><span class="p">(</span><span class="sr">/1+1/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">'1+1'</span><span class="p">));</span> <span class="c1">//false</span>
@@ -448,7 +452,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<h4 id="字符类"><strong>字符类</strong></h4>
+<h1 id="字符类"><strong>字符类</strong></h1>
 <p>简单类，反向类，范围类，组合类，预定义类<br /></p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//简单类  </span>
@@ -465,7 +469,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<h4 id="贪婪模式与惰性模式"><strong>贪婪模式与惰性模式</strong></h4>
+<h1 id="贪婪模式与惰性模式"><strong>贪婪模式与惰性模式</strong></h1>
 <p>贪婪与惰性模式的区别是：被量词修饰的子表达式的匹配行为；贪婪模式在整个表达式匹配成功的情况下尽可能多的匹配；惰性模式在整个表达式匹配成功的前提下，尽可能少的匹配；<br />
 <strong>常见贪婪模式的量词：</strong></p>
 <ul>
@@ -480,7 +484,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 <span class="nx">re</span> <span class="o">=</span> <span class="sr">/</span><span class="se">\w</span><span class="sr">+</span><span class="se">?</span><span class="sr">/</span><span class="p">;</span><span class="c1">//惰性模式    将匹配a  </span>
 </code></pre>
 </div>
-<h4 id="多行模式"><strong>多行模式</strong></h4>
+<h1 id="多行模式"><strong>多行模式</strong></h1>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/</span><span class="se">[</span><span class="sr">a-z</span><span class="se">]</span><span class="sr">$/</span><span class="p">;</span>  
 <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"ab\ncdef"</span><span class="p">;</span>  
@@ -490,7 +494,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<h4 id="分组与非捕获性分组"><strong>分组与非捕获性分组</strong></h4>
+<h1 id="分组与非捕获性分组"><strong>分组与非捕获性分组</strong></h1>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">re</span> <span class="o">=</span> <span class="sr">/abc</span><span class="se">{2}</span><span class="sr">/</span><span class="p">;</span><span class="c1">//将匹配abcc  </span>
 <span class="nx">re</span> <span class="o">=</span> <span class="sr">/</span><span class="se">(</span><span class="sr">abc</span><span class="se">){2}</span><span class="sr">/</span><span class="p">;</span><span class="c1">//将匹配abcabc  </span>
@@ -505,7 +509,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<h4 id="候选也就是所说的或"><strong>候选（也就是所说的“或”）</strong></h4>
+<p><strong>候选（也就是所说的“或”）</strong></p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">re</span> <span class="o">=</span> <span class="sr">/^a|bc$/</span><span class="p">;</span><span class="c1">//将匹配开始位置的a或结束位置的bc  </span>
 <span class="nx">str</span> <span class="o">=</span><span class="s2">"add"</span><span class="p">;</span>  
@@ -543,7 +547,9 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<p>其它——〉<strong>正向前瞻</strong>,用来捕获出现在特定字符之前的字符,只有当字符后面跟着某个特定字符才去捕获它。与正向前瞻对应的有<strong>负向前瞻</strong>，它用匹配只有当字符后面不跟着某个特定字符时才去匹配它。在执行前瞻和负向前瞻之类的运算时，正则表达式引擎会留意字符串后面的部分，然而却不移动index <br /></p>
+<p>其它——〉<br /></p>
+<h1 id="正向前瞻-"><strong>正向前瞻</strong> <br /></h1>
+<p>用来捕获出现在特定字符之前的字符,只有当字符后面跟着某个特定字符才去捕获它。与正向前瞻对应的有<strong>负向前瞻</strong>，它用匹配只有当字符后面不跟着某个特定字符时才去匹配它。在执行前瞻和负向前瞻之类的运算时，正则表达式引擎会留意字符串后面的部分，然而却不移动index <br /></p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//正向前瞻  </span>
 <span class="nx">re</span> <span class="o">=</span> <span class="sr">/</span><span class="se">([</span><span class="sr">a-z</span><span class="se">]</span><span class="sr">+</span><span class="se">(?=\d))</span><span class="sr">/i</span><span class="p">;</span>  
@@ -561,13 +567,14 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<h4 id="实例"><strong>实例</strong></h4>
+<h1 id="实例"><strong>实例</strong></h1>
 <p>构建一个验证电子邮箱地址有效性的正则表达式。电子邮箱地址有效性要求(我们姑且这样定义)：用户名只能包含字母数字以及下划线，最少一位，最多25位，用户名后面紧跟@，后面是域名，域名名称要求只能包含字母数字和减号（-），并且不能以减号开头或结尾，然后后面是域名后缀（可以有多个），域名后缀必须是点号连上2-4位英文字母 <br /></p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/^</span><span class="se">\w{1,15}(?:</span><span class="sr">@</span><span class="se">(?!</span><span class="sr">-</span><span class="se">))(?:(?:[</span><span class="sr">a-z0-9-</span><span class="se">]</span><span class="sr">*</span><span class="se">)(?:[</span><span class="sr">a-z0-9</span><span class="se">](?!</span><span class="sr">-</span><span class="se">))(?:\.(?!</span><span class="sr">-</span><span class="se">)))</span><span class="sr">+</span><span class="se">[</span><span class="sr">a-z</span><span class="se">]{2,4}</span><span class="sr">$/</span><span class="p">;</span>  
 </code></pre>
 </div>
 
+<p><br /><br /><br /><br /><br /><br /></p>
 
 	</div>
 </div>
@@ -595,7 +602,9 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 	<div class = "sidebar_catelog">
 		
 	</div>
-	<div>
+	<div id = "sidebar_close">
+	    <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+	</div>
 </div>
 			<div id="side_to_top">
 				<a href="#"><span class="fa fa-2x fa-arrow-up"></span></a>
