@@ -18,7 +18,7 @@ categories:
 <br/>
 ## **步骤一：生成文章目录**
 <br/><br/>
-1. **首先，我们该怎么生成文章目录呢？**<br/>
+1. **首先，到底是通过什么实现生成文章目录的呢？**<br/>
 Markdown 渲染器 kramdown提供了一个插件：jekyll-toc-generator，所以我们在配置文件中确保使用的是kramdown即可。<br/>
 即在_config.yml文件中添加以下代码：<br/><br/>
 ```
@@ -64,9 +64,9 @@ if (typeof $('#markdown-toc').html() === 'undefined') {
 <br/><br/>
 >|         .md文件   |    .html文件    | 
 | ------------- |:-------------:| 
-|# 一级标题	->  |&nbsp;&nbsp;&nbsp; <h1 id="一级标题">一级标题</h1>|
-|# 二级标题	->  |&nbsp; &nbsp;&nbsp;<h2 id="二级标题">二级标题</h2>|
-|# 三级标题	->  |&nbsp;&nbsp;&nbsp; <h3 id="三级标题">三级标题</h3>|
+|# 一级标题	  |&nbsp;&nbsp;&nbsp; <h1 id="一级标题">一级标题</h1>|
+|# 二级标题	  |&nbsp; &nbsp;&nbsp;<h2 id="二级标题">二级标题</h2>|
+|# 三级标题	  |&nbsp;&nbsp;&nbsp; <h3 id="三级标题">三级标题</h3>|
 |...|...|
 >
 <br/><br/>

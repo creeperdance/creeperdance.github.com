@@ -3,7 +3,7 @@
 
 	<head>
 		 	﻿<meta charset="utf-8" />
-<title>  Javascript正则表达式 |  Creeperdance </title>
+<title>  JavaScript正则表达式 |  Creeperdance </title>
 
 <!-- 移动优先，自适应手机屏幕-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,7 +62,7 @@
 </nav>
 			<div id="content" class="container">
 				 <div id="post_title">
-	  <h3>Javascript正则表达式</h3>
+	  <h3>JavaScript正则表达式</h3>
 </div>
 <div id="post_info">
 	<div class="post_about post_about_center">
@@ -78,28 +78,38 @@
   <li><a href="#正则表达式用途" id="markdown-toc-正则表达式用途"><strong>正则表达式用途</strong></a></li>
   <li><a href="#正则表达式对象" id="markdown-toc-正则表达式对象"><strong>正则表达式对象</strong></a>    <ul>
       <li><a href="#创建正则表达式" id="markdown-toc-创建正则表达式"><strong>创建正则表达式</strong></a></li>
-      <li><a href="#正则表达式匹配模式支持下列3个标志" id="markdown-toc-正则表达式匹配模式支持下列3个标志"><strong>正则表达式匹配模式支持下列3个标志</strong></a></li>
-      <li><a href="#支持正则表达式对象的方法" id="markdown-toc-支持正则表达式对象的方法"><strong>支持正则表达式对象的方法</strong><br /></a>        <ul>
+      <li><a href="#正则表达式匹配模式支持的3个标志" id="markdown-toc-正则表达式匹配模式支持的3个标志"><strong>正则表达式匹配模式支持的3个标志</strong></a></li>
+      <li><a href="#regexp实例方法" id="markdown-toc-regexp实例方法"><strong>RegExp实例方法</strong><br /></a>        <ul>
           <li><a href="#test方法" id="markdown-toc-test方法"><strong>test()方法</strong><br /></a></li>
           <li><a href="#exec方法-" id="markdown-toc-exec方法-"><strong>exec()方法</strong> <br /></a></li>
         </ul>
       </li>
-      <li><a href="#支持正则表达式对象的属性" id="markdown-toc-支持正则表达式对象的属性"><strong>支持正则表达式对象的属性</strong><br /></a></li>
+      <li><a href="#regexp的属性" id="markdown-toc-regexp的属性"><strong>RegExp的属性</strong></a>        <ul>
+          <li><a href="#实例属性" id="markdown-toc-实例属性"><strong>实例属性</strong></a></li>
+          <li><a href="#构造函数属性" id="markdown-toc-构造函数属性"><strong>构造函数属性</strong></a></li>
+        </ul>
+      </li>
     </ul>
   </li>
-  <li><a href="#和正则表达式相关的方法和属性" id="markdown-toc-和正则表达式相关的方法和属性"><strong>和正则表达式相关的方法和属性</strong></a></li>
-  <li><a href="#正则表达式语法" id="markdown-toc-正则表达式语法"><strong>正则表达式语法</strong><br /></a></li>
-  <li><a href="#元字符" id="markdown-toc-元字符"><strong>元字符</strong></a>    <ul>
+  <li><a href="#和正则表达式相关的方法和属性" id="markdown-toc-和正则表达式相关的方法和属性"><strong>和正则表达式相关的方法和属性</strong></a>    <ul>
+      <li><a href="#search" id="markdown-toc-search"><strong>search()</strong></a></li>
+      <li><a href="#match" id="markdown-toc-match"><strong>match()</strong></a></li>
+      <li><a href="#split" id="markdown-toc-split"><strong>split()</strong></a></li>
+      <li><a href="#replace" id="markdown-toc-replace"><strong>replace()</strong></a></li>
+    </ul>
+  </li>
+  <li><a href="#正则表达式语法" id="markdown-toc-正则表达式语法"><strong>正则表达式语法</strong><br /></a>    <ul>
+      <li><a href="#元字符" id="markdown-toc-元字符"><strong>元字符</strong></a></li>
       <li><a href="#含义" id="markdown-toc-含义"><strong>[]含义</strong></a></li>
       <li><a href="#含义-1" id="markdown-toc-含义-1"><strong>()含义</strong></a></li>
+      <li><a href="#字符类" id="markdown-toc-字符类"><strong>字符类</strong></a></li>
+      <li><a href="#贪婪模式与惰性模式" id="markdown-toc-贪婪模式与惰性模式"><strong>贪婪模式与惰性模式</strong></a></li>
+      <li><a href="#多行模式" id="markdown-toc-多行模式"><strong>多行模式</strong></a></li>
+      <li><a href="#分组与非捕获性分组" id="markdown-toc-分组与非捕获性分组"><strong>分组与非捕获性分组</strong></a></li>
+      <li><a href="#正向前瞻-" id="markdown-toc-正向前瞻-"><strong>正向前瞻</strong> <br /></a></li>
+      <li><a href="#实例" id="markdown-toc-实例"><strong>实例</strong></a></li>
     </ul>
   </li>
-  <li><a href="#字符类" id="markdown-toc-字符类"><strong>字符类</strong></a></li>
-  <li><a href="#贪婪模式与惰性模式" id="markdown-toc-贪婪模式与惰性模式"><strong>贪婪模式与惰性模式</strong></a></li>
-  <li><a href="#多行模式" id="markdown-toc-多行模式"><strong>多行模式</strong></a></li>
-  <li><a href="#分组与非捕获性分组" id="markdown-toc-分组与非捕获性分组"><strong>分组与非捕获性分组</strong></a></li>
-  <li><a href="#正向前瞻-" id="markdown-toc-正向前瞻-"><strong>正向前瞻</strong> <br /></a></li>
-  <li><a href="#实例" id="markdown-toc-实例"><strong>实例</strong></a></li>
 </ul>
 
 <h1 id="正则表达式用途"><strong>正则表达式用途</strong></h1>
@@ -148,7 +158,7 @@
 </div>
 
 <p><br /><br /></p>
-<h2 id="正则表达式匹配模式支持下列3个标志"><strong>正则表达式匹配模式支持下列3个标志</strong></h2>
+<h2 id="正则表达式匹配模式支持的3个标志"><strong>正则表达式匹配模式支持的3个标志</strong></h2>
 <ul>
   <li><strong>g</strong>(全文查找):<br />
 表示全局(global)模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止</li>
@@ -159,7 +169,7 @@
 </ul>
 
 <p><br /><br /></p>
-<h2 id="支持正则表达式对象的方法"><strong>支持正则表达式对象的方法</strong><br /></h2>
+<h2 id="regexp实例方法"><strong>RegExp实例方法</strong><br /></h2>
 <ul>
   <li>
     <h3 id="test方法"><strong>test()方法</strong><br /></h3>
@@ -177,96 +187,156 @@
   <li>
     <h3 id="exec方法-"><strong>exec()方法</strong> <br /></h3>
     <p>用于检索字符串中的正则表达式的匹配:<br />
+<strong>专门为捕获组而设计的</strong><br />
 <strong>语法：</strong>RegExpObject.exec(string)<br />
 <strong>参数：</strong>string【必填项】要检索的字符串。<br />
-<strong>返回值：</strong>返回一个数组，存放匹配的结果，如果未找到匹配，则返回值为null；<br /></p>
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"abc"</span><span class="p">;</span>
-<span class="nx">alert</span><span class="p">(</span><span class="sr">/longen/</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">str</span><span class="p">));</span> 
-<span class="c1">// ["a", index: 0, input: "abc"]</span>
+<strong>返回值：</strong><br />返回一个数组，存放匹配的结果，如果未找到匹配，则返回值为null。</p>
+    <ul>
+      <li><strong>数组:</strong>第一项为与整个模式相匹配的字符串，其它是与模式中的捕获组匹配的字符串。<br /></li>
+      <li><strong>index:</strong>匹配项在字符串中的位置。<br /></li>
+      <li><strong>input：</strong>应用正则表达式的字符串。<br />
+        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"mom and dad and baby"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/mom</span><span class="se">(</span><span class="sr"> and dad</span><span class="se">(</span><span class="sr"> and baby</span><span class="se">)?)?)</span><span class="sr">/gi</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">matches</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>    <span class="c1">//0</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">input</span><span class="p">);</span>    <span class="c1">//"mom and dad and baby"</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>    <span class="c1">//"mon and dad and baby"</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>    <span class="c1">//" and dad and baby"</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>    <span class="c1">//" and baby"</span>
 </code></pre>
-    </div>
-  </li>
-  <li>
-    <h2 id="支持正则表达式对象的属性"><strong>支持正则表达式对象的属性</strong><br /></h2>
-    <p>•source,返回正则表达式模式的文本的复本。只读。 <br />
-•lastIndex,返回字符位置，它是被查找字符串中下一次成功匹配的开始位置。 <br />
-•$1…$9,返回九个在模式匹配期间找到的、最近保存的部分。只读。 <br />
-•input ($_),返回执行规范表述查找的字符串。只读。 <br />
-•lastMatch ($\&amp;),返回任何正则表达式搜索过程中的最后匹配的字符。只读。 <br />
-•lastParen ($+),如果有的话，返回任何正则表达式查找过程中最后括的子匹配。只读。 <br />
-•leftContext ($’),返回被查找的字符串中从字符串开始位置到最后匹配之前的位置之间的字符。只读。 <br />
-•rightContext ($’),返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符。只读。<br /></p>
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"you never tell back"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">regx</span> <span class="o">=</span> <span class="sr">/</span><span class="se">(</span><span class="sr">.</span><span class="se">)</span><span class="sr">e/g</span><span class="p">;</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">regx</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">text</span><span class="p">)){</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">$1</span><span class="p">);</span><span class="c1">//n</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">input</span><span class="p">);</span><span class="c1">//you never tell back</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">$_</span><span class="p">);</span><span class="c1">//you never tell back</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">lastMatch</span><span class="p">);</span><span class="c1">//ne</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$&amp;"</span><span class="p">]);</span><span class="c1">//ne</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">lastParent</span><span class="p">);</span><span class="c1">//undefined</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$+"</span><span class="p">]);</span><span class="c1">//n</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">leftContext</span><span class="p">);</span><span class="c1">//you</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$`"</span><span class="p">]);</span><span class="c1">//you</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">rightContext</span><span class="p">);</span><span class="c1">//ver tell back</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$'"</span><span class="p">]);</span><span class="c1">//ver tell back</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">multiline</span><span class="p">);</span><span class="c1">//false  </span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$*"</span><span class="p">]);</span><span class="c1">//false</span>
-<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"flase"</span><span class="p">);</span>
-<span class="p">}</span>
+        </div>
+        <p><br />
+<strong>如果设置了全局标志(g)</strong>,每次也只返回1个匹配项。但若<strong>在同一个字符串上多次调用exec()</strong>,是否设置全局标志的表现则不同。<br />
+设置了全局标志后，每次调用exec()会在字符串中继续查找新匹配项，而不设置则始终返回第一个匹配项信息。<br />
+代码如下:<br /></p>
+        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"cat,bat,sat,fat"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">pattern1</span> <span class="o">=</span> <span class="sr">/.at/</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">matches</span> <span class="o">=</span> <span class="nx">patten1</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>    <span class="c1">//0</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>    <span class="c1">//cat</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern1</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span>    <span class="c1">//0</span>
+<span class="nx">matches</span> <span class="o">=</span> <span class="nx">pattern1</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>    <span class="c1">//0</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>    <span class="c1">//cat</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern1</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span>    <span class="c1">//0</span>
+<span class="kd">var</span> <span class="nx">pattern2</span> <span class="o">=</span> <span class="sr">/.at/g</span><span class="p">;</span>
+<span class="nx">matches</span> <span class="o">=</span> <span class="nx">pattern2</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>    <span class="c1">//0</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>    <span class="c1">//cat</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern2</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span>    <span class="c1">//3</span>
+<span class="nx">matches</span> <span class="o">=</span> <span class="nx">pattern2</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>    <span class="c1">//5</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>    <span class="c1">//bat</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern2</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span>    <span class="c1">//8</span>
 </code></pre>
-    </div>
+        </div>
+      </li>
+    </ul>
   </li>
 </ul>
 
 <p><br /><br /></p>
+<h2 id="regexp的属性"><strong>RegExp的属性</strong></h2>
+<p><br /><br /></p>
+<h3 id="实例属性"><strong>实例属性</strong></h3>
+<p>•<strong>global:</strong>布尔值，返回是否设置了g标志。 <br />
+•<strong>ignoreCase:</strong>布尔值，返回是否设置了i标志。 <br />
+•<strong>multiline:</strong>布尔值，返回是否设置了m标志。 <br />
+•<strong>lastIndex:</strong>整数，返回被查找字符串中下一次成功匹配的开始位置。 <br />
+•<strong>source:</strong>返回正则表达式模式的文本的复本,只读。 <br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="cm">/*匹配第一个"[bc]at*/</span>
+<span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/</span><span class="se">\[</span><span class="sr">bc</span><span class="se">\]</span><span class="sr">at/i</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">global</span><span class="p">);</span>    <span class="c1">//false</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">ignoreCase</span><span class="p">);</span>    <span class="c1">//true</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">multiline</span><span class="p">);</span>    <span class="c1">//true</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span>    <span class="c1">//0</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">source</span><span class="p">);</span>    <span class="c1">//"\[bc\]at"</span>
+
+<span class="kd">var</span> <span class="nx">pattern2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">"\\[bc\\]at"</span><span class="p">,</span><span class="nx">i</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">pattern2</span><span class="p">.</span><span class="nx">source</span><span class="p">);</span>    <span class="c1">//"\[bc\]at"</span>
+</code></pre>
+</div>
+<p><strong>source属性保存的是规范形式的字符串，即字面量形式所用的字符串</strong></p>
+
+<p><br /><br /></p>
+
+<h3 id="构造函数属性"><strong>构造函数属性</strong></h3>
+<p>RegExp构造函数包含一些属性(在其他语言中被看成是<strong>静态属性</strong>),这些属性<strong>适用与作用域中所有属性</strong>,基于所执行的最后一次正则表达式操作而变化。<br />
+<strong>可以通过长属性名或短属性名两种方式访问</strong>。<br />
+•<strong>$1…$9:</strong>返回九个在模式匹配期间找到的、最近保存的部分,只读。 <br />
+•<strong>input($_):</strong>返回字符串最后一次执行的字符串,只读。 <br />
+•<strong>lastMatch($&amp;):</strong>,返回最后一次的匹配项,只读。 <br />
+•<strong>lastParen($+)：</strong>如果有的话，返回最近一次的捕获组,只读。 <br />
+•<strong>multiline($*)：</strong>如果有的话，返回最近一次的捕获组,只读。 <br />
+•<strong>leftContext($`)：</strong>返回布尔值，是否所有表达式都用多行模式。 <br />
+•<strong>rightContext($’)：</strong>返回input字符串中lastMatch之后的文本,只读。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"you never tell back"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">regx</span> <span class="o">=</span> <span class="sr">/</span><span class="se">(</span><span class="sr">.</span><span class="se">)</span><span class="sr">e/g</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">regx</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">text</span><span class="p">)){</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">$1</span><span class="p">);</span><span class="c1">//n</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">input</span><span class="p">);</span><span class="c1">//you never tell back</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">$_</span><span class="p">);</span><span class="c1">//you never tell back</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">lastMatch</span><span class="p">);</span><span class="c1">//ne</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$&amp;"</span><span class="p">]);</span><span class="c1">//ne</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">lastParen</span><span class="p">);</span><span class="c1">//n</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$+"</span><span class="p">]);</span><span class="c1">//n</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">leftContext</span><span class="p">);</span><span class="c1">//you</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$`"</span><span class="p">]);</span><span class="c1">//you</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">rightContext</span><span class="p">);</span><span class="c1">//ver tell back</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$'"</span><span class="p">]);</span><span class="c1">//ver tell back</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">.</span><span class="nx">multiline</span><span class="p">);</span><span class="c1">//false  </span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nb">RegExp</span><span class="p">[</span><span class="s2">"$*"</span><span class="p">]);</span><span class="c1">//false</span>
+<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="s2">"flase"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><br /><br /></p>
 <h1 id="和正则表达式相关的方法和属性"><strong>和正则表达式相关的方法和属性</strong></h1>
 <p><strong>支持正则表达式的String对象的方法：</strong></p>
-<ul>
-  <li><strong>search()</strong>
-检测与正则表达式相匹配的值，或检测字符串中指定的子字符串。&lt;/br&gt;
+<h2 id="search"><strong>search()</strong></h2>
+<p><br />
+检测与正则表达式相匹配的值，或检测字符串中指定的子字符串。<br />
 <strong>语法：</strong>StringObject.search(regexp);<br />
-<strong>参数：</strong>需要在StringObject中检索的字符串/需要检索的RegExp对象。<br />
-<strong>返回值：</strong>StringObject中第一个与要检索字符串/regexp对象匹配的子串的起始位置，未找到返回-1。<br />
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"helloworld"</span><span class="p">;</span>
+<strong>参数：</strong>需要在字符串(StringObject)中检索的字符串/需要检索的RegExp对象。<br />
+<strong>返回值：返回字符串中第一个匹配项的索引</strong>，未找到返回-1。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"helloworld"</span><span class="p">;</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">"wo"</span><span class="p">));</span><span class="c1">//5</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/hello/g</span><span class="p">));</span>  <span class="c1">//0</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/world/g</span><span class="p">));</span>  <span class="c1">//5</span>
 </code></pre>
-    </div>
-  </li>
-  <li><strong>match()方法:</strong>
-找到一个或多个正则表达式的匹配。<br />
+</div>
+<p><br /><br /></p>
+<h2 id="match"><strong>match()</strong></h2>
+<p><br />
+找到一个或多个正则表达式的匹配,<strong>本质上与RegExp的exec()方法相同</strong>。<br />
 <strong>语法：</strong>StringObject.match(regexp)。<br />
-<strong>参数：</strong>可以是需检索字符串的值/需匹配模式的regexp对象。<br />
+<strong>参数：</strong>可以是<strong>需检索字符串的值</strong>/需匹配模式的<strong>RegExp对象</strong>。(<strong>只接受一个参数</strong>)<br />
 <strong>返回值:</strong>存放匹配成功的数组。<br />
-它可以全局匹配模式，全局匹配的话，它返回的是一个数组。<br />
-如果没有找到任何的一个匹配，那么它将返回的是null。<br />
-返回的数组内有三个元素：<br />
-第一个元素的存放的是匹配的文本<br />
-还有二个对象属性；index属性表明的是匹配文本的起始字符在stringObject中的位置<br />
-input属性声明的是对stringObject对象的引用；<br />
-<br />
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"hello world"</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">));</span> <span class="c1">// ["hello", index: 0, input: "hello world"]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">));</span> <span class="c1">// null</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/hello/</span><span class="p">));</span> <span class="c1">// ["hello", index: 0, input: "hello world"]</span>
-<span class="c1">// 全局匹配</span>
-<span class="kd">var</span> <span class="nx">str2</span><span class="o">=</span><span class="s2">"1 plus 2 equal 3"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str2</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">\d</span><span class="sr">+/g</span><span class="p">));</span> <span class="c1">//["1", "2", "3"]</span>
+	+ <strong>数组:</strong>第一项为与整个模式相匹配的字符串，其它是与模式中的捕获组匹配的字符串。<br />
+	+ <strong>index:</strong>匹配项在字符串中的位置。<br />
+	+ <strong>input：</strong>应用正则表达式的字符串。<br />
+<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"cat,bat,sat,fat"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/.at/</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">matches</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">pattern</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>    <span class="c1">//0</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">input</span><span class="p">);</span>    <span class="c1">//"cat,bat,sat,fat"</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>    <span class="c1">//'cat'</span>
 </code></pre>
-    </div>
-  </li>
-  <li><strong>split()方法:</strong>
-将字符串分割为字符串数组。<br />
-<strong>语法：</strong>SstringObject.split(separator,howmany);<br />
+</div>
+<p><br /><br /></p>
+<h2 id="split"><strong>split()</strong></h2>
+<p><br />
+<strong>基于指定分隔符将字符串分割为字符串数组。</strong><br />
+<strong>语法：</strong>StringObject.split(separator,howmany);<br />
 <strong>参数：</strong><br />
 —
 separator[必填项]，字符串或正则表达式，该参数指定的地方分割stringObject;<br />
 howmany[可选] 该参数指定返回的数组的最大长度，如果设置了该参数，返回的子字符串不会多于这个参数指定的数组。否则不考虑其长度。<br />
-<strong>返回值：</strong> 一个字符串数组。该数组通过在separator指定的边界处将字符串stringObject分割成子字符串。<br />
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"what are you doing?"</span><span class="p">;</span>
+<strong>返回值：</strong> 一个字符串数组。该数组通过在separator指定的边界处将字符串stringObject分割成子字符串。<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"what are you doing?"</span><span class="p">;</span>
 <span class="c1">// 以" "分割字符串</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">));</span>
 <span class="c1">//  ["what", "are", "you", "doing?"]</span>
@@ -274,29 +344,35 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>
 <span class="c1">// 打印 ["w", "h", "a"]</span>
 </code></pre>
-    </div>
-  </li>
-  <li><strong>replace()方法:</strong><br />
-查找和替换与正则表达式匹配的子串。<br />
+</div>
+<p><br /><br /></p>
+<h2 id="replace"><strong>replace()</strong></h2>
+<p><br />
+<strong>查找和替换与正则表达式匹配的子串。</strong><br />
 <strong>语法</strong>StringObject.replace(regexp，replacement);<br />
-<strong>参数:</strong>字符串/需要替换模式的RegExp对象，被替换的文本或者生成替换文本的函数。<br />
+<strong>参数:</strong><br />
+• 字符串/需要替换模式的RegExp对象。<br />
+• 替换的文本/生成替换文本的函数。<br />	
 <strong>返回值:</strong>返回替换后的新字符串<br />
-加修饰符gi表示全局替换，否则只替换第一个匹配的字符串<br />
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"hello world"</span><span class="p">;</span>
-<span class="c1">//替换字符串</span>
-<span class="kd">var</span> <span class="nx">s1</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span><span class="s2">"a"</span><span class="p">);</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">s1</span><span class="p">);</span> <span class="c1">//a world</span>
-<span class="c1">// 正则替换字符串</span>
-<span class="kd">var</span> <span class="nx">s2</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/hello/</span><span class="p">,</span><span class="s2">"b"</span><span class="p">);</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">s2</span><span class="p">);</span> <span class="c1">// b world</span>
-<span class="c1">//正则全局替换</span>
-<span class="kd">var</span> <span class="nx">s3</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/l/g</span><span class="p">,</span><span class="s1">''</span><span class="p">);</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">s3</span><span class="p">);</span>  <span class="c1">//heo word</span>
+<strong>注意：如果传入的参数为字符串，那么只会替换第一个子字符串，要想替换所有子字符串，必须提供一个正则表达式，
+且要加修饰符g表示全局替换，否则只替换第一个匹配的字符串。</strong><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"cat,bat,sat,fat"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"at"</span><span class="p">,</span><span class="s2">"ond"</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>	  <span class="c1">//"cond,bat,sat,fat"</span>
+<span class="nx">result</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/at/g</span><span class="p">,</span><span class="s2">"cond"</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>    <span class="c1">//"cond,bond,sond,fond"</span>
 </code></pre>
-    </div>
-  </li>
-</ul>
-
+</div>
+<p><strong>如果第二个参数是字符串，还可以使用一些特殊字符序列，将正则表达式操作得到的值插入到结果字符中。</strong><br />
+这些特殊的字符序列可以是：<br />
+$$(会替换成$)<br />
+$&amp;(与RepExp.lastMatch值相同),$‘(与RepExp.leftMatch值相同),$’(与RepExp.righttMatch值相同)<br />
+$n(n为0-9,匹配第n个捕获组的子字符串),$nn(nn为01-99,匹配第nn个捕获组的子字符串).<br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"cat,bat,sat,fat"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">(</span><span class="sr">.at</span><span class="se">)</span><span class="sr">/g</span><span class="p">,</span><span class="s2">"word($1)"</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>    <span class="c1">//word(cat),word(bat),word(sat),word(fat)</span>
+</code></pre>
+</div>
 <p><br /><br /><br /></p>
 <h1 id="正则表达式语法"><strong>正则表达式语法</strong><br /></h1>
 <p>一个正则表达式是由普通字符（a-z）及特殊字符（元字符）组成的文字模式。<br />
@@ -304,7 +380,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 <br /></p>
 
 <p><br /><br /></p>
-<h1 id="元字符"><strong>元字符</strong></h1>
+<h2 id="元字符"><strong>元字符</strong></h2>
 
 <table>
   <thead>
@@ -316,7 +392,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
   <tbody>
     <tr>
       <td>\</td>
-      <td style="text-align: center">转义字符，将一些具有特殊含义的字符转义为普通字符，需要转义的字符有:^ * + . [ ? \ {</td>
+      <td style="text-align: center">转义字符，将一些具有特殊含义的字符转义为普通字符，需要转义的字符有:( [ { \ ^ $ | ) ? * + . ] }</td>
     </tr>
     <tr>
       <td>.</td>
@@ -452,7 +528,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<h1 id="字符类"><strong>字符类</strong></h1>
+<h2 id="字符类"><strong>字符类</strong></h2>
 <p>简单类，反向类，范围类，组合类，预定义类<br /></p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//简单类  </span>
@@ -469,12 +545,9 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<h1 id="贪婪模式与惰性模式"><strong>贪婪模式与惰性模式</strong></h1>
+<h2 id="贪婪模式与惰性模式"><strong>贪婪模式与惰性模式</strong></h2>
 <p>贪婪与惰性模式的区别是：被量词修饰的子表达式的匹配行为；贪婪模式在整个表达式匹配成功的情况下尽可能多的匹配；惰性模式在整个表达式匹配成功的前提下，尽可能少的匹配；<br />
-<strong>常见贪婪模式的量词：</strong></p>
-<ul>
-  <li>?      *　    {n}      {n,}      {n,m}<br /></li>
-</ul>
+<strong>常见贪婪模式的量词</strong><br />+      ?      *　    {n}      {n,}      {n,m}<br /></p>
 
 <p><strong>常见惰性模式的量词：</strong>（贪婪模式量词后加？）<br />
 +?      ??      *?　    {n}?      {n,}?      {n,m}?<br />
@@ -484,7 +557,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 <span class="nx">re</span> <span class="o">=</span> <span class="sr">/</span><span class="se">\w</span><span class="sr">+</span><span class="se">?</span><span class="sr">/</span><span class="p">;</span><span class="c1">//惰性模式    将匹配a  </span>
 </code></pre>
 </div>
-<h1 id="多行模式"><strong>多行模式</strong></h1>
+<h2 id="多行模式"><strong>多行模式</strong></h2>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/</span><span class="se">[</span><span class="sr">a-z</span><span class="se">]</span><span class="sr">$/</span><span class="p">;</span>  
 <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"ab\ncdef"</span><span class="p">;</span>  
@@ -494,7 +567,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<h1 id="分组与非捕获性分组"><strong>分组与非捕获性分组</strong></h1>
+<h2 id="分组与非捕获性分组"><strong>分组与非捕获性分组</strong></h2>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">re</span> <span class="o">=</span> <span class="sr">/abc</span><span class="se">{2}</span><span class="sr">/</span><span class="p">;</span><span class="c1">//将匹配abcc  </span>
 <span class="nx">re</span> <span class="o">=</span> <span class="sr">/</span><span class="se">(</span><span class="sr">abc</span><span class="se">){2}</span><span class="sr">/</span><span class="p">;</span><span class="c1">//将匹配abcabc  </span>
@@ -548,7 +621,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </div>
 
 <p>其它——〉<br /></p>
-<h1 id="正向前瞻-"><strong>正向前瞻</strong> <br /></h1>
+<h2 id="正向前瞻-"><strong>正向前瞻</strong> <br /></h2>
 <p>用来捕获出现在特定字符之前的字符,只有当字符后面跟着某个特定字符才去捕获它。与正向前瞻对应的有<strong>负向前瞻</strong>，它用匹配只有当字符后面不跟着某个特定字符时才去匹配它。在执行前瞻和负向前瞻之类的运算时，正则表达式引擎会留意字符串后面的部分，然而却不移动index <br /></p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//正向前瞻  </span>
@@ -567,7 +640,7 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 </code></pre>
 </div>
 
-<h1 id="实例"><strong>实例</strong></h1>
+<h2 id="实例"><strong>实例</strong></h2>
 <p>构建一个验证电子邮箱地址有效性的正则表达式。电子邮箱地址有效性要求(我们姑且这样定义)：用户名只能包含字母数字以及下划线，最少一位，最多25位，用户名后面紧跟@，后面是域名，域名名称要求只能包含字母数字和减号（-），并且不能以减号开头或结尾，然后后面是域名后缀（可以有多个），域名后缀必须是点号连上2-4位英文字母 <br /></p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/^</span><span class="se">\w{1,15}(?:</span><span class="sr">@</span><span class="se">(?!</span><span class="sr">-</span><span class="se">))(?:(?:[</span><span class="sr">a-z0-9-</span><span class="se">]</span><span class="sr">*</span><span class="se">)(?:[</span><span class="sr">a-z0-9</span><span class="se">](?!</span><span class="sr">-</span><span class="se">))(?:\.(?!</span><span class="sr">-</span><span class="se">)))</span><span class="sr">+</span><span class="se">[</span><span class="sr">a-z</span><span class="se">]{2,4}</span><span class="sr">$/</span><span class="p">;</span>  
@@ -579,10 +652,10 @@ howmany[可选] 该参数指定返回的数组的最大长度，如果设置了�
 	</div>
 </div>
 			</div>
-			<div id="totoro_fixed" >
+			﻿<div id="totoro_fixed" >
 	<a href="#"><img src="http://localhost:4000/img/totoro2.jpg" alt="" /></a>
 </div>
-<div id="right_sidebar">
+<div id="right_sidebar"">
 	<div id ="sidebar_switch">
 		<a href="#" class="a_catelog">文章目录</a>
 		<a href="#" class ="a_bloginfo active">站点概要</a>

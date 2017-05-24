@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascript正则表达式
+title: JavaScript正则表达式
 date: 2017-05-20 01:05:13 +0800
 categories:
   - javascript
@@ -52,7 +52,7 @@ var pattern2 = /\[bc\]at/i;
 ```
 
 <br/><br/>
-## **正则表达式匹配模式支持下列3个标志**
+## **正则表达式匹配模式支持的3个标志**
 - **g**(全文查找):<br/>
 表示全局(global)模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止
 - **i**（忽略大小写）:<br/>
@@ -62,7 +62,7 @@ var pattern2 = /\[bc\]at/i;
 
 
 <br/><br/>
-## **支持正则表达式对象的方法**<br/>
+## **RegExp实例方法**<br/>
 - ### **test()方法**<br/>
 用于检测一个字符串是否匹配某个模式；<br/>
 **语法：**RegExpObject.test(str);<br/>
@@ -76,23 +76,84 @@ alert(re.test("abcde"));//true
 ```
 - ### **exec()方法** <br/>
 用于检索字符串中的正则表达式的匹配:<br/>
+**专门为捕获组而设计的**<br/>
 **语法：**RegExpObject.exec(string)<br/>
 **参数：**string【必填项】要检索的字符串。<br/>
-**返回值：**返回一个数组，存放匹配的结果，如果未找到匹配，则返回值为null；<br/>
+**返回值：**<br/>返回一个数组，存放匹配的结果，如果未找到匹配，则返回值为null。
+	+ **数组:**第一项为与整个模式相匹配的字符串，其它是与模式中的捕获组匹配的字符串。<br/>
+	+ **index:**匹配项在字符串中的位置。<br/>
+	+ **input：**应用正则表达式的字符串。<br/>
 ```javascript
-var str = "abc";
-alert(/longen/.exec(str)); 
-// ["a", index: 0, input: "abc"]
+var text = "mom and dad and baby";
+var pattern = /mom( and dad( and baby)?)?)/gi;
+var matches = pattern.exec(text);
+alert(matches.index);    //0
+alert(matches.input);    //"mom and dad and baby"
+alert(matches[0]);    //"mon and dad and baby"
+alert(matches[1]);    //" and dad and baby"
+alert(matches[2]);    //" and baby"
 ```
-- ## **支持正则表达式对象的属性**<br/>
-•source,返回正则表达式模式的文本的复本。只读。 <br/>
-•lastIndex,返回字符位置，它是被查找字符串中下一次成功匹配的开始位置。 <br/>
-•\$1...\$9,返回九个在模式匹配期间找到的、最近保存的部分。只读。 <br/>
-•input (\$_),返回执行规范表述查找的字符串。只读。 <br/>
-•lastMatch (\$\&),返回任何正则表达式搜索过程中的最后匹配的字符。只读。 <br/>
-•lastParen (\$+),如果有的话，返回任何正则表达式查找过程中最后括的子匹配。只读。 <br/>
-•leftContext (\$'),返回被查找的字符串中从字符串开始位置到最后匹配之前的位置之间的字符。只读。 <br/>
-•rightContext (\$'),返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符。只读。<br/>
+<br/>
+**如果设置了全局标志(g)**,每次也只返回1个匹配项。但若**在同一个字符串上多次调用exec()**,是否设置全局标志的表现则不同。<br/>
+设置了全局标志后，每次调用exec()会在字符串中继续查找新匹配项，而不设置则始终返回第一个匹配项信息。<br/>
+代码如下:<br/>
+```javascript
+var text = "cat,bat,sat,fat";
+var pattern1 = /.at/;
+var matches = patten1.exec(text);
+alert(matches.index);    //0
+alert(matches[0]);    //cat
+alert(pattern1.lastIndex);    //0
+matches = pattern1.exec(text);
+alert(matches.index);    //0
+alert(matches[0]);    //cat
+alert(pattern1.lastIndex);    //0
+var pattern2 = /.at/g;
+matches = pattern2.exec(text);
+alert(matches.index);    //0
+alert(matches[0]);    //cat
+alert(pattern2.lastIndex);    //3
+matches = pattern2.exec(text);
+alert(matches.index);    //5
+alert(matches[0]);    //bat
+alert(pattern2.lastIndex);    //8
+```
+
+<br/><br/>
+## **RegExp的属性**
+<br/><br/>
+### **实例属性**
+•**global:**布尔值，返回是否设置了g标志。 <br/>
+•**ignoreCase:**布尔值，返回是否设置了i标志。 <br/>
+•**multiline:**布尔值，返回是否设置了m标志。 <br/>
+•**lastIndex:**整数，返回被查找字符串中下一次成功匹配的开始位置。 <br/>
+•**source:**返回正则表达式模式的文本的复本,只读。 <br/>
+```javascript
+/*匹配第一个"[bc]at*/
+var pattern = /\[bc\]at/i;
+alert(pattern.global);    //false
+alert(pattern.ignoreCase);    //true
+alert(pattern.multiline);    //true
+alert(pattern.lastIndex);    //0
+alert(pattern.source);    //"\[bc\]at"
+
+var pattern2 = new RegExp("\\[bc\\]at",i);
+alert(pattern2.source);    //"\[bc\]at"
+```
+**source属性保存的是规范形式的字符串，即字面量形式所用的字符串**
+
+<br/><br/>
+
+### **构造函数属性**
+RegExp构造函数包含一些属性(在其他语言中被看成是**静态属性**),这些属性**适用与作用域中所有属性**,基于所执行的最后一次正则表达式操作而变化。<br/>
+**可以通过长属性名或短属性名两种方式访问**。<br/>
+•**\$1...\$9:**返回九个在模式匹配期间找到的、最近保存的部分,只读。 <br/>
+•**input(\$_):**返回字符串最后一次执行的字符串,只读。 <br/>
+•**lastMatch(\$&):**,返回最后一次的匹配项,只读。 <br/>
+•**lastParen(\$+)：**如果有的话，返回最近一次的捕获组,只读。 <br/>
+•**multiline(\$*)：**如果有的话，返回最近一次的捕获组,只读。 <br/>
+•**leftContext(\$`)：**返回布尔值，是否所有表达式都用多行模式。 <br/>
+•**rightContext(\$')：**返回input字符串中lastMatch之后的文本,只读。<br/>
 ```javascript
 var text = "you never tell back";
 var regx = /(.)e/g;
@@ -102,7 +163,7 @@ if(regx.test(text)){
 	alert(RegExp.$_);//you never tell back
 	alert(RegExp.lastMatch);//ne
 	alert(RegExp["$&"]);//ne
-	alert(RegExp.lastParent);//undefined
+	alert(RegExp.lastParen);//n
 	alert(RegExp["$+"]);//n
 	alert(RegExp.leftContext);//you
 	alert(RegExp["$`"]);//you
@@ -119,41 +180,42 @@ if(regx.test(text)){
 <br/><br/>
 # **和正则表达式相关的方法和属性**
 **支持正则表达式的String对象的方法：**
-- **search()**
-检测与正则表达式相匹配的值，或检测字符串中指定的子字符串。</br>
+## **search()**
+<br/>
+检测与正则表达式相匹配的值，或检测字符串中指定的子字符串。<br/>
 **语法：**StringObject.search(regexp);<br/>
-**参数：**需要在StringObject中检索的字符串/需要检索的RegExp对象。<br/>
-**返回值：**StringObject中第一个与要检索字符串/regexp对象匹配的子串的起始位置，未找到返回-1。<br/>
+**参数：**需要在字符串(StringObject)中检索的字符串/需要检索的RegExp对象。<br/>
+**返回值：返回字符串中第一个匹配项的索引**，未找到返回-1。<br/>
 ```javascript
 var str = "helloworld";
 alert(str.search("wo"));//5
 alert(str.search(/hello/g));  //0
 alert(str.search(/world/g));  //5
 ```
-- **match()方法:**
-找到一个或多个正则表达式的匹配。<br/>
+<br/><br/>
+## **match()**
+<br/>
+找到一个或多个正则表达式的匹配,**本质上与RegExp的exec()方法相同**。<br/>
 **语法：**StringObject.match(regexp)。<br/>
-**参数：**可以是需检索字符串的值/需匹配模式的regexp对象。<br/>
+**参数：**可以是**需检索字符串的值**/需匹配模式的**RegExp对象**。(**只接受一个参数**)<br/>
 **返回值:**存放匹配成功的数组。<br/>
-它可以全局匹配模式，全局匹配的话，它返回的是一个数组。<br/>
-如果没有找到任何的一个匹配，那么它将返回的是null。<br/>
-返回的数组内有三个元素：<br/>
-第一个元素的存放的是匹配的文本<br/>
-还有二个对象属性；index属性表明的是匹配文本的起始字符在stringObject中的位置<br/>
-input属性声明的是对stringObject对象的引用；<br/>
+	+ **数组:**第一项为与整个模式相匹配的字符串，其它是与模式中的捕获组匹配的字符串。<br/>
+	+ **index:**匹配项在字符串中的位置。<br/>
+	+ **input：**应用正则表达式的字符串。<br/>
 <br/>
 ```javascript
-var str = "hello world";
-console.log(str.match("hello")); // ["hello", index: 0, input: "hello world"]
-console.log(str.match("Hello")); // null
-console.log(str.match(/hello/)); // ["hello", index: 0, input: "hello world"]
-// 全局匹配
-var str2="1 plus 2 equal 3"
-console.log(str2.match(/\d+/g)); //["1", "2", "3"]
+var text = "cat,bat,sat,fat";
+var pattern = /.at/;
+var matches = text.match(pattern);
+alert(matches.index);    //0
+alert(matches.input);    //"cat,bat,sat,fat"
+alert(matches[0]);    //'cat'
 ```
-- **split()方法:**
-将字符串分割为字符串数组。<br/>
-**语法：**SstringObject.split(separator,howmany);<br/>
+<br/><br/>
+## **split()**
+<br/>
+**基于指定分隔符将字符串分割为字符串数组。**<br/>
+**语法：**StringObject.split(separator,howmany);<br/>
 **参数：**<br/>
 ---
 separator[必填项]，字符串或正则表达式，该参数指定的地方分割stringObject;<br/>
@@ -168,25 +230,34 @@ alert(str.split(" "));
 alert(str.split("",3));
 // 打印 ["w", "h", "a"]
 ```
-- **replace()方法:**<br/>
-查找和替换与正则表达式匹配的子串。<br/>
+<br/><br/>
+## **replace()**
+<br/>
+**查找和替换与正则表达式匹配的子串。**<br/>
 **语法**StringObject.replace(regexp，replacement);<br/>
-**参数:**字符串/需要替换模式的RegExp对象，被替换的文本或者生成替换文本的函数。<br/>
+**参数:**<br/>
+• 字符串/需要替换模式的RegExp对象。<br/>
+• 替换的文本/生成替换文本的函数。<br/>	
 **返回值:**返回替换后的新字符串<br/>
-加修饰符gi表示全局替换，否则只替换第一个匹配的字符串<br/>
+**注意：如果传入的参数为字符串，那么只会替换第一个子字符串，要想替换所有子字符串，必须提供一个正则表达式，
+且要加修饰符g表示全局替换，否则只替换第一个匹配的字符串。**<br/>
 ```javascript
-var str = "hello world";
-//替换字符串
-var s1 = str.replace("hello","a");
-alert(s1); //a world
-// 正则替换字符串
-var s2 = str.replace(/hello/,"b");
-alert(s2); // b world
-//正则全局替换
-var s3 = str.replace(/l/g,'');
-alert(s3);  //heo word
+var text = "cat,bat,sat,fat";
+var result = text.replace("at","ond");
+alert(result);	  //"cond,bat,sat,fat"
+result = text.replace(/at/g,"cond");
+alert(result);    //"cond,bond,sond,fond"
 ```
-
+**如果第二个参数是字符串，还可以使用一些特殊字符序列，将正则表达式操作得到的值插入到结果字符中。**<br/>
+这些特殊的字符序列可以是：<br/>
+$$(会替换成$)<br/>
+$&(与RepExp.lastMatch值相同),$‘(与RepExp.leftMatch值相同),$'(与RepExp.righttMatch值相同)<br/>
+$n(n为0-9,匹配第n个捕获组的子字符串),$nn(nn为01-99,匹配第nn个捕获组的子字符串).<br/>
+```javascript
+var text = "cat,bat,sat,fat";
+var result = text.replace(/(.at)/g,"word($1)");
+alert(result);    //word(cat),word(bat),word(sat),word(fat)
+```
 <br/><br/><br/>
 # **正则表达式语法**<br/>
 一个正则表达式是由普通字符（a-z）及特殊字符（元字符）组成的文字模式。<br/>
@@ -195,11 +266,11 @@ alert(s3);  //heo word
 
 
 <br/><br/>
-# **元字符**
+## **元字符**
 
 |         元字符    |    描述    | 
 | ------------- |:-------------:| 
-|\\   |转义字符，将一些具有特殊含义的字符转义为普通字符，需要转义的字符有:^ * + . [ ? \ { |
+|\\   |转义字符，将一些具有特殊含义的字符转义为普通字符，需要转义的字符有:( [ { \ ^ $ \| ) ? * + . ] } 
 | . |查找任意的单个字符，除换行符,回车符，行分隔符（\u）外
 |^|匹配输入字符串的开始位置
 |$|匹配输入字符串的结束位置    
@@ -249,7 +320,7 @@ alert(s3);  //heo word
 ```
 
 
-# **字符类**
+## **字符类**
 简单类，反向类，范围类，组合类，预定义类<br/>
 
 ```javascript
@@ -266,10 +337,9 @@ re = /[a-b0-9A-Z_]/;//将匹配字母，数字和下划线
 re = [^\n\r\t\f\x0-9]
 ```
 
-# **贪婪模式与惰性模式**
+## **贪婪模式与惰性模式**
 贪婪与惰性模式的区别是：被量词修饰的子表达式的匹配行为；贪婪模式在整个表达式匹配成功的情况下尽可能多的匹配；惰性模式在整个表达式匹配成功的前提下，尽可能少的匹配；<br/>
-**常见贪婪模式的量词：**
-+      ?      *　    {n}      {n,}      {n,m}<br/>
+**常见贪婪模式的量词**<br/>+      ?      *　    {n}      {n,}      {n,m}<br/>
 
 **常见惰性模式的量词：**（贪婪模式量词后加？）<br/>
 +?      ??      *?　    {n}?      {n,}?      {n,m}?<br/>
@@ -279,7 +349,7 @@ var str = "abc";
 var re = /\w+/;//贪婪模式    将匹配abc  
 re = /\w+?/;//惰性模式    将匹配a  
 ```
-# **多行模式** 
+## **多行模式** 
 
 ```javascript
 var re = /[a-z]$/;  
@@ -289,7 +359,7 @@ re =/[a-z]$/m;
 alert(str.replace(re,"#"));//a#\ncde#  
 ```
 
-# **分组与非捕获性分组** 
+## **分组与非捕获性分组** 
 
 ```javascript
 re = /abc{2}/;//将匹配abcc  
@@ -348,7 +418,7 @@ alert(str.replace(re,"221"));//在这个里面1表示第一个分组1234,1表示
 
 
 其它——〉<br/>
-# **正向前瞻** <br/>
+## **正向前瞻** <br/>
 用来捕获出现在特定字符之前的字符,只有当字符后面跟着某个特定字符才去捕获它。与正向前瞻对应的有**负向前瞻**，它用匹配只有当字符后面不跟着某个特定字符时才去匹配它。在执行前瞻和负向前瞻之类的运算时，正则表达式引擎会留意字符串后面的部分，然而却不移动index <br/>
 
 
@@ -368,7 +438,7 @@ alert(re.test(str));
 alert(RegExp.$1);//one  
 ```
 
-# **实例**
+## **实例**
 构建一个验证电子邮箱地址有效性的正则表达式。电子邮箱地址有效性要求(我们姑且这样定义)：用户名只能包含字母数字以及下划线，最少一位，最多25位，用户名后面紧跟@，后面是域名，域名名称要求只能包含字母数字和减号（-），并且不能以减号开头或结尾，然后后面是域名后缀（可以有多个），域名后缀必须是点号连上2-4位英文字母 <br/>
 
 ```javascript

@@ -1,12 +1,12 @@
 /*侧边栏显示、切换等*/
 function showCatelog(){
+	$('#markdown-toc').hide();
 	if (typeof $('#markdown-toc').html() === 'undefined') {
 		$('.a_catelog').removeClass('active');
 		$('.a_bloginfo').addClass('active');
 		$('div.sidebar_catelog').hide();
 		$('div.sidebar_index').show();
-	}else {
-		$('#markdown-toc').hide();
+	}else if($(window).width() >= 1200){
 		$('.sidebar_catelog').html('<ul class="list_catelog">' + $('#markdown-toc').html() + '</ul>');
 		$('#right_sidebar').animate({right:"+=300px"},300);
 		$('#content').animate({left:'-=150px'},300);
@@ -37,12 +37,14 @@ $(function() {
 	$(window).bind('scroll',locateCatelogList); 
 	/*侧标栏的显示,关闭及鼠标点击时的切换*/
 	$('#totoro_fixed').find('img').mouseenter(function(){
-		$('#right_sidebar').animate({right:"+=300px"},300);
-		$('#content').animate({left:'-=150px'},300);
+			$('#right_sidebar').animate({right:"+=300px"},300);
+			$('#content').animate({left:'-=150px'},300);
+			$('#sidebar_close').show();
 	});
 	$('#sidebar_close').click(function(){
 		$('#right_sidebar').animate({right:"-=300px"},300);
 		$('#content').animate({left:'+=150px'},300);
+		$(this).hide();
 	});
 	$('.a_catelog').click(function(){
 		$('.a_bloginfo').removeClass('active');
