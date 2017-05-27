@@ -66,21 +66,23 @@ $(function() {
 		$(this).addClass('list_click');
 	});
 	/*文章标题变化...*/
-	$('.list-category').find('h2').hover(function(){
-		$(this).css('font-size','+=2px');
-	},function(){
-		$(this).css('font-size','-=2px');
-	});
-	$('.list-category').find('a').hover(function(){
-		$(this).css('font-size','+=2px');
-	},function(){
-		$(this).css('font-size','-=2px');
-	});
-	$('#content #title h3').hover(function(){
-		$(this).css('font-size','+=2px');
-	},function(){
-		$(this).css('font-size','-=2px');
-	});
+	if($(window).width() >= 1200){
+		$('.list-category').find('h2').hover(function(){
+			$(this).css('font-size','+=2px');
+		},function(){
+			$(this).css('font-size','-=2px');
+		});
+		$('.list-category').find('a').hover(function(){
+			$(this).css('font-size','+=2px');
+		},function(){
+			$(this).css('font-size','-=2px');
+		});
+		$('#content #title h3').hover(function(){
+			$(this).css('font-size','+=2px');
+		},function(){
+			$(this).css('font-size','-=2px');
+		});
+	}
 	/*鼠标下滚导航栏消失，上滚导航栏出现*/
 	$(window).scroll(function(){
 		var scroll_top = $(document).scrollTop();

@@ -436,7 +436,8 @@ Boolean类型只能有两个子面值：true 和 false。<br/>
 要将一个值转换为Boolean值，可以掉用转型函数Boolean(),也用！！可实现boolean转型。<br/>
 多用于条件测试<br/>
 个数据类型转换为Boolean类型为false的值：<br/>
-String(空字符串""),Number(0和NaN,不包括无穷大),Object(null),Undefined(undefined).<br/>
+String(空字符串""),Number(0和NaN,不包括无穷大),
+Object(null),Undefined(undefined).<br/>
 ```javascript
 	var x = true;
 	var y = false;
@@ -475,7 +476,10 @@ JavaScript 只有一种数字类型Number,使用IEEE754标准中的双精度浮�
 <br/><br/>
 数值范围：
 <br/><br/>
-ECMAScript能表示的最小数值 ->  Number.MAX_VALUE(1.7976931348623157e+308).超出为特殊的Infinity值<br/>
+ECMAScript能表示的最小数值 ->  
+Number.MAX_VALUE
+(1.7976931348623157e+308).
+超出为特殊的Infinity值<br/>
 判断一个数值是否有穷：isFinite()函数.<br/>
 ```javascript
 	var result = Number.MAX_VALUE + Number.MAX_VALUE;
@@ -577,7 +581,8 @@ ECMAScript中的字符串不可变，一旦创建，其值不可变。若要更�
 constructor  	 					->  保存创建当前对象的函数(构造函数).<br/>
 hasOwnProperty(propertyName)    	->  检查给定的属性在当前对象实例中(而非实例原型)是否存在.<br/>
 isPrototypeOf(Object)    			->  检查传入的对象是否是当前对象的原型.<br/>
-propertyIsEnumerable(propertyName)  ->  检查给定的属性是否能用for-in语句枚举.<br/>
+propertyIsEnumerable
+(propertyName)  ->  检查给定的属性是否能用for-in语句枚举.<br/>
 toLocaleString()					->  对象的字符串表示，与执行环境地区对应.<br/>
 toString()							->  返回对象的字符串表示.<br/>
 valueOf()							->  返回对象的字符串、数值、布尔值表示.<br/>

@@ -43,7 +43,9 @@ ok...问题来了...报错如下：<br/><br/>
 <br/><br/>
 那么如何解决呢？<br/>
 具体的解决过程如下：<br/>
-首先打开报错文件(C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\rouge-2.0.7\bin\rougify)<br/>
+首先打开报错文件
+(C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems
+\rouge-2.0.7\bin\rougify)<br/>
 文件内容如下：<br/><br/>
 ```	
 #!/usr/bin/env ruby

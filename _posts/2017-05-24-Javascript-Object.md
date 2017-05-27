@@ -52,7 +52,7 @@ categories:
 - 描述符对象
 <br/>
 属性必须为:<br/>
-Configurable,Enumerable,<br/>
+Configurable,Enumerable,
 Writable,Value
 如下代码：<br/>
 ```javascript
@@ -160,7 +160,9 @@ ES5定义了**Object.getOwnPropertyDescriptor()方法**，用于**获取给定�
 
 **返回值：**一个对象。<br/>
 若是访问器属性则该对象的属性有：configurable,enumerable,get,set。<br/>
-如果是数据属性，则该对象的属性有：configurable,enumerable,writable,value。<br/>
+如果是数据属性，则该对象的属性有：<br/>
+configurable,enumerable,
+writable,value。<br/>
 如下代码：<br/>
 ```javascript
 var book={};

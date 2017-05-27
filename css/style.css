@@ -126,6 +126,8 @@ body {
 }
 #content #post_info .summary {
 	margin-top: 20px;
+	font-size:12px;
+	color:#333;
 }
 #content .post_about span{
 	margin-right:15px;
@@ -151,24 +153,28 @@ body {
 	margin-top: 30px;
 	margin-bottom: 130px;
 }
-/*文章内容的标题部分*/
+/*文章内容及标题部分*/
+#content .article {
+	font-size:12px;
+}
 #content .article h1{
-	font-size:26px;
+	font-size:20px;
+	letter-spacing:1px;
 }
 #content .article h2{
-	font-size:24px;
-}
-#content .article h3{
-	font-size:22px;
-}
-#content .article h4{
-	font-size:20px;
-}
-#content .article h5{
 	font-size:18px;
 }
-#content .article h6{
+#content .article h3{
 	font-size:16px;
+}
+#content .article h4{
+	font-size:14px;
+}
+#content .article h5{
+	font-size:13px;
+}
+#content .article h6{
+	font-size:13px;
 }
 /*post content*/
 #content #post_info .article{
@@ -188,7 +194,7 @@ body {
 	width:22px;
 	height:22px;
 	position: fixed;
-	bottom:30px;
+	bottom:50px;
 	z-index:9997;   
 	right: 30px;
     background: #222;
@@ -398,6 +404,11 @@ footer p {
 	#mobile_hide{
 		display:inline-block;
 	}
+	#content #post_info .summary {
+		margin-top: 20px;
+		font-size:13px;
+		color:#333;
+	}
 }
 
 
@@ -407,6 +418,30 @@ footer p {
 	#main header h1 {
 		font-size: 36px;
 		letter-spacing: 3px;
+	}
+	/*文章内容的标题部分*/
+	#content .article {
+		font-size:14px;
+	}
+	#content .article h1{
+		font-size:26px;
+		letter-spacing:2px;
+	}
+	#content .article h2{
+		font-size:24px;
+		letter-spacing:1px;
+	}
+	#content .article h3{
+		font-size:22px;
+	}
+	#content .article h4{
+		font-size:20px;
+	}
+	#content .article h5{
+		font-size:18px;
+	}
+	#content .article h6{
+		font-size:16px;
 	}
 }
 
@@ -429,5 +464,6 @@ footer p {
 	}
 	#side_to_top{
 		right: 60px;
+		bottom: 30px;
 	}
 }
