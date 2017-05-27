@@ -114,7 +114,8 @@ if(Array.isArray(value)){
 
 <br/><br/>
 #### **转换方法**<br/>
-所有对象都有**toLocaleString()**、**toString()**、**valueOf()**方法。<br/>
+所有对象都有**toLocaleString()**、**toString()**、
+**valueOf()**方法。<br/>
 调用数组的**toString()**方法：返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。<br/>
 调用数组的**valueOf()**方法：返回的还是数组。<br/>
 ```javascript
@@ -1163,10 +1164,14 @@ alert(str);    //"    hello world   "
 <br/><br/><br/>
 5. #### **字符串大小写转换方法**<br/>
 ECMAScript中涉及字符串大小写转换的方法有4个：<br/>
-**toLowerCase()**、**toLocaleLowerCase()**、
-**toUpperCase()**、**toLocaleUpperCase()**。<br/>
+**toLowerCase()**、
+**toLocaleLowerCase()**、
+**toUpperCase()**、
+**toLocaleUpperCase()**。<br/>
 toLowerCase(),toUpperCase()借鉴自java.lang.String中的同名方法。<br/>
-toLocaleLowerCase(),toLocaleUpperCase()则是针对特定地区的实现。<br/>
+toLocaleLowerCase(),
+toLocaleUpperCase()
+则是针对特定地区的实现。<br/>
 ```javascript
 var str = "hello world";
 alert(str.toLowerCase());    //"hello world"
@@ -1177,7 +1182,8 @@ alert(str.toLocaleUpperCase());    //"HELLO WORLD"
 <br/><br/><br/>
 6. #### **字符串的模式匹配方法**<br/>
 String类型定义了几个用于在字符串中匹配模式的方法：<br/>
-**match()**、**search()**、**replace()**、**split()**。<br/>
+**match()**、**search()**、
+**replace()**、**split()**。<br/>
 对此的介绍将集中在<a href="{{ site.url}}/2017/05/Javascript-RegExp.html">《Javascript正则表达式》</a>。
 <br/><br/><br/>
 7. #### **localeCompare方法**<br/>
@@ -1246,7 +1252,9 @@ small()   ->　　&lt;small>string</small><br/>
 
 #### **Global对象**<br/>
 **所有在全局作用域中定义的属性和函数，其实都是Global对象的属性。**<br/>
-之前说的**isNaN()**,**isFinite()**,**parseInt()**,**parseFloat()**都是Global对象的方法。<br/>
+之前说的**isNaN()**,**isFinite()**,
+**parseInt()**,**parseFloat()**
+都是Global对象的方法。<br/>
 <br/><br/>
 #### **URI编码方法**<br/>
 Global对象的encodeURI()和encodeURIComponent()方法可以对URI进行编码，以便发送给浏览器。<br/>

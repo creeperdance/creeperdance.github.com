@@ -6,6 +6,7 @@ function showCatelog(){
 		$('.a_bloginfo').addClass('active');
 		$('div.sidebar_catelog').hide();
 		$('div.sidebar_index').show();
+		$('#sidebar_close').hide();
 	}else if($(window).width() >= 1200){
 		$('.sidebar_catelog').html('<ul class="list_catelog">' + $('#markdown-toc').html() + '</ul>');
 		$('#right_sidebar').animate({right:"+=300px"},300);
@@ -66,10 +67,8 @@ $(function() {
 	});
 	/*文章标题变化...*/
 	$('.list-category').find('h2').hover(function(){
-		$(this).css('border-bottom','2px solid #555');
 		$(this).css('font-size','+=2px');
 	},function(){
-		$(this).css('border-bottom','none');
 		$(this).css('font-size','-=2px');
 	});
 	$('.list-category').find('a').hover(function(){

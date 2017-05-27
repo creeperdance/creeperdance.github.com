@@ -10,7 +10,8 @@ categories:
 7.通过寄生构造函数模式创建对象、8.通过稳妥构造函数模式创建对象。<br/>
 继承：1.继承 通过原型链实现、2.借用构造函数（对象冒充）、3.组合继承、
 4.原型式继承、5.寄生式继承、6.寄生组合继承
-<br/><br/>
+
+<br/><br/><br/><br/>
 
 - 目录
 {:toc #markdown-toc}
@@ -33,7 +34,8 @@ categories:
 数据属性是用于**存储数据数值的，它具有一个数据值的位置，在该位置可读取或写入值。<br/>**
 数据属性有4个描述其行为的特性：<br/>
 - **[[Configurable]]** <br/>
-表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或能否把属性修改为访问器属性,若直接在对象上创建属性，默认true。<br/>
+表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或能否把属性修改为访问器属性,
+若直接在对象上创建属性，默认true。<br/>
 <br/>
 - **[[Enumerable]]** <br/>
 表示能否通过for-in循环返回属性，若直接在对象上创建属性，默认true。<br/>
@@ -47,8 +49,11 @@ categories:
 该方法接收三个参数：<br/>
 - 属性所在的对象
 - 属性的名字
-- 描述符对象(属性必须为Configurable,Enumerable,Writable,Value)
-
+- 描述符对象
+<br/>
+属性必须为:<br/>
+Configurable,Enumerable,<br/>
+Writable,Value
 如下代码：<br/>
 ```javascript
 var person = {};
@@ -317,6 +322,10 @@ alert(person1.sayName==person2.sayName);//false  构造函数体内的方法的�
 <br/><br/>
 
 ## **5.通过原型模式创建对象**
+上面提到构造函数模型创建对象的缺点：创建一个特定类型的多个实例的同时会创建多个完成相同任务的函数实例。要解决这个问题，
+就是要解决创建多个对象时仅创建一个完成相同任务的函数，那么也就是让这个函数被这多个实例都共享。
+(在其他语言中，称此函数为静态方法,被所有对象共享)<br/>
+ECMAScript中，解决这个问题的方法则是通过原型对象创建方法。
 创建每一个函数 都有一个**prototype（原型）属性**（默认，自动生成的），该属性又是一个对象，
 它**用于包含可以由特定类型的所有实例共享的属性和方法。**原型prototype是函数的一个自带属性。
 可以看作是构造函数在实例化时创作的那个对象。 <br/>
@@ -379,14 +388,7 @@ alert(Box.prototype.constructor === Box);//true
 alert(Box.prototype===box1.__proto__);//true
 ```
 
-
-**构造函数方式：**
-
-
-<img class ="img-responsive center-block" src="{{site.url}}/img/5.png" alt="javascript_prototype"  />
-
-**原型模式方式：**
-<img class ="img-responsive center-block" src="{{site.url}}/img/6.png" alt="javascript_prototype"  />
+<br/>
 （解释：在原型模式声明中，多了两个属性（\__proto__    和constructor））,这两个属性都是创建对象时自动生成的，_proto_属性
  是实例指向原型对象的一个指针，它可以指向构造函数的原型属性constructor。constructor是原型的一个属性,可以得到构造函数，可被原型指针定位，然后得到构造函数本身，起到连接对象实例和对应原型对象的作用。
 
@@ -568,8 +570,6 @@ alert(desk instanceof Object);//true
 alert(table instanceof Box);//true
 alert(desk instanceof Table);//false
 ```
-**原型链继承流程图：**
-<img class ="img-responsive center-block" src="{{site.url}}/img/7.png" alt="javascript_prototype"  />
 
 ## **2.借用构造函数（对象冒充）：**
 为了解决引用共享和超类无法传参的问题，可采用一种叫 借用构造函数的技术，或者称为对象冒充（伪造对象，经典继承）。

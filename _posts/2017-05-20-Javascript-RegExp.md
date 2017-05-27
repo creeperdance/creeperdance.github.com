@@ -215,7 +215,9 @@ alert(matches[0]);    //'cat'
 ## **split()**
 <br/>
 **基于指定分隔符将字符串分割为字符串数组。**<br/>
-**语法：**StringObject.split(separator,howmany);<br/>
+**语法：<br/>**
+**StringObject.split(separator,
+howmany);**<br/>
 **参数：**<br/>
 ---
 separator[必填项]，字符串或正则表达式，该参数指定的地方分割stringObject;<br/>

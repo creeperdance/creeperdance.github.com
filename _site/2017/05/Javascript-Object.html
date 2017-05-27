@@ -31,7 +31,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="nav_container">
 		<div class="navbar-header">
-			<a class="pull-left" href="#"><img src="http://localhost:4000/img/totoro.jpg" alt="" /></a>
+			<a class="pull-left" href="#"><img src="http://localhost:4000/img/cat.png" alt="" /></a>
 			<header class="pull-left">
 				<h1>Creeperdance</h1>
 				<p> Still Bave , Still Young</p>
@@ -74,8 +74,9 @@
 4.通过构造函数模式创建对象、5.通过原型模式创建对象、6.通过动态原型模式创建对象、
 7.通过寄生构造函数模式创建对象、8.通过稳妥构造函数模式创建对象。<br />
 继承：1.继承 通过原型链实现、2.借用构造函数（对象冒充）、3.组合继承、
-4.原型式继承、5.寄生式继承、6.寄生组合继承
-<br /><br /></p>
+4.原型式继承、5.寄生式继承、6.寄生组合继承</p>
+
+<p><br /><br /><br /><br /></p>
 
 <ul id="markdown-toc">
   <li><a href="#理解对象" id="markdown-toc-理解对象"><strong>理解对象</strong></a>    <ul>
@@ -131,7 +132,8 @@
 数据属性有4个描述其行为的特性：<br /></p>
 <ul>
   <li><strong>[[Configurable]]</strong> <br />
-表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或能否把属性修改为访问器属性,若直接在对象上创建属性，默认true。<br />
+表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或能否把属性修改为访问器属性,
+若直接在对象上创建属性，默认true。<br />
 <br /></li>
   <li><strong>[[Enumerable]]</strong> <br />
 表示能否通过for-in循环返回属性，若直接在对象上创建属性，默认true。<br />
@@ -147,20 +149,24 @@
 <ul>
   <li>属性所在的对象</li>
   <li>属性的名字</li>
-  <li>描述符对象(属性必须为Configurable,Enumerable,Writable,Value)</li>
-</ul>
-
-<p>如下代码：<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{};</span>
+  <li>描述符对象
+<br />
+属性必须为:<br />
+Configurable,Enumerable,<br />
+Writable,Value
+如下代码：<br />
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="s2">"name"</span><span class="p">,{</span>
-	<span class="na">writable</span><span class="p">:</span><span class="kc">false</span><span class="p">;</span>
-	<span class="nl">value</span><span class="p">:</span><span class="s2">"Nicholas"</span>
+  <span class="na">writable</span><span class="p">:</span><span class="kc">false</span><span class="p">;</span>
+  <span class="nl">value</span><span class="p">:</span><span class="s2">"Nicholas"</span>
 <span class="p">});</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>    <span class="c1">//"Nicholas"</span>
 <span class="nx">person</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Greg"</span><span class="p">;</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>	   <span class="c1">//"Nicholas"</span>
 </code></pre>
-</div>
+    </div>
+  </li>
+</ul>
 
 <p><strong>可以多次调用Object.defineProperty()修改同一个属性，但是把configurable特性设置为false之后，就会有限制了。</strong><br /></p>
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{};</span>
@@ -421,7 +427,11 @@ but…我们看到函数内部返回的都是Object对象，即<strong>工厂模
 <p><br /><br /></p>
 
 <h2 id="5通过原型模式创建对象"><strong>5.通过原型模式创建对象</strong></h2>
-<p>创建每一个函数 都有一个<strong>prototype（原型）属性</strong>（默认，自动生成的），该属性又是一个对象，
+<p>上面提到构造函数模型创建对象的缺点：创建一个特定类型的多个实例的同时会创建多个完成相同任务的函数实例。要解决这个问题，
+就是要解决创建多个对象时仅创建一个完成相同任务的函数，那么也就是让这个函数被这多个实例都共享。
+(在其他语言中，称此函数为静态方法,被所有对象共享)<br />
+ECMAScript中，解决这个问题的方法则是通过原型对象创建方法。
+创建每一个函数 都有一个<strong>prototype（原型）属性</strong>（默认，自动生成的），该属性又是一个对象，
 它<strong>用于包含可以由特定类型的所有实例共享的属性和方法。</strong>原型prototype是函数的一个自带属性。
 可以看作是构造函数在实例化时创作的那个对象。 <br />
 <strong>好处：让所有对象实例共享它所包含的属性和方法，不用在构造函数中定义对象信息，直接将这些信息添加在原型中。</strong></p>
@@ -482,12 +492,7 @@ but…我们看到函数内部返回的都是Object对象，即<strong>工厂模
 </code></pre>
 </div>
 
-<p><strong>构造函数方式：</strong></p>
-
-<p><img class="img-responsive center-block" src="http://localhost:4000/img/5.png" alt="javascript_prototype" /></p>
-
-<p><strong>原型模式方式：</strong>
-<img class="img-responsive center-block" src="http://localhost:4000/img/6.png" alt="javascript_prototype" />
+<p><br />
 （解释：在原型模式声明中，多了两个属性（__proto__    和constructor））,这两个属性都是创建对象时自动生成的，_proto_属性
  是实例指向原型对象的一个指针，它可以指向构造函数的原型属性constructor。constructor是原型的一个属性,可以得到构造函数，可被原型指针定位，然后得到构造函数本身，起到连接对象实例和对应原型对象的作用。</p>
 
@@ -657,8 +662,6 @@ alert(box1.run());
 <span class="nx">alert</span><span class="p">(</span><span class="nx">desk</span> <span class="k">instanceof</span> <span class="nx">Table</span><span class="p">);</span><span class="c1">//false</span>
 </code></pre>
 </div>
-<p><strong>原型链继承流程图：</strong>
-<img class="img-responsive center-block" src="http://localhost:4000/img/7.png" alt="javascript_prototype" /></p>
 
 <h2 id="2借用构造函数对象冒充"><strong>2.借用构造函数（对象冒充）：</strong></h2>
 <p>为了解决引用共享和超类无法传参的问题，可采用一种叫 借用构造函数的技术，或者称为对象冒充（伪造对象，经典继承）。</p>
@@ -795,7 +798,7 @@ alert(box1.run());
 </div>
 			</div>
 			﻿<div id="totoro_fixed" >
-	<a href="#"><img src="http://localhost:4000/img/totoro2.jpg" alt="" /></a>
+	<a href="#"><img src="http://localhost:4000/img/cattt.jpg" alt="" /></a>
 </div>
 <div id="right_sidebar"">
 	<div id ="sidebar_switch">
@@ -822,7 +825,7 @@ alert(box1.run());
 	</div>
 </div>
 			<div id="side_to_top">
-				<a href="#"><span class="fa fa-2x fa-arrow-up"></span></a>
+				<a href="#"><span class="fa fa-arrow-up"></span></a>
 			</div>
 			﻿<footer class="container">
 	<p>福建师范大学|软件工程专业|</p>
