@@ -177,6 +177,7 @@ body {
 	font-size:13px;
 }
 #content .article p strong {
+	font-weight:normal;
 	background-color:rgb(249, 242, 244);
 	color: #c7254e;
 }
@@ -360,7 +361,7 @@ body {
   transform: scaleX(1);
 }
 #content #title h3::before{
-	width:60%;
+	width:90%;
 }
 /*footer*/
 footer {
@@ -446,6 +447,9 @@ footer p {
 	}
 	#content .article h6{
 		font-size:16px;
+	}
+	#content #title h3::before{
+		width:60%;
 	}
 }
 
