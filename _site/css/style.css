@@ -153,7 +153,7 @@ body {
 	margin-top: 30px;
 	margin-bottom: 130px;
 }
-/*文章内容及标题部分*/
+/*文章内容及标题、重点部分*/
 #content .article {
 	font-size:12px;
 }
@@ -175,6 +175,10 @@ body {
 }
 #content .article h6{
 	font-size:13px;
+}
+#content .article p strong {
+	background-color:rgb(249, 242, 244);
+	color: #c7254e;
 }
 /*post content*/
 #content #post_info .article{

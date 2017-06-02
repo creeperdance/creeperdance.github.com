@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		 	﻿<meta charset="utf-8" />
+<title>  JavaScript  匿名函数与闭包 |  Creeperdance </title>
+
+<!-- 移动优先，自适应手机屏幕-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--解决bootstrap不支持IE兼容模式问题，为了让IE浏览器运行最新的渲染模式-->
+
+<!--引入bootstrap css文件-->
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/css/bootstrap.min.css" />
+<!--引入图标库-->
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"/>
+
+<!--引入css文件-->
+<link rel="stylesheet" href="http://localhost:4000/css/style.css" /></link>
+<!--引入jquery-->
+<script type="text/javascript" src="http://localhost:4000/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/index.js"></script>
+
+<link rel="stylesheet" href="http://localhost:4000/css/rouge.css" type="text/css"> 
+	</head>
+
+	<body>
+		<div id="main" class="container">
+			﻿<!--响应式导航栏-->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="nav_container">
+		<div class="navbar-header">
+			<a class="pull-left" href="#"><img src="http://localhost:4000/img/cat.png" alt="" /></a>
+			<header class="pull-left">
+				<h1>Creeperdance</h1>
+				<p> Still Bave , Still Young</p>
+			</header>
+			<button class="navbar-toggle pull-right" type="button" data-toggle="collapse" data-target="#myCollapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div id="myCollapse" class="collapse navbar-collapse ">
+			<ul class="nav navbar-nav navbar-right ">
+				<li>
+					<a href="http://localhost:4000/index.html"><span class="glyphicon  glyphicon-home"></span> &nbsp;&nbsp;Home</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/category.html"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> &nbsp;&nbsp;Category</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/about.html"><span class="glyphicon glyphicon-user"></span>  &nbsp;&nbsp;About</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/contact.html"><span class="glyphicon glyphicon-envelope"></span>  &nbsp;&nbsp;Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+			<div id="content" class="container">
+				 <div id="post_title">
+	  <h3>JavaScript  匿名函数与闭包</h3>
+</div>
+<div id="post_info">
+	<div class="post_about post_about_center">
+		<span class="fa fa-calendar-o"> <i id="mobile_hide">发表于</i>2017-06-02</span>|
+		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>javascript</span>
+	</div>
+	<div class="article">
+		<p>说明：匿名函数、闭包、创建闭包的常见方式、
+循环里包含匿名函数、关于this对象、内存泄漏
+匿名函数中的私有化…</p>
+
+<p><br /><br /></p>
+
+<ul id="markdown-toc">
+  <li><a href="#匿名函数" id="markdown-toc-匿名函数">匿名函数</a></li>
+  <li><a href="#闭包" id="markdown-toc-闭包">闭包</a>    <ul>
+      <li><a href="#创建闭包的常见方式" id="markdown-toc-创建闭包的常见方式">创建闭包的常见方式：</a></li>
+      <li><a href="#循环里包含匿名函数" id="markdown-toc-循环里包含匿名函数">循环里包含匿名函数</a></li>
+      <li><a href="#关于this对象" id="markdown-toc-关于this对象">关于this对象</a></li>
+      <li><a href="#内存泄漏" id="markdown-toc-内存泄漏">内存泄漏</a></li>
+      <li><a href="#匿名函数中的私有化" id="markdown-toc-匿名函数中的私有化">匿名函数中的私有化</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="匿名函数">匿名函数</h2>
+<p><strong>普通函数:</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="k">return</span> <span class="s1">'Lee'</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">());</span>
+</code></pre>
+</div>
+<p><strong>匿名函数：</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//单独的匿名函数  会报错    无法运行    也无法调用</span>
+<span class="c1">//function() {</span>
+<span class="c1">//	return 'Lee';</span>
+<span class="c1">//}</span>
+
+<span class="c1">//通过表达式的自我执行</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="s1">'Lee'</span><span class="p">);</span>
+<span class="p">})();</span>
+
+<span class="c1">//把匿名函数赋值给变量</span>
+<span class="kd">var</span> <span class="nx">cat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s1">'Lee'</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">cat</span><span class="p">());</span> <span class="c1">//调用</span>
+
+<span class="c1">//把匿名函数自我执行的返回值赋值给变量</span>
+<span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s1">'Lee'</span><span class="p">;</span>
+<span class="p">})();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">);</span>
+<span class="c1">//自我执行匿名函数的传参</span>
+<span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">num</span><span class="p">){</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+<span class="p">})(</span><span class="mi">100</span><span class="p">);</span>
+
+
+</code></pre>
+</div>
+
+<h2 id="闭包">闭包</h2>
+
+<p>闭包指有权访问另一个函数作用域里变量的函数
+<br /><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//函数里放一个匿名函数---闭包</span>
+<span class="kd">function</span> <span class="nx">box</span> <span class="p">(){</span>
+	<span class="k">return</span> <span class="kd">function</span><span class="p">(){</span>
+		<span class="k">return</span> <span class="s1">'Lee'</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">);</span>	<span class="c1">//function box(){return function(){return 'Lee'}}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">());</span><span class="c1">//function (){return 'Lee'}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">()());</span><span class="c1">//Lee</span>
+</code></pre>
+</div>
+
+<p><br /><br /></p>
+<h3 id="创建闭包的常见方式">创建闭包的常见方式：</h3>
+<p>在一个函数内部创建另一个函数，通过另一个函数访问这个函数的局部变量</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//通过全局变量来累加</span>
+<span class="kd">var</span> <span class="nx">age</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="nx">age</span><span class="o">++</span><span class="p">;</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="s2">"age:"</span><span class="o">+</span><span class="nx">age</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">box</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span><span class="c1">//101</span>
+<span class="c1">//通过闭包返回局部变量</span>
+<span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">age</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+	<span class="k">return</span> <span class="kd">function</span><span class="p">(){</span>
+		<span class="k">return</span> <span class="nx">age</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">()());</span>
+</code></pre>
+</div>
+<p>使用闭包的优点（缺点），可以把局部变量驻留在内存中，避免使用全局变量（全局变量污染导致应用程序不可预测性，每个模块都可调用容易发生错误，所以推荐使用私有的，封装的局部变量）</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//使用局部变量无法累加</span>
+<span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="nx">age</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+	<span class="nx">age</span><span class="o">++</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nx">age</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span><span class="c1">//100</span>
+<span class="nx">box</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span><span class="c1">//100</span>
+<span class="c1">//使用匿名函数实现局部变量驻留内存中，实现累加</span>
+<span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">age</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+	<span class="k">return</span> <span class="kd">function</span> <span class="p">(){</span>
+		<span class="nx">age</span><span class="o">++</span><span class="p">;</span>
+		<span class="k">return</span> <span class="nx">age</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">box</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">b</span><span class="p">());</span><span class="c1">//101</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">b</span><span class="p">());</span><span class="c1">//102</span>
+<span class="nx">b</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span><span class="c1">//接触引用，等待垃圾回收</span>
+</code></pre>
+</div>
+<p>由于闭包里作用域返回的局部变量资源不会被立刻撤销回收，所以可能会占用过多内存，过度使用将导致性能下降，建议在必要时才使用</p>
+
+<h3 id="循环里包含匿名函数">循环里包含匿名函数</h3>
+<p>作用域链的机制导致了一个问题，在循环里的匿名函数取得的任何变量都是最后一个值</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+			<span class="k">return</span> <span class="nx">i</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="c1">//循环已经执行完毕了，i最终为4++即5</span>
+	<span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">b</span><span class="o">=</span><span class="nx">box</span><span class="p">();</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">b</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">]());</span>
+<span class="p">}</span>
+<span class="c1">//5 5 5 5 5</span>
+<span class="c1">//解决方法，单纯得到0 1 2 3 4  ----&gt;无需使用匿名函数</span>
+<span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="nx">i</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">()[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="c1">//通过匿名函数及时自我执行</span>
+<span class="kd">function</span> <span class="nx">box</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nx">num</span><span class="p">;</span>
+		<span class="p">})(</span><span class="nx">i</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">box</span><span class="p">();</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+<span class="c1">//通过闭包可以将变量驻留内存中</span>
+<span class="kd">function</span> <span class="nx">box</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="kd">function</span><span class="p">(){</span>
+				<span class="k">return</span> <span class="nx">num</span><span class="p">;</span>
+			<span class="p">};</span>
+		<span class="p">})(</span><span class="nx">i</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">box</span><span class="p">();</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h3 id="关于this对象">关于this对象</h3>
+<p>this对象是在运行时基于函数的执行环境绑定的，如果this在全局范围就是window，如果是在对象内部，就指向这个对象，而闭包却是在运行时指向window的，因而<strong>闭包不属于这个对象的属性或方法。</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">user</span><span class="o">=</span><span class="s2">"The window"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">user</span><span class="p">:</span><span class="s1">'The box'</span><span class="p">,</span>
+	<span class="na">getUser</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span><span class="c1">//The window</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">getUser</span><span class="p">());</span><span class="c1">//The box</span>
+
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="s2">"The window"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">user</span><span class="p">:</span> <span class="s1">'The box'</span><span class="p">,</span>
+	<span class="na">getUser</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kd">function</span><span class="p">(){</span>
+			<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">getUser</span><span class="p">()());</span> <span class="c1">//The window</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">getUser</span><span class="p">().</span><span class="nx">call</span><span class="p">(</span><span class="nx">box</span><span class="p">));</span> <span class="c1">//The box</span>
+</code></pre>
+</div>
+
+<h3 id="内存泄漏">内存泄漏</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">oDiv</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'oDiv'</span><span class="p">);</span><span class="c1">//oDiv用完后一直存在内存中</span>
+	<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span><span class="nx">oDiv</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span>
+	<span class="nx">oDiv</span><span class="p">.</span><span class="nx">onclick</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+		<span class="nx">alert</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="nx">oDiv</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span><span class="c1">//解除引用，等待回收</span>
+<span class="p">}</span>
+<span class="nx">box</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<h3 id="匿名函数中的私有化">匿名函数中的私有化</h3>
+
+<p>封装细节，提高安全性和可控性,经常在全局作用域中被用于函数外部，从而限制向全局作用域中添加过多的变量和函数。
+在全局作用域中使用块级作用域可以减少闭包占用内存的问题，因为没有指向匿名函数的引用，只要函数执行完毕，就可以立即销毁其作用域链了。</p>
+
+<p><strong>模仿块级（私有）作用域：</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>  <span class="c1">//块级作用域(js无)</span>
+	<span class="p">}</span>
+	<span class="kd">var</span> <span class="nx">i</span> <span class="c1">//即便重新声明，也不会影响之前的值</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span><span class="c1">//5</span>
+<span class="p">}</span>
+<span class="nx">box</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p><br />
+javascript 不同于java,c等其他语言，它没有块级语句的作用域,它不会提醒你多次声明同一次变量.因此可通过模仿块级作用域解决该问题。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+		<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>  <span class="c1">//块级作用域(js无)</span>
+		<span class="p">}</span>
+	<span class="p">})();</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span><span class="c1">//报错</span>
+<span class="p">}</span>
+<span class="nx">box</span><span class="p">();</span>
+</code></pre>
+</div>
+<p><strong>私有作用域：</strong></p>
+
+<p><br /></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//全局变量</span>
+<span class="kd">var</span> <span class="nx">age</span><span class="p">;</span>
+<span class="nx">age</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="nx">age</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span>
+<span class="c1">//太繁琐，没有封装性</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+	<span class="c1">//这里就是全局的私有作用域</span>
+	<span class="kd">var</span> <span class="nx">age</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+<span class="p">})();</span>
+</code></pre>
+</div>
+
+<p><strong>私有变量</strong>
+javascript中没有私有属性的概念，所有的对象属性都是公有的，不过有私有变量的概念。
+任何在函数中定义的变量，都可以被认为是私有变量，因为不能在函数的外部访问这些变量。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">box</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">age</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span><span class="c1">//私有变量，外部无法访问</span>
+<span class="p">}</span>
+<span class="c1">//通过函数内部创建一个闭包，那么闭包通过自己的作用域链也可以访问这些变量，而利用这一点，也可以创建用于访问私有变量的共有方法</span>
+<span class="kd">function</span> <span class="nx">Box</span><span class="p">(){</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span><span class="c1">//共有属性，外部可直接访问</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">run</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="c1">//共有方法</span>
+			<span class="k">return</span> <span class="s1">'running...'</span><span class="p">;</span>
+		<span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span><span class="c1">//100</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">run</span><span class="p">());</span><span class="c1">//running</span>
+<span class="cm">/*
+function Box(){
+	var age=100;//私有变量
+	function run(){//私有方法
+		return "running...";
+	}
+}
+var box = new Box();
+alert(box.run());//报错
+*/</span>
+
+<span class="c1">//解决方法：</span>
+<span class="kd">function</span> <span class="nx">Box</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">age</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span><span class="c1">//私有变量</span>
+	<span class="kd">function</span> <span class="nx">run</span><span class="p">(){</span><span class="c1">//私有方法</span>
+		<span class="k">return</span> <span class="s2">"running..."</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">getRun</span><span class="o">=</span> <span class="kd">function</span><span class="p">(){</span><span class="c1">//对外可见的公共接口，特权方法</span>
+		<span class="k">return</span> <span class="nx">run</span><span class="p">();</span>
+	<span class="p">}</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">getAge</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+		<span class="k">return</span> <span class="nx">age</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">getRun</span><span class="p">());</span><span class="c1">//running</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">getAge</span><span class="p">());</span><span class="c1">//100</span>
+
+</code></pre>
+</div>
+
+<p><br /></p>
+
+<p><strong>通过构造函数传参</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span> <span class="c1">//私有变量</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">getUser</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">user</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">box1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">(</span><span class="s1">'Lee'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">getUser</span><span class="p">());</span><span class="c1">//Lee</span>
+<span class="kd">var</span> <span class="nx">box2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">(</span><span class="s1">'MJG'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box2</span><span class="p">.</span><span class="nx">getUser</span><span class="p">());</span><span class="c1">//MJG</span>
+<span class="c1">//没有共享</span>
+</code></pre>
+</div>
+
+<p><strong>静态私有变量</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//使用property导致方法共享，而user也变成了静态属性（共享于不同对象中的属性）</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">//私有变量</span>
+	<span class="nx">Box</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">user</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getUser</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">user</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setUser</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">user</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">})();</span>
+<span class="kd">var</span> <span class="nx">box1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">(</span><span class="s1">'Lee'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">getUser</span><span class="p">());</span><span class="c1">//Lee</span>
+<span class="kd">var</span> <span class="nx">box2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">(</span><span class="s1">'kkk'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">getUser</span><span class="p">());</span><span class="c1">//kkk</span>
+<span class="nx">box2</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="s1">'OOO'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">getUser</span><span class="p">());</span><span class="c1">//OOO</span>
+</code></pre>
+</div>
+
+<p><strong>模块模式</strong></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//单例：永远只实例化一次   -----&gt;字面量方式实例化对象</span>
+<span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">user</span><span class="o">=</span><span class="s1">'Lee'</span><span class="p">;</span><span class="c1">//私有变量</span>
+	<span class="kd">function</span> <span class="nx">run</span><span class="p">(){</span><span class="c1">//私有函数</span>
+		<span class="k">return</span> <span class="s2">" running..."</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="p">{</span><span class="c1">//直接返回一个对象</span>
+		<span class="na">publicGo</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+			<span class="k">return</span> <span class="nx">user</span><span class="o">+</span><span class="nx">run</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}();</span><span class="c1">//自我执行的函数</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">publicGo</span><span class="p">());</span><span class="c1">//Lee running</span>
+
+</code></pre>
+</div>
+<p><strong>增强的模块模式：</strong></p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Desk</span><span class="p">()</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="s1">'Lee'</span><span class="p">;</span>
+
+	<span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s1">' running'</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="kd">var</span> <span class="nx">desk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Desk</span><span class="p">();</span>
+	<span class="nx">desk</span><span class="p">.</span><span class="nx">publicGo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">user</span> <span class="o">+</span> <span class="nx">run</span><span class="p">();</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">desk</span><span class="p">;</span>
+<span class="p">}();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">publicGo</span><span class="p">());</span>
+</code></pre>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /></p>
+
+	</div>
+</div>
+			</div>
+			﻿<div id="totoro_fixed" >
+	<a href="#"><img src="http://localhost:4000/img/cat2.jpg" alt="" /></a>
+</div>
+<div id="right_sidebar"">
+	<div id ="sidebar_switch">
+		<a href="#" class="a_catelog">文章目录</a>
+		<a href="#" class ="a_bloginfo active">站点概要</a>
+	</div>
+	<div class="sidebar_index">
+		<img src="http://localhost:4000/img/header.jpg" class="img-circle"/>
+		<div id="sidebar_content">
+			<p>xuee Wei</p>
+			<span>You can't fly if you never try.</span>
+		</div>
+		<div id="sidebar_link">
+				<a href="https://github.com/creeperdance"><span class="fa fa-fw fa-github"></span> Github</a>
+				<a href="#"><span class="fa fa-fw fa-weibo"></span> Weibo</a>
+				<a href="#"><span class="fa fa-fw fa-wechat"></span> Wechat</a>
+		</div>
+	</div>
+	<div class = "sidebar_catelog">
+		
+	</div>
+	<div id = "sidebar_close">
+	    <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+	</div>
+</div>
+			<div id="side_to_top">
+				<a href="#"><span class="fa fa-arrow-up"></span></a>
+			</div>
+			﻿<footer class="container">
+	<p>福建师范大学|软件工程专业|</p>
+	<p>Copyright ? 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
+</footer>
+
+		</div>
+	</body>
+</html>
