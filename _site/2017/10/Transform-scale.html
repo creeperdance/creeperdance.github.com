@@ -3,7 +3,7 @@
 
 	<head>
 		 	<meta charset="utf-8" />
-<title>  分类：Categories |  Creeperdance </title>
+<title>  解决使用transform后导致的字体模糊问题。 |  Creeperdance </title>
 
 <!-- 移动优先，自适应手机屏幕-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,50 +61,42 @@
 	</div>
 </nav>
 			<div id="content" class="container">
-				 <ul class="list-category">
- 
-    <div class="list_category">
-	 <a name="essay"> <h2>essay(1)</h2> </a>
-    	  
- 		   <li><h4><span>2017 05 06</span> &raquo; <a href="/2017/05/my-first-post.html">My First Post</a></h4></li>
-	  
-    </div>
- 
-    <div class="list_category">
-	 <a name="javascript"> <h2>javascript(6)</h2> </a>
-    	  
- 		   <li><h4><span>2017 06 02</span> &raquo; <a href="/2017/06/Javascript-function.html">JavaScript  匿名函数与闭包</a></h4></li>
-	  
- 		   <li><h4><span>2017 05 24</span> &raquo; <a href="/2017/05/Javascript-Object.html">JavaScript 面向对象</a></h4></li>
-	  
- 		   <li><h4><span>2017 05 20</span> &raquo; <a href="/2017/05/Javascript-RegExp.html">JavaScript正则表达式</a></h4></li>
-	  
- 		   <li><h4><span>2017 05 19</span> &raquo; <a href="/2017/05/JavaScript-reference-types.html">JavaScript引用类型</a></h4></li>
-	  
- 		   <li><h4><span>2017 05 17</span> &raquo; <a href="/2017/05/JavaScript-types.html">JavaScript变量及作用域</a></h4></li>
-	  
- 		   <li><h4><span>2017 05 15</span> &raquo; <a href="/2017/05/JavaScript-the-Basics.html">JavaScript基础</a></h4></li>
-	  
-    </div>
- 
-    <div class="list_category">
-	 <a name="jekyll"> <h2>jekyll(2)</h2> </a>
-    	  
- 		   <li><h4><span>2017 05 23</span> &raquo; <a href="/2017/05/jekyll-catalog.html">jekyll - 侧边栏目录的滚动效果</a></h4></li>
-	  
- 		   <li><h4><span>2017 05 20</span> &raquo; <a href="/2017/05/jekyll-rouge.html">rouge语法高亮 — 错误及解决方案</a></h4></li>
-	  
-    </div>
- 
-    <div class="list_category">
-	 <a name="css3"> <h2>css3(1)</h2> </a>
-    	  
- 		   <li><h4><span>2017 10 31</span> &raquo; <a href="/2017/10/Transform-scale.html">解决使用transform后导致的字体模糊问题。</a></h4></li>
-	  
-    </div>
- 
+				 <div id="post_title">
+	  <h3>解决使用transform后导致的字体模糊问题。</h3>
+</div>
+<div id="post_info">
+	<div class="post_about post_about_center">
+		<span class="fa fa-calendar-o"> <i id="mobile_hide">发表于</i>2017-10-31</span>|
+		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>css3</span>
+	</div>
+	<div class="article">
+		<p>说明：如何解决使用transform值函数(如translate3d(), scale(), rotate()等)后，字体模糊/抖动？</p>
+
+<p><br /><br /></p>
+
+<ul id="markdown-toc">
+  <li><a href="#问题背景" id="markdown-toc-问题背景">问题背景</a></li>
+  <li><a href="#解决方法" id="markdown-toc-解决方法">解决方法</a></li>
 </ul>
 
+<h2 id="问题背景">问题背景</h2>
+<p><br />
+之前在写模态框组件时遇到一个问题（之前？好吧…因为很久没更博文了，此处蹲墙角三秒中…）：当加了缩放动画(transform:scale(1.185) )的模态框弹出时，模态框内的文字显示效果十分怪异，抖动/模糊，那么如何解决呢？</p>
+<h2 id="解决方法">解决方法</h2>
+
+<p><br /></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">transform</span><span class="p">:</span><span class="nx">perspective</span><span class="p">(</span><span class="mi">1</span><span class="nx">px</span><span class="p">)</span> <span class="nx">scale</span><span class="p">(</span><span class="mf">1.185</span><span class="p">)</span> <span class="p">;</span>
+</code></pre></div></div>
+<p><br />
+<br />
+<strong>参考自CSS-TRACKS：</strong>
+<br />
+<a href="https://css-tricks.com/forums/topic/transforms-cause-font-smoothing-weirdness-in-webkit/">https://css-tricks.com/forums/topic/transforms-cause-font-smoothing-weirdness-in-webkit/</a></p>
+
+<p><br /><br /><br /><br /><br /><br /></p>
+
+	</div>
+</div>
 			</div>
 			<div id="totoro_fixed" >
 	<a href="#"><img src="http://localhost:4000/img/cat2.jpg" alt="" /></a>

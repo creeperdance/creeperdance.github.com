@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		 	﻿<meta charset="utf-8" />
+		 	<meta charset="utf-8" />
 <title>  JavaScript基础 |  Creeperdance </title>
 
 <!-- 移动优先，自适应手机屏幕-->
@@ -27,7 +27,7 @@
 
 	<body>
 		<div id="main" class="container">
-			﻿<!--响应式导航栏-->
+			<!--响应式导航栏-->
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="nav_container">
 		<div class="navbar-header">
@@ -136,7 +136,7 @@
 <br /><br />
 <strong>&lt; body&gt; 中的 JavaScript:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;body&gt;</span>
 ...
@@ -146,12 +146,11 @@
 ...
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>&lt; head&gt; 中的 JavaScript ：</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 	<span class="nt">&lt;html&gt;</span>
 	<span class="nt">&lt;head&gt;</span>
 		<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
@@ -165,19 +164,17 @@
 		<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">onclick=</span><span class="s">"myFunction()"</span><span class="nt">&gt;</span>该按钮被点击后会调用myFuntion()函数<span class="nt">&lt;/button&gt;</span>
 	<span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>外部的 JavaScript：</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;body&gt;</span>
 	<span class="nt">&lt;script  </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"myScript.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /><br /><br /><br /><br /></p>
 
 <h2 id="第二章---javascript基本概念">第二章   Javascript基本概念</h2>
@@ -213,10 +210,9 @@ function myFunction(a, b) { return a * b;}
 3.JavaScript 使用关键字 var 来定义变量， 使用等号来为变量赋值，用var操作符定义的变量将成为定义该变量的作用域中的局部变量。即如果在函数中使用var
 定义一个变量，那么该变量在函数退出后就会销毁。（省略var操作符定义的变量为全局变量，最后不要在局部作用域中定义全局变量-&gt;难以维护）。</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span>  <span class="nx">length</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span>  <span class="nx">length</span><span class="p">;</span>
 <span class="nx">length</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>变量可以通过变量名访问。在指令式语言中，变量通常是可变的。字面量是一个恒定的值。
 <strong>注意：</strong>
 变量必须以字母开头
@@ -259,7 +255,7 @@ finally、new、true、const、with、default、for、null和try。
 <p><br /><br /></p>
 <h3 id="一元操作符">一元操作符<br /></h3>
 <h4 id="1递增递减操作符">1.递增、递减操作符:<br /></h4>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//前置型递增/递减操作符：借鉴C,变量的值在语句求值前改变</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//前置型递增/递减操作符：借鉴C,变量的值在语句求值前改变</span>
 	<span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">otherage</span> <span class="o">=</span> <span class="o">--</span><span class="nx">age</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>			<span class="c1">//28</span>
@@ -284,8 +280,7 @@ finally、new、true、const、with、default、for、null和try。
 	<span class="nx">b</span><span class="o">++</span><span class="p">;</span>	<span class="c1">//值变成数值1</span>
 	<span class="nx">f</span><span class="o">--</span><span class="p">;</span>	<span class="c1">//值变成0.10000000000000009(浮点数舍入错误)</span>
 	<span class="nx">o</span><span class="o">--</span><span class="p">;</span>	<span class="c1">//值变成-2</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="2一元加和减操作符">2.一元加和减操作符：<br /></h4>
 <p>一元加(+)放在数值前，不对数值产生影响，应用非数值前则像Number()转型函数一样进行值转换.<br />
@@ -296,67 +291,60 @@ finally、new、true、const、with、default、for、null和try。
 <p>ECMAScript中所有数值都以IEEE-754 64位格式存储，位操作符则将64位值转为32位整数再执行操作，最后将结果换位64位.<br /></p>
 <h4 id="1按位非">1.按位非(~):<br /></h4>
 <p>返回数值的反码  (本质： 操作数的负值-1)<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="o">~</span><span class="nx">num</span><span class="p">);</span> <span class="c1">//-26</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="2按位与">2.按位与(&amp;)：<br /></h4>
 <p>有两位操作符数，结果：为其每位对齐，对相同位置上的对应数作AND操作，得到的值.<br />
 只在两个数值对应位都为1时才返回1，任何一位为0，结果都是0.<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">&amp;</span> <span class="mi">3</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">&amp;</span> <span class="mi">3</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span> <span class="c1">//1</span>
 	<span class="c1">//0 0 0 1  1 0 0 1</span>
 	<span class="c1">//0 0 0 0  0 0 1 1</span>
 	<span class="c1">//0 0 0 0  0 0 0 1</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="3按位或">3.按位或(|)：<br /></h4>
 <p>有两位操作符数，结果：为其每位对齐，对相同位置上的对应数作OR操作，得到的值.<br />
 只在两个数值对应位都为0时才返回0，任何一位为1，结果都是1.<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">&amp;</span> <span class="mi">3</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">&amp;</span> <span class="mi">3</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span> <span class="c1">//27</span>
 	<span class="c1">//0 0 0 1  1 0 0 1</span>
 	<span class="c1">//0 0 0 0  0 0 1 1</span>
 	<span class="c1">//0 0 0 1  1 0 1 1</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="4按位异或">4.按位异或(^)：<br /></h4>
 <p>有两位操作符数，结果：为其每位对齐，对相同位置上的对应数作XOR操作，得到的值.<br />
 只在两个数值对应位都是0或都是1返回0，一个1一个0才返回1.<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">&amp;</span> <span class="mi">3</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">&amp;</span> <span class="mi">3</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span> <span class="c1">//26</span>
 	<span class="c1">//0 0 0 1  1 0 0 1</span>
 	<span class="c1">//0 0 0 0  0 0 1 1</span>
 	<span class="c1">//0 0 0 1  1 0 1 0</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="5左移-">5.左移(&lt; &lt;)：<br /></h4>
 <p>将所有数值向左移动指定位数,原数值右侧多出的空位补0.<br />
 相当于原数值乘以2的x次方,x为要移动的指定位数.<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">num</span><span class="o">&lt;&lt;</span><span class="mi">5</span><span class="p">);</span> <span class="c1">//26,相当于num*2^5</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="5有符号右移-">5.有符号右移(&gt; &gt;)：<br /></h4>
 <p>将所有数值向右移动指定位数,原数值左侧多出的空位补0.<br />
 相当于原数值除以2的x次方,x为要移动的指定位数.<br />
 对于<strong>有符号的右移</strong>：会保留隐藏的符号位(不改变符号位)<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">num</span><span class="o">&gt;&gt;</span><span class="mi">5</span><span class="p">);</span> <span class="c1">//2,相当于num/(2^5)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="6无符号右移--">6.无符号右移(&gt; &gt; &gt;)：<br /></h4>
 <p>而对于<strong>无符号的右移</strong>而言：正数同有符号右移结果相同，符号的话，右移结果会变得相当大(右移时左侧补0)<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">64</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">64</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">num</span><span class="o">&gt;&gt;&gt;</span><span class="mi">5</span><span class="p">);</span> <span class="c1">//134217726</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /><br /></p>
 
 <h3 id="布尔操作符">布尔操作符<br /></h3>
@@ -380,7 +368,7 @@ finally、new、true、const、with、default、for、null和try。
 
 <h3 id="算数操作符符-">算数操作符符 <br /></h3>
 <p>＋   -    *  	  /	%	++	–</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//注意点如下：</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//注意点如下：</span>
 	<span class="c1">//忽略加法操作中的数据类型(若想对数值执行算术计算，可使用圆括号)</span>
 	<span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">num2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
@@ -392,15 +380,14 @@ finally、new、true、const、with、default、for、null和try。
 	<span class="kd">var</span> <span class="nx">result3</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="s2">""</span><span class="p">;</span>		<span class="c1">//5</span>
 	<span class="kd">var</span> <span class="nx">result4</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="s2">"3"</span><span class="p">;</span>		<span class="c1">//2</span>
 	<span class="kd">var</span> <span class="nx">result5</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="kc">null</span><span class="p">;</span>	<span class="c1">//5</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h3 id="比较操作符-">比较操作符 <br /></h3>
 <p><strong>相等、全等:</strong><br />
 相等：转换成相似类型,再比较;<br />
 ==	  等于	<br />
 !=	 不等于	<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//特殊情况：</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//特殊情况：</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>	<span class="c1">//true, null和undefined是相等的</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="s2">"NaN"</span> <span class="o">==</span> <span class="kc">NaN</span><span class="p">);</span>		<span class="c1">//false,NaN和任何操作数比较都不相等(包括NaN自身)</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="kc">NaN</span> <span class="o">==</span> <span class="kc">NaN</span><span class="p">);</span>			<span class="c1">//false</span>
@@ -409,16 +396,14 @@ finally、new、true、const、with、default、for、null和try。
 	<span class="nx">alert</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>		<span class="c1">//true</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>			<span class="c1">//false</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="s2">"5"</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>			<span class="c1">//true</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>相等和不相等操作符存在类型转换问题，建议使用全等。<br />
 全等：不转换，直接进行比较。<br />
 ===	    绝对等于（值和类型均相等）<br />	
 !==	 不绝对等于（值和类型有一个不相等，或两个都不相等）	<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="nx">alert</span><span class="p">(</span><span class="s2">"5"</span> <span class="o">===</span> <span class="mi">5</span><span class="p">);</span>	<span class="c1">//false;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nx">alert</span><span class="p">(</span><span class="s2">"5"</span> <span class="o">===</span> <span class="mi">5</span><span class="p">);</span>	<span class="c1">//false;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="kc">null</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">);</span>  <span class="c1">//false;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>其他:</strong>
 <br />
@@ -428,15 +413,14 @@ finally、new、true、const、with、default、for、null和try。
  &lt;=    小于或等于 <br /></p>
 
 <p><br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//注意点如下:</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//注意点如下:</span>
 	<span class="c1">//两个操作符都为数值，直接比较;都为字符串，比较字符编码值。</span>
 	<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="s2">"23"</span> <span class="o">&lt;</span> <span class="s2">"3"</span><span class="p">;</span>	<span class="c1">//true </span>
 	<span class="c1">//如果一个为数值，则将另一操作符转为数值再比较，如果为布尔值，先转为数值再比较。</span>
 	<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="s2">"23"</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span>		<span class="c1">//false,字符串被转为数值23 </span>
 	<span class="c1">//任何数与NaN比较,都为false</span>
 	<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="s2">"a"</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">//false (NaN &lt; 3)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /></p>
 <h3 id="赋值操作符-">赋值操作符 <br /></h3>
 <p>=    +=     -=      *=  	  /=	 %=	<br />
@@ -470,7 +454,7 @@ ECMAScript变量是松散类型的，需要提供检测给定变量数据类型�
 “function”     -&gt;      该值为函数。<br />
 <br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="k">typeof</span> <span class="s2">"John"</span>                <span class="c1">// 返回 string </span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">typeof</span> <span class="s2">"John"</span>                <span class="c1">// 返回 string </span>
 	<span class="k">typeof</span> <span class="mf">3.14</span>                  <span class="c1">// 返回 number</span>
 	<span class="k">typeof</span> <span class="kc">false</span>                 <span class="c1">// 返回 boolean</span>
 	<span class="k">typeof</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>             <span class="c1">// 返回 object，数组是一种特殊的对象类型</span>
@@ -480,28 +464,25 @@ ECMAScript变量是松散类型的，需要提供检测给定变量数据类型�
 	<span class="nx">alert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">x</span><span class="p">);</span>   <span class="c1">//"undefined"</span>
 	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span> 
 	<span class="nx">alert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">x</span><span class="p">)</span>    <span class="c1">//"object"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br />
 <strong>JavaScript 拥有动态数据类型</strong>,即相同的变量可用作不同的类型</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>        <span class="c1">// x 为 undefined</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>        <span class="c1">// x 为 undefined</span>
 	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>    <span class="c1">// 现在 x 为数字</span>
 	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="s2">"hi"</span><span class="p">;</span> <span class="c1">// 现在 x 为字符串</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /><br /></p>
 <h3 id="1undefined类型">1.Undefined类型:<br /></h3>
 <p>Undefined 只有一个值，特殊的值undefined,这个值表示变量不含有值,使用var声明变量但未初始化，其变量值就是undefined。<br />
 Undefined典型应用：变量声明但未赋值、调用函数应提供参数却未提供、对象中未赋值的属性、函数无返回值默认返回undefined。<br /></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>	var x;        
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	var x;        
 	alert(x == undefined);  //true
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br />
 对typeof操作符而言，声明了变量，但未初始化 与为声明变量 返回的结果都为”undefined”<br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//undefined</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//undefined</span>
 	<span class="kd">var</span> <span class="nx">cars</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">cars</span> <span class="o">==</span> <span class="s2">"undefined"</span><span class="p">);</span> <span class="c1">//true</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="c1">//报错</span>
@@ -516,20 +497,18 @@ Undefined典型应用：变量声明但未赋值、调用函数应提供参数�
 
 	<span class="nx">alert</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="c1">//true,undefined派生自null</span>
  
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 
 <h3 id="2-null类型">2. Null类型:<br /></h3>
 <p>Null 只有一个值，特殊的值null，null值表示一个空对象指针（所以typeof检测null返回”object”）.<br />
 undefined值派生自null值，因而其相等性测试返回true.<br />
 null典型应用：作为函数的参数，表示该函数的参数不是对象，作为对象原型链的终点。<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span>        
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span>        
 	<span class="nx">alert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">x</span><span class="p">);</span>  <span class="c1">//"object"</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>  <span class="c1">//true</span>
 	<span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// null,作为原型链终点</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>可以通过将变量的值设置为 null 来清空变量。</p>
 
 <p><br /><br /></p>
@@ -541,39 +520,35 @@ null典型应用：作为函数的参数，表示该函数的参数不是对象�
 个数据类型转换为Boolean类型为false的值：<br />
 String(空字符串””),Number(0和NaN,不包括无穷大),
 Object(null),Undefined(undefined).<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="s2">"hello"</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">mBoolean</span> <span class="o">=</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><br /><br /></p>
 
 <h3 id="4number类型">4.Number类型：<br /></h3>
 <p>JavaScript 只有一种数字类型Number,使用IEEE754标准中的双精度浮点数,不区分整数和浮点数，数字可以带小数点，也可以不带。<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">x1</span><span class="o">=</span><span class="mf">34.00</span><span class="p">;</span>      <span class="c1">//使用小数点来写</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">x1</span><span class="o">=</span><span class="mf">34.00</span><span class="p">;</span>      <span class="c1">//使用小数点来写</span>
 	<span class="kd">var</span> <span class="nx">x2</span><span class="o">=</span><span class="mi">34</span><span class="p">;</span>         <span class="c1">//不使用小数点来写</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br />进制：<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>  <span class="c1">//十进制</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>  <span class="c1">//十进制</span>
 	<span class="kd">var</span> <span class="nx">num2</span> <span class="o">=</span> <span class="mi">070</span>  <span class="c1">//八进制，第一位必须为0，后面位0-7的数字序列</span>
 	<span class="kd">var</span> <span class="nx">num3</span> <span class="o">=</span> <span class="mi">079</span>  <span class="c1">//无效八进制，超出范围，解析为十进制</span>
 	<span class="kd">var</span> <span class="nx">num4</span> <span class="o">=</span> <span class="mh">0xA</span><span class="p">;</span> <span class="c1">//十六进制10，前两位必须为0x,后跟十六进制数字(0-9和A-F)A-F可大小写。</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br />浮点数值：<br /><br />
 保存浮点数值需要的内存空间是保存整数的两倍，ECMAScript会不失时机地将浮点数值转为整数值.<br />
 用e表示法表示的数值等于e前面的数值乘以10的指数次幂。<br />
 浮点数值的最高精度是17位小数，在算术计算时精确度远不如整数。【不要测试某个特定的浮点数值】<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//极大或极小的数字可通过科学（指数）计数法写</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//极大或极小的数字可通过科学（指数）计数法写</span>
 	<span class="kd">var</span> <span class="nx">y</span><span class="o">=</span><span class="mi">123</span><span class="nx">e5</span><span class="p">;</span>       <span class="c1">//12300000</span>
 	<span class="kd">var</span> <span class="nx">z</span><span class="o">=</span><span class="mi">123</span><span class="nx">e</span><span class="o">-</span><span class="mi">5</span><span class="p">;</span>      <span class="c1">//0.00123</span>
 	<span class="c1">//精度丢失	</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span>  <span class="c1">//false,0.1+0.2结果为0.30000000000000004</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br />
 数值范围：
 <br /><br />
@@ -582,10 +557,9 @@ Number.MAX_VALUE
 (1.7976931348623157e+308).
 超出为特殊的Infinity值<br />
 判断一个数值是否有穷：isFinite()函数.<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_VALUE</span> <span class="o">+</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_VALUE</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_VALUE</span> <span class="o">+</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_VALUE</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nb">isFinite</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span>   <span class="c1">//false;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br />
 NaN (Not a Number):<br />
     一个特殊的数值,表示一个本来要返回数值的操作数未返回数值的情况(数值除以非数值不报错-&gt;返回NaN).<br />
@@ -603,12 +577,11 @@ string: <br />
     字符串为空,返回0;<br />
     包含有效的十六进制，转换为相同大小的10进制.<br />
     除了上述格式，返回NaN. <br /><br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="s2">"hello world!"</span><span class="p">);</span> <span class="c1">//NaN</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="s2">"hello world!"</span><span class="p">);</span> <span class="c1">//NaN</span>
 	<span class="kd">var</span> <span class="nx">num2</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span> <span class="c1">//0</span>
 	<span class="kd">var</span> <span class="nx">num3</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="s2">"0000011"</span><span class="p">);</span> <span class="c1">//11</span>
 	<span class="kd">var</span> <span class="nx">num4</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>         <span class="c1">//1</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>parseInt()：(在转换字符串上更合理).<br />
     忽略字符串前面的空格，直至第一个非空字符,第一个字符不是数字字符或符号，parseInt()就会返回NaN;<br />
     如果第一个字符是数字字符或符号，会继续解析至非数字字符;<br />
@@ -616,7 +589,7 @@ string: <br />
     字符串为空，返回NaN;<br />
     第二个参数，转换时使用的基数（进制）。
 <br /><br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"1234blue"</span><span class="p">);</span> <span class="c1">//1234</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"1234blue"</span><span class="p">);</span> <span class="c1">//1234</span>
 	<span class="kd">var</span> <span class="nx">num2</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span> <span class="c1">//NaN</span>
 	<span class="kd">var</span> <span class="nx">num3</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"0xA"</span><span class="p">);</span> <span class="c1">//10（十六进制数）</span>
 	<span class="kd">var</span> <span class="nx">num4</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"22.5"</span><span class="p">);</span> <span class="c1">//22</span>
@@ -625,8 +598,7 @@ string: <br />
 	<span class="kd">var</span> <span class="nx">num7</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"0xf"</span><span class="p">);</span> <span class="c1">//15（十六进制数）</span>
 	<span class="kd">var</span> <span class="nx">num8</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"AF"</span><span class="p">);</span><span class="c1">//NaN</span>
 	<span class="kd">var</span> <span class="nx">num8</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"AF"</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span> <span class="c1">//175</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br />
 parseFloat():<br />
     第一个小数点有效，第二个小数点无效;<br />
@@ -647,7 +619,7 @@ ECMAScript中的字符串不可变，一旦创建，其值不可变。若要更�
     使用转型函数String(),适用所有值,null-&gt;”null”,undefined-&gt;”undefined”,其他-&gt;调用toString() <br />
     使用加法操作符,把它与”“加在一起<br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="s2">" hello "</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="s2">" hello "</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">b</span><span class="o">=</span><span class="s2">" my name is 'Lee XX' "</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="s1">' your name is "KangKang" '</span><span class="p">;</span>
 	
@@ -666,8 +638,7 @@ ECMAScript中的字符串不可变，一旦创建，其值不可变。若要更�
 	
 	<span class="nx">alert</span><span class="p">(</span><span class="k">typeof</span> <span class="p">(</span><span class="nx">value1</span><span class="o">+</span><span class="s2">""</span><span class="p">));</span>  <span class="c1">//"string"  </span>
 	
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /><br /></p>
 
 <h3 id="6object类型">6.Object类型:<br /></h3>
@@ -675,9 +646,8 @@ ECMAScript中的字符串不可变，一旦创建，其值不可变。若要更�
     Object类型是所有它的实例的基础，Object是所有对象的基础;<br />
     Object的每个实例都有下列属性和方法，因此所有对象都具有这些基本属性和方法<br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span><span class="c1">//不给构造函数传参可省略(),不推荐	</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span><span class="c1">//不给构造函数传参可省略(),不推荐	</span>
+</code></pre></div></div>
 <p><strong>Object实例都具有的属性和方法:</strong><br />
 constructor  	 					-&gt;  保存创建当前对象的函数(构造函数).<br />
 hasOwnProperty(propertyName)    	-&gt;  检查给定的属性在当前对象实例中(而非实例原型)是否存在.<br />
@@ -693,7 +663,7 @@ valueOf()							-&gt;  返回对象的字符串、数值、布尔值表示.<br /
 <p><br /><br />
 <strong>if else 语句:</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="k">if</span> <span class="p">(</span><span class="cm">/*condition1*/</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">if</span> <span class="p">(</span><span class="cm">/*condition1*/</span><span class="p">)</span>
 	<span class="p">{</span>
 		<span class="c1">//当条件 1 为 true 时执行的代码</span>
 	<span class="p">}</span>
@@ -705,28 +675,26 @@ valueOf()							-&gt;  返回对象的字符串、数值、布尔值表示.<br /
 	<span class="p">{</span>
 		<span class="c1">//当条件 1 和 条件 2 都不为 true 时执行的代码</span>
 	<span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>switch语句</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="k">switch</span><span class="p">(</span><span class="cm">/*n*/</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">switch</span><span class="p">(</span><span class="cm">/*n*/</span><span class="p">)</span>
 	<span class="p">{</span>
-		<span class="k">case</span> <span class="mi">1</span><span class="err">:</span>
+		<span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
 			<span class="c1">//执行代码块 1</span>
 			<span class="k">break</span><span class="p">;</span>
-		<span class="k">case</span> <span class="mi">2</span><span class="err">:</span>
+		<span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
 			<span class="c1">//执行代码块 2</span>
 			<span class="k">break</span><span class="p">;</span>
 		<span class="nl">default</span><span class="p">:</span>
 			<span class="c1">//与 case 1 和 case 2 不同时执行的代码</span>
 	<span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>for 循环</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//方式1：</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//方式1：</span>
 	<span class="k">for</span> <span class="p">(</span><span class="cm">/*语句 1*/</span><span class="p">;</span> <span class="cm">/*语句 2*/</span><span class="p">;</span> <span class="cm">/*语句 3*/</span><span class="p">)</span>
 	<span class="p">{</span>
 		<span class="c1">//被执行的代码块</span>
@@ -738,12 +706,11 @@ valueOf()							-&gt;  返回对象的字符串、数值、布尔值表示.<br /
 	<span class="p">{</span>
 		<span class="nx">txt</span><span class="o">=</span><span class="nx">txt</span> <span class="o">+</span> <span class="nx">person</span><span class="p">[</span><span class="nx">x</span><span class="p">];</span>
 	<span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>while循环</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="k">while</span> <span class="p">(</span><span class="cm">/*条件*/</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">while</span> <span class="p">(</span><span class="cm">/*条件*/</span><span class="p">)</span>
 	<span class="p">{</span>
 		<span class="c1">//需要执行的代码</span>
 	<span class="p">}</span>
@@ -755,14 +722,13 @@ valueOf()							-&gt;  返回对象的字符串、数值、布尔值表示.<br /
 		<span class="c1">//需要执行的代码</span>
 	<span class="p">}</span>
 	<span class="k">while</span> <span class="p">(</span><span class="cm">/*条件*/</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>break  continue 语句</strong><br />
 break 语句可用于跳出循环。
 continue 语句跳出循环后，会继续执行该循环之后的代码</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//break</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//break</span>
 	<span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
 	<span class="p">{</span>
 		<span class="k">if</span> <span class="p">(</span><span class="nx">i</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span>  <span class="k">break</span><span class="p">;</span>
@@ -774,46 +740,41 @@ continue 语句跳出循环后，会继续执行该循环之后的代码</p>
 		<span class="k">if</span> <span class="p">(</span><span class="nx">i</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span>  <span class="k">continue</span><span class="p">;</span>
 		<span class="nx">x</span><span class="o">=</span><span class="nx">x</span> <span class="o">+</span> <span class="s2">"The number is "</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
 	<span class="p">}</span><span class="c1">//跳过i==3,循环体继续执行</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>实现label 标签跳出循环</strong>
  label标签可是任意名称（非关键字保留字）</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="nx">bk</span><span class="err">:</span><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nx">bk</span><span class="p">:</span><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
 		<span class="k">for</span><span class="p">(</span><span class="nx">varj</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">j</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="nx">j</span><span class="o">++</span><span class="p">){</span>
 				<span class="k">if</span><span class="p">(</span><span class="nx">i</span><span class="o">===</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="nx">j</span><span class="o">===</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span> <span class="nx">bk</span><span class="p">;</span>
 				<span class="k">else</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"i:"</span><span class="o">+</span><span class="nx">i</span><span class="o">+</span><span class="s2">"--j:"</span><span class="o">+</span><span class="nx">j</span><span class="p">);</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>运行结果：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	1 i:0--j:0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	1 i:0--j:0
 	2 i:0--j:1
 	3 i:0--j:2
 	4 i:0--j:3
 	5 i:1--j:0
 	//成功跳出外层循环
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br />
 <strong>with语句</strong><br />
 作用：将代码的作用域设置到一个特定对象中,简化多次编写同一个对象的工作<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">qs</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">qs</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 	<span class="kd">var</span> <span class="nx">hostName</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">hostname</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>使用with语句:<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">with</span><span class="p">(</span><span class="nx">location</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">with</span><span class="p">(</span><span class="nx">location</span><span class="p">){</span>
 		<span class="kd">var</span> <span class="nx">qs</span> <span class="o">=</span> <span class="nx">search</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 		<span class="kd">var</span> <span class="nx">hostName</span> <span class="o">=</span> <span class="nx">hostname</span><span class="p">;</span>
 		<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">href</span><span class="p">;</span>
 	<span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>with语句在严格模式下视为语法错误,大量使用with会造成性能下降，调试错误，不建议使用<br /></p>
 
 <p><br /><br /><br /><br /><br /><br /></p>
@@ -828,7 +789,7 @@ trycatch 语句在javascript中是成对出现的
 <strong>throw：</strong> 
 JavaScript 将抛出一个错误。（当错误发生时，当事情出问题时，JavaScript 引擎通常会停止，并生成一个错误消息）</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="k">try</span>
   <span class="p">{</span> 
@@ -844,13 +805,12 @@ JavaScript 将抛出一个错误。（当错误发生时，当事情出问题时
     <span class="nx">y</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">"错误："</span> <span class="o">+</span> <span class="nx">err</span> <span class="o">+</span> <span class="s2">"。"</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 	</div>
 </div>
 			</div>
-			﻿<div id="totoro_fixed" >
+			<div id="totoro_fixed" >
 	<a href="#"><img src="http://localhost:4000/img/cat2.jpg" alt="" /></a>
 </div>
 <div id="right_sidebar"">
@@ -880,7 +840,7 @@ JavaScript 将抛出一个错误。（当错误发生时，当事情出问题时
 			<div id="side_to_top">
 				<a href="#"><span class="fa fa-arrow-up"></span></a>
 			</div>
-			﻿<footer class="container">
+			<footer class="container">
 	<p>福建师范大学|软件工程专业|</p>
 	<p>Copyright ? 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
 </footer>

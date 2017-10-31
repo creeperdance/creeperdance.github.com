@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		 	﻿<meta charset="utf-8" />
+		 	<meta charset="utf-8" />
 <title>  rouge语法高亮 — 错误及解决方案 |  Creeperdance </title>
 
 <!-- 移动优先，自适应手机屏幕-->
@@ -27,7 +27,7 @@
 
 	<body>
 		<div id="main" class="container">
-			﻿<!--响应式导航栏-->
+			<!--响应式导航栏-->
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="nav_container">
 		<div class="navbar-header">
@@ -90,23 +90,20 @@
 
 <h4 id="1安装rouge"><strong>1.安装rouge</strong><br /><br /></h4>
 <p>使用gem安装rouge、kramdown<br /><br /></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>	gem install kramdown
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	gem install kramdown
 	gem install rouge
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="2配置_configyml文件"><strong>2.配置_config.yml文件</strong><br /><br /></h4>
 <p>在_config.yml文件中添加如下代码：<br /></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>	highlighter: rouge
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	highlighter: rouge
 	markdown: kramdown
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="3生成rouge-css"><strong>3.生成rouge css</strong><br /><br /></h4>
 <p>安装rouge 后，就可以用附带的 rougify 工具来生成多种高亮主题的CSS文件，个人比较喜欢monokai.sublime 主题.<br /></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>	rougify style monokai.sublime &gt; rouge_monokai.css
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	rougify style monokai.sublime &gt; rouge_monokai.css
+</code></pre></div></div>
 <p><br />
 ok…问题来了…报错如下：<br /><br />
 “unsupported signal SIGPIPE (ArgumentError)”<br /><br /><br />
@@ -119,7 +116,7 @@ ok…问题来了…报错如下：<br /><br />
 (C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems
 \rouge-2.0.7\bin\rougify)<br />
 文件内容如下：<br /><br /></p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">#!/usr/bin/env ruby</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env ruby</span>
 
 <span class="nb">require</span> <span class="s1">'pathname'</span>
 <span class="no">ROOT_DIR</span> <span class="o">=</span> <span class="no">Pathname</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="kp">__FILE__</span><span class="p">).</span><span class="nf">dirname</span><span class="p">.</span><span class="nf">parent</span>
@@ -137,12 +134,11 @@ ok…问题来了…报错如下：<br /><br />
   <span class="vg">$stderr</span><span class="p">.</span><span class="nf">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">rouge: interrupted"</span>
   <span class="nb">exit</span> <span class="mi">2</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br />
 ok…修改文件内容,得到如下结果：
 <br /><br /></p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">#!/usr/bin/env ruby</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env ruby</span>
 
 <span class="nb">require</span> <span class="s1">'pathname'</span>
 <span class="no">ROOT_DIR</span> <span class="o">=</span> <span class="no">Pathname</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="kp">__FILE__</span><span class="p">).</span><span class="nf">dirname</span><span class="p">.</span><span class="nf">parent</span>
@@ -163,36 +159,32 @@ ok…修改文件内容,得到如下结果：
   <span class="nb">exit</span> <span class="mi">2</span>
 <span class="k">end</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><br /><br />
 检验解决方案是否有效,重试上述rougify…很好…问题解决!在当前路径生成rouge_monikai.css文件<br /></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>	rougify style monokai.sublime &gt; rouge_monokai.css
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	rougify style monokai.sublime &gt; rouge_monokai.css
+</code></pre></div></div>
 <p><br /><br /></p>
 <h4 id="4使用rouge"><strong>4.使用rouge</strong><br /><br /></h4>
 <p>将上述生成的rouge_monokai.css文件拷到css目录下,在HTML代码的&lt;head&gt;标签内加载之…<br /></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>	&lt;link rel="stylesheet" href="http://localhost:4000/css/rouge_monikai.css" type="text/css"&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	&lt;link rel="stylesheet" href="http://localhost:4000/css/rouge_monikai.css" type="text/css"&gt;
+</code></pre></div></div>
 
 <p><br /><br /></p>
 <h4 id="5修改rouge"><strong>5.修改rouge</strong><br /><br /></h4>
 <p>well…满心欢喜,jekyll serve后查看结果…sadly~~显示效果为：浅色背景+浅色字体！！？<br />
 解决方案如下：<br />
 在上述rouge_monikai.css中添加如下代码：<br /></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>pre[class='highlight'] {background-color:#000000;}
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pre[class='highlight'] {background-color:#000000;}
+</code></pre></div></div>
 <p>将背景颜色改为黑色,finally…使用rouge语法高亮完结。
 <br /><br /><br /><br /></p>
 
 	</div>
 </div>
 			</div>
-			﻿<div id="totoro_fixed" >
+			<div id="totoro_fixed" >
 	<a href="#"><img src="http://localhost:4000/img/cat2.jpg" alt="" /></a>
 </div>
 <div id="right_sidebar"">
@@ -222,7 +214,7 @@ ok…修改文件内容,得到如下结果：
 			<div id="side_to_top">
 				<a href="#"><span class="fa fa-arrow-up"></span></a>
 			</div>
-			﻿<footer class="container">
+			<footer class="container">
 	<p>福建师范大学|软件工程专业|</p>
 	<p>Copyright ? 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
 </footer>

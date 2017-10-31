@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		 	﻿<meta charset="utf-8" />
+		 	<meta charset="utf-8" />
 <title>  JavaScript变量及作用域 |  Creeperdance </title>
 
 <!-- 移动优先，自适应手机屏幕-->
@@ -27,7 +27,7 @@
 
 	<body>
 		<div id="main" class="container">
-			﻿<!--响应式导航栏-->
+			<!--响应式导航栏-->
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="nav_container">
 		<div class="navbar-header">
@@ -110,7 +110,7 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 <br />
 引用类型：<br />
 若变量A要复制变量B的引用类型的值，也会把存储在变量A中的值赋值给变量B,但由于存放在变量处的是一个指向对象内存地址的指针，所以它们操作的其实是同一个对象。<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//基本类型值的复制</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//基本类型值的复制</span>
 	<span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">num2</span> <span class="o">=</span> <span class="nx">num1</span><span class="p">;</span>
 	<span class="nx">num1</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
@@ -120,8 +120,7 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 	<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nx">obj1</span><span class="p">;</span>
 	<span class="nx">obj1</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Nicholas"</span><span class="p">;</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>    <span class="c1">//"Nicholas"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>可参考下图：
 <br /><br />
 <img class="img-responsive center-block" src="http://localhost:4000/img/2.png" alt="" style="border:1px solid #000;" />
@@ -130,7 +129,7 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 <p>ECMAScript中所有函数的参数都是按值传递的。但基本类型和引用类型在传参时还是有差别。其主要原因主要是上述讲到的内存分配不同导致的。<br />
 对于基本类型的值传递还是一样,独立各不影响。<br />
 对于引用类型：引用类型变量存放的值仍是其对象在堆内存中的内存地址，因此它传递的值也就是这个内存地址，因此若在函数内部修改了该参数，也会体现在外部，因为它们都指向同一个对象。<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//基本类型：</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//基本类型：</span>
 	<span class="kd">function</span> <span class="nx">addTen</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
 		<span class="nx">num</span><span class="o">+=</span><span class="mi">10</span><span class="p">;</span>
 		<span class="k">return</span> <span class="nx">num</span><span class="p">;</span>
@@ -147,11 +146,10 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 	<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 	<span class="nx">setName</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>    <span class="c1">//"Nicholas"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br />
 《JavaScript高级程序设计(第3版)》书中证明对象是按值传递部分：<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">function</span> <span class="nx">setName</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">function</span> <span class="nx">setName</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
 		<span class="nx">obj</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Nicholas"</span><span class="p">;</span>
 		<span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 		<span class="nx">obj</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="s2">"Greg"</span><span class="p">;</span>
@@ -159,42 +157,38 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 	<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 	<span class="nx">setName</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">//"Nicholas";</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>对于上次代码，书中的解释为：<strong>如果person是按引用传递的,那么person就会自动被修改为指向其name属性值为”Greg”的新对象，但实际访问person.name,得到的仍是”Nicholas”,说明即使在函数内部
 改了参数的值，但原始的引用仍未改变。</strong><br />
 上述代码中setName部分其实就是：</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">function</span> <span class="nx">setName</span><span class="p">(</span><span class="nx">person</span><span class="p">){</span>
-		<span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">person</span><span class="p">;</span>
-		<span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="o">=</span><span class="s2">"Nicholas"</span><span class="p">;</span> <span class="c1">//即person.name="Nicholas";</span>
-		<span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>  <span class="c1">//arguments[0]的值重新绑定了新对象的内存地址，已经不再同person一样指向同一个对象的内存地址，而person的值仍为原来的值。</span>
-		<span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="o">=</span><span class="s2">"Greg"</span><span class="p">;</span> <span class="c1">//与person无关</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">function</span> <span class="nx">setName</span><span class="p">(</span><span class="nx">person</span><span class="p">){</span>
+		<span class="kr">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">person</span><span class="p">;</span>
+		<span class="kr">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="o">=</span><span class="s2">"Nicholas"</span><span class="p">;</span> <span class="c1">//即person.name="Nicholas";</span>
+		<span class="kr">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>  <span class="c1">//arguments[0]的值重新绑定了新对象的内存地址，已经不再同person一样指向同一个对象的内存地址，而person的值仍为原来的值。</span>
+		<span class="kr">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="o">=</span><span class="s2">"Greg"</span><span class="p">;</span> <span class="c1">//与person无关</span>
 	<span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>补充：在函数内部重写obj,其实这个变量引用即为一个局部变量，该函数执行完毕后，这个局部变量就会被销毁。<br />
 因而可以把ECMAScript函数的参数想象成局部变量。<br /></p>
 
 <p><br /><br /><br /></p>
 <h3 id="检测类型">检测类型：<br /></h3>
 <p>typeof操作符用于检测String、Number、Boolean、Undefined类型的最佳工具。不过无法检测object和null<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>	<span class="c1">//object</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>	<span class="c1">//object</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>在检测引用类型时,我们可以使用<strong>instanceof操作符</strong><br />
 如果变量是给定引用类型的实例,instanceof操作符就会返回true。<br />
 补充：所有的引用类型都是Object的实例,因此用instanceof检测一个引用类型值和Object始终为true,用instanceof检测基本类型值则始终为false.<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="nx">alert</span><span class="p">(</span><span class="nx">person</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span>    <span class="c1">//变量person是否为Object的实例?</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nx">alert</span><span class="p">(</span><span class="nx">person</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span>    <span class="c1">//变量person是否为Object的实例?</span>
 	<span class="c1">//举例如下:</span>
 	<span class="kd">function</span> <span class="nx">Animal</span><span class="p">(){};</span>
 	<span class="kd">function</span> <span class="nx">Pig</span><span class="p">(){};</span>
 	<span class="nx">Pig</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animal</span><span class="p">();</span>	<span class="c1">//后续介绍---Pig继承Animal</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="k">new</span> <span class="nx">Pig</span><span class="p">()</span> <span class="k">instanceof</span> <span class="nx">Animal</span><span class="p">);</span>    <span class="c1">//true</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br /><br /></p>
 <h2 id="2执行环境与作用域">2.执行环境与作用域：<br /></h2>
 <ol>
@@ -207,7 +201,7 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
   <li>全局执行环境的变量对象始终都是作用域链的最后一个对象。<br /></li>
 </ol>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">;</span>
 	<span class="kd">function</span> <span class="nx">changeColor</span><span class="p">(){</span>
 		<span class="kd">var</span> <span class="nx">anotherColor</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">;</span>
 		<span class="kd">function</span> <span class="nx">swapColors</span><span class="p">(){</span>
@@ -221,8 +215,7 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 		<span class="nx">swapColors</span><span class="p">();</span>
 	<span class="p">}</span>
 	<span class="nx">changeColor</span><span class="p">();</span><span class="c1">// 只能访问color</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>执行环境如图：
 <br /><br />
 <img class="img-responsive center-block" src="http://localhost:4000/img/3.png" alt="" style="border:1px solid #000;" />
@@ -251,7 +244,7 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 <p>什么是无块级作用域？<br />
 在其他类C语言中,花括号{}封闭的代码(if,for,while…)都有自己的作用域,但在ECMAScript中经常会遇到下列问题：<br /></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>	<span class="c1">//在javascript中,if,for语句等没有自己的执行环境,而是会把其变量添加到当前执行环境(在此为全局环境).</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//在javascript中,if,for语句等没有自己的执行环境,而是会把其变量添加到当前执行环境(在此为全局环境).</span>
 	<span class="c1">//if语句中：</span>
 	<span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">){</span>
 		<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">;</span>
@@ -262,13 +255,12 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 		<span class="nx">alert</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 	<span class="p">}</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>	<span class="c1">//10  ！！！</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 	</div>
 </div>
 			</div>
-			﻿<div id="totoro_fixed" >
+			<div id="totoro_fixed" >
 	<a href="#"><img src="http://localhost:4000/img/cat2.jpg" alt="" /></a>
 </div>
 <div id="right_sidebar"">
@@ -298,7 +290,7 @@ ECMAScript变量包含两种不同数据类型的值：基本类型值和引用�
 			<div id="side_to_top">
 				<a href="#"><span class="fa fa-arrow-up"></span></a>
 			</div>
-			﻿<footer class="container">
+			<footer class="container">
 	<p>福建师范大学|软件工程专业|</p>
 	<p>Copyright ? 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
 </footer>

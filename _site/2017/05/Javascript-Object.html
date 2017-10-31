@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		 	﻿<meta charset="utf-8" />
+		 	<meta charset="utf-8" />
 <title>  JavaScript 面向对象 |  Creeperdance </title>
 
 <!-- 移动优先，自适应手机屏幕-->
@@ -27,7 +27,7 @@
 
 	<body>
 		<div id="main" class="container">
-			﻿<!--响应式导航栏-->
+			<!--响应式导航栏-->
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="nav_container">
 		<div class="navbar-header">
@@ -155,7 +155,7 @@
 Configurable,Enumerable,
 Writable,Value
 如下代码：<br />
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{};</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="s2">"name"</span><span class="p">,{</span>
   <span class="na">writable</span><span class="p">:</span><span class="kc">false</span><span class="p">;</span>
   <span class="nl">value</span><span class="p">:</span><span class="s2">"Nicholas"</span>
@@ -163,13 +163,12 @@ Writable,Value
 <span class="nx">alert</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>    <span class="c1">//"Nicholas"</span>
 <span class="nx">person</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Greg"</span><span class="p">;</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>	   <span class="c1">//"Nicholas"</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ul>
 
 <p><strong>可以多次调用Object.defineProperty()修改同一个属性，但是把configurable特性设置为false之后，就会有限制了。</strong><br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="s2">"name"</span><span class="p">,{</span>
 	<span class="na">configurable</span><span class="p">:</span><span class="kc">false</span><span class="p">;</span>
 	<span class="nl">value</span><span class="p">:</span><span class="s2">"Nicholas"</span>
@@ -179,8 +178,7 @@ Writable,Value
 	<span class="na">configurable</span><span class="p">:</span><span class="kc">true</span><span class="p">;</span>
 	<span class="nl">value</span><span class="p">:</span><span class="s2">"Nicholas"</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>如果用Object.defineProperty()创建新属性且未指定，configurable和writable特性的默认值都为false。</strong><br />
 <br /><br /></p>
@@ -196,7 +194,7 @@ Writable,Value
 </ul>
 
 <p><strong>访问器属性不能直接定义，要使用Object.defineProperty()方法定义。</strong><br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{</span>
 	<span class="na">_year</span><span class="p">:</span><span class="mi">2001</span><span class="p">,</span>
 	<span class="na">edition</span><span class="p">:</span><span class="mi">1</span>
 <span class="p">};</span>
@@ -213,8 +211,7 @@ Writable,Value
 <span class="p">});</span>
 <span class="nx">book</span><span class="p">.</span><span class="nx">year</span><span class="o">=</span><span class="mi">2002</span><span class="p">;</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nx">edition</span><span class="p">);</span>    <span class="c1">//2</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>“_year”的下划线用于表示只能通过对象方法访问的属性，而访问器属性year则包含了一对getter,setter函数,分别用于获取和设置这个访问器属性的值。<br />
 若只指定getter函数则表示属性不能写，若尝试写入属性会被忽略(严格模式下会报错)，同样的，只指定setter函数的属性则不能读。<br />
@@ -230,7 +227,7 @@ ES5之前用的是__defineGetter__(), __defineSetter__().<br /></p>
   <li>与第一个参数的对象一一对应</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperties</span><span class="p">(</span><span class="nx">book</span><span class="p">,{</span>
 	<span class="na">_year</span><span class="p">:{</span>
 		<span class="na">writable</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
@@ -252,8 +249,7 @@ ES5之前用的是__defineGetter__(), __defineSetter__().<br /></p>
 		<span class="p">}</span>
 	<span class="p">}</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>与用Object.defineProperty()方法定义的唯一区别：这里的属性都是同一时间创建的<br /></p>
 
 <p><br /><br /></p>
@@ -271,7 +267,7 @@ ES5之前用的是__defineGetter__(), __defineSetter__().<br /></p>
 configurable,enumerable,
 writable,value。<br />
 如下代码：<br /></p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">book</span><span class="o">=</span><span class="p">{};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">book</span><span class="o">=</span><span class="p">{};</span>
 <span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">book</span><span class="p">,{</span>
 	<span class="na">_year</span><span class="p">:{</span>
 		<span class="na">value</span><span class="p">:</span><span class="mi">2004</span>
@@ -294,19 +290,18 @@ writable,value。<br />
 <span class="kd">var</span> <span class="nx">descriptor</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span><span class="s2">"_year"</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">descriptor</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>    <span class="c1">//2004</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">descriptor</span><span class="p">.</span><span class="nx">configurable</span><span class="p">);</span>    <span class="c1">//false</span>
-<span class="nx">alert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">descriptor</span><span class="p">.</span><span class="nx">get</span><span class="p">);</span>    <span class="c1">//"undefined"</span>
+<span class="nx">alert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">descriptor</span><span class="p">.</span><span class="kd">get</span><span class="p">);</span>    <span class="c1">//"undefined"</span>
 <span class="kd">var</span> <span class="nx">descriptor</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span><span class="s2">"year"</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">descriptor</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>    <span class="c1">//undefined</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">descriptor</span><span class="p">.</span><span class="nx">configurable</span><span class="p">);</span>    <span class="c1">//false</span>
-<span class="nx">alert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">descriptor</span><span class="p">.</span><span class="nx">get</span><span class="p">);</span>    <span class="c1">//"function"</span>
-</code></pre>
-</div>
+<span class="nx">alert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">descriptor</span><span class="p">.</span><span class="kd">get</span><span class="p">);</span>    <span class="c1">//"function"</span>
+</code></pre></div></div>
 
 <p><br /><br /><br /><br /></p>
 <h1 id="创建对象方法"><strong>创建对象方法</strong></h1>
 <h2 id="1使用object构造函数创建"><strong>1.使用Object构造函数创建</strong></h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">cat1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">cat1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 <span class="nx">cat1</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"hello kitty"</span><span class="p">;</span>
 <span class="nx">cat1</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 <span class="nx">cat1</span><span class="p">.</span><span class="nx">call</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
@@ -318,26 +313,24 @@ writable,value。<br />
 <span class="nx">cat2</span><span class="p">.</span><span class="nx">call</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
 	<span class="nx">alert</span><span class="p">(</span><span class="s2">"miao~~"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="2使用对象字面量创建一个对象"><strong>2.使用对象字面量创建一个对象</strong></h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">cat1</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">cat1</span> <span class="p">{</span>
 	<span class="nl">name</span><span class="p">:</span> <span class="s2">"hello kitty"</span><span class="p">,</span>
 	<span class="nx">age</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-	<span class="nx">call</span><span class="err">:</span><span class="kd">function</span><span class="p">(){</span>
+	<span class="nx">call</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
 		<span class="nx">alert</span><span class="p">(</span><span class="s2">"miao~~"</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 <span class="kd">var</span> <span class="nx">cat2</span> <span class="p">{</span>
 	<span class="nl">name</span><span class="p">:</span> <span class="s2">"hello kitty"</span><span class="p">,</span>
 	<span class="nx">age</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-	<span class="nx">call</span><span class="err">:</span><span class="kd">function</span><span class="p">(){</span>
+	<span class="nx">call</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
 		<span class="nx">alert</span><span class="p">(</span><span class="s2">"miao~~"</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><br />
 因ECMAScript中没有类的概念，它的对象和其他基于类的语言中的对象不同，
 观察上述代码发现，虽然能通过Object构造函数或对象字面量来创建单个对象，但<strong>使用同一个接口创建很多对象时，会产生大量代码</strong>。
@@ -350,7 +343,7 @@ writable,value。<br />
 <h2 id="3通过工厂模式创建对象"><strong>3.通过工厂模式创建对象</strong></h2>
 <p>抽象了创建对象的具体过程,<strong>用函数来封装以特定接口创建对象的细节</strong>。</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">funtion</span> <span class="nx">createPerson</span><span class="p">(</span><span class="nx">name</span> <span class="p">,</span> <span class="nx">age</span> <span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">funtion</span> <span class="nx">createPerson</span><span class="p">(</span><span class="nx">name</span> <span class="p">,</span> <span class="nx">age</span> <span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 	<span class="nx">o</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="nx">name</span><span class="p">;</span>
 	<span class="nx">o</span><span class="p">.</span><span class="nx">age</span><span class="o">=</span><span class="nx">age</span><span class="p">;</span>
@@ -363,8 +356,7 @@ writable,value。<br />
 <span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="nx">createPerson</span><span class="p">(</span><span class="s2">"zhangsan"</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="s2">"Student"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">person2</span> <span class="o">=</span> <span class="nx">createPerson</span><span class="p">(</span><span class="s2">"Lisi"</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="s2">"Teacher"</span><span class="p">);</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>观察上述代码，我们可以发现相交1,2两种创建对象方法而言，我们已经可以解决了创建多个相似对象的问题了。<br />
 but…我们看到函数内部返回的都是Object对象，即<strong>工厂模式并未解决对象识别问题</strong><br />
@@ -374,7 +366,7 @@ but…我们看到函数内部返回的都是Object对象，即<strong>工厂模
 
 <h2 id="4通过构造函数模式创建对象"><strong>4.通过构造函数模式创建对象</strong></h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">job</span> <span class="o">=</span> <span class="nx">job</span><span class="p">;</span>
@@ -402,8 +394,7 @@ but…我们看到函数内部返回的都是Object对象，即<strong>工厂模
 <span class="nx">alert</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">()</span><span class="o">==</span><span class="nx">person2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">());</span><span class="c1">//true 构造函数体内的方法的值是相等的</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">sayName</span><span class="o">==</span><span class="nx">person2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">);</span><span class="c1">//false  构造函数体内的方法的引用地址是不相等的（若想相同，可转为全局）</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>观察上述代码，我们发现：<br /></p>
 <ol>
   <li>构造函数模式并未显示创建对象，而是直接将属性和方法通过传参的方式赋给了this对象，而当前的this对象其实指向的就是person对象。
@@ -412,14 +403,13 @@ but…我们看到函数内部返回的都是Object对象，即<strong>工厂模
   <li><strong>注意点：</strong>一般<strong>构造函数第一个字母大写</strong>，且创建Person对象的新实例<strong>必须用”new”操作符</strong>（如不通过new操作符，将和普通函数无异）</li>
   <li>从代码最后一行我们发现，构造函数体内的方法的引用地址是不相等，即<strong>每个对象实例都指向不同的方法实例</strong>,
 从逻辑而言，此时构造函数的定义与下列代码定义方式相同。<br />
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code> <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span> <span class="p">{</span>
  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
  <span class="k">this</span><span class="p">.</span><span class="nx">job</span> <span class="o">=</span> <span class="nx">job</span><span class="p">;</span>
  <span class="k">this</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">"alert(this.name)"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
     <p>以这种方式创建函数，会导致<strong>不同的作用域链和标识符解析</strong>，但创建Function新实例的机制仍然相同，这样创建两个完成相同任务的Function实例并无多大意义，
 大可把函数定义转移到构造函数外部，（等于设置成全局函数），但要让它只能被某个对象调用，其全局作用域又有点名不符实，且如果对象需定义多个方法，都设置成全局则无封装性可言。 <br />
 解决方法：  —–&gt; <strong>原型模式</strong></p>
@@ -438,7 +428,7 @@ ECMAScript中，解决这个问题的方法则是通过原型对象创建方法�
 可以看作是构造函数在实例化时创作的那个对象。 <br />
 <strong>好处：让所有对象实例共享它所包含的属性和方法，不用在构造函数中定义对象信息，直接将这些信息添加在原型中。</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(){}</span><span class="c1">//当前构造函数体内什么都没有，若有则称其为实例属性，实例方法</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(){}</span><span class="c1">//当前构造函数体内什么都没有，若有则称其为实例属性，实例方法</span>
 <span class="c1">//原型属性，原型方法：</span>
 <span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="s2">"Lee"</span><span class="p">;</span>
 <span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">age</span><span class="o">=</span><span class="mi">33</span><span class="p">;</span>
@@ -454,7 +444,7 @@ ECMAScript中，解决这个问题的方法则是通过原型对象创建方法�
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">run</span><span class="o">==</span><span class="nx">box2</span><span class="p">.</span><span class="nx">run</span><span class="p">);</span><span class="c1">//true</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span><span class="c1">//undefined 其为函数的一个属性，使用对象实例无法访问prototype</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">);</span><span class="c1">//[object object] 其为原型对象的指针</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">constructor</span><span class="p">);</span><span class="c1">//function Box(){} 可以获取构造函数本身</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="kd">constructor</span><span class="p">);</span><span class="c1">//function Box(){} 可以获取构造函数本身</span>
 
 <span class="c1">//isPrototypeOf()</span>
 <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
@@ -482,17 +472,15 @@ ECMAScript中，解决这个问题的方法则是通过原型对象创建方法�
 <span class="c1">//原型模式的执行流程：（若function Box(){name="Jack"},box1.name会打印Jack）</span>
 <span class="c1">//1.先查找构造函数实例里的属性或方法，若有，立刻返回</span>
 <span class="c1">//2.如果构造函数实例中没有，则去其原型对象中找，有则返回</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>构造函数  ： 有prototype属性   —–&gt; （指向）    原型对象
 原型对象  ： 有constructor属性   ——&gt;   对应的构造函数
 实例对象  ： 有__proto__属性  ——-&gt;  对应的原型对象
 则有：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">alert</span><span class="p">(</span><span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nx">Box</span><span class="p">);</span><span class="c1">//true</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">alert</span><span class="p">(</span><span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nx">Box</span><span class="p">);</span><span class="c1">//true</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span><span class="o">===</span><span class="nx">box1</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">);</span><span class="c1">//true</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><br />
 （解释：在原型模式声明中，多了两个属性（__proto__    和constructor））,这两个属性都是创建对象时自动生成的，_proto_属性
@@ -500,7 +488,7 @@ ECMAScript中，解决这个问题的方法则是通过原型对象创建方法�
 
 <p><strong>使用字面量方式创建原型对象：</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(){}</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(){}</span>
 <span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>	<span class="c1">//{}相当于创建对象 new Object()</span>
 	<span class="na">name</span><span class="p">:</span><span class="s1">'Lee'</span><span class="p">,</span>
 	<span class="na">age</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>
@@ -509,14 +497,13 @@ ECMAScript中，解决这个问题的方法则是通过原型对象创建方法�
 	<span class="p">}</span>
 <span class="p">}</span>
 <span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">constructor</span><span class="p">);</span>		<span class="c1">//function Object(){[native code]}</span>
-</code></pre>
-</div>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="kd">constructor</span><span class="p">);</span>		<span class="c1">//function Object(){[native code]}</span>
+</code></pre></div></div>
 <p>使用字面量创建对象和使用构造函数创建原型对象在使用上基本相同。但字面量创建的方式使用constructor不会指向实例对象的构造函数，而会指向Object，构造函数创建原型对象方式则相反。</p>
 
 <p>可通过强制指向，让字面量方式的constructor指向实例对象的构造函数
 补充：原型的声明是有先后顺序的，重写的原型会切断之前的原型</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(){}</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(){}</span>
 <span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>	
 	<span class="na">constructor</span><span class="p">:</span><span class="nx">Box</span><span class="p">,</span>
 	<span class="na">name</span><span class="p">:</span><span class="s1">'Lee'</span><span class="p">,</span>
@@ -533,12 +520,11 @@ ECMAScript中，解决这个问题的方法则是通过原型对象创建方法�
 <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">run</span><span class="p">);</span><span class="c1">//box.run is not a function</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>原生对象的原型：</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var box = [5,6,234,3,7,8,9];
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var box = [5,6,234,3,7,8,9];
 alert(box.sort());
 //查看sort是否是Array原型对象里的方法
 alert(Array,prototype.sort); //function sort(){[native code]}
@@ -548,14 +534,13 @@ String.prototype.addString=function(){
 	return this+" is  adding ...";
 }
 alert('Lee'.addString());//Lee is  adding ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>原型模式创建对象的缺点：</strong>
 省略了构造函数传参初始化这一过程，其初始值都一致，它最大的缺点就是它最大的优点，即 <strong>共享</strong> 。
 为解决其构造传参和共享的问题，可以组合<strong>构造函数+原型模式</strong>：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">){</span>	<span class="c1">//不共享的  使用构造函数</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">){</span>	<span class="c1">//不共享的  使用构造函数</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="nx">name</span><span class="p">;</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="o">=</span><span class="nx">age</span><span class="p">;</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">family</span><span class="o">=</span><span class="p">[</span><span class="s1">'Dad'</span><span class="p">,</span><span class="s1">'Mon'</span><span class="p">,</span><span class="s1">'Sister'</span><span class="p">];</span>
@@ -570,15 +555,14 @@ alert('Lee'.addString());//Lee is  adding ...
 <span class="kd">var</span> <span class="nx">box2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">(</span><span class="s1">'Jack'</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">run</span><span class="p">());</span><span class="c1">//Lee 100 Dad,Mon,Sister running...</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box2</span><span class="p">.</span><span class="nx">run</span><span class="p">());</span><span class="c1">//Jack 200 Dad,Mon,Sister running...</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>原型模式：无论是否调用了原型的共享方法，它都会初始化原型的方法，并且在声明一个对象时，构造函数+原型 没有很好的封装。
 —》动态原型模式</p>
 
 <h2 id="6通过动态原型模式创建对象"><strong>6.通过动态原型模式创建对象</strong></h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">){</span>	<span class="c1">//不共享的  使用构造函数</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">){</span>	<span class="c1">//不共享的  使用构造函数</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="nx">name</span><span class="p">;</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="o">=</span><span class="nx">age</span><span class="p">;</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">family</span><span class="o">=</span><span class="p">[</span><span class="s1">'Dad'</span><span class="p">,</span><span class="s1">'Mon'</span><span class="p">,</span><span class="s1">'Sister'</span><span class="p">];</span>
@@ -591,14 +575,13 @@ alert('Lee'.addString());//Lee is  adding ...
 <span class="kd">var</span> <span class="nx">box1</span><span class="o">=</span><span class="k">new</span> <span class="nx">Box</span><span class="p">(</span><span class="s1">'Lee'</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">box2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">(</span><span class="s1">'Jack'</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>注意：不可再使用字面量的方式重写原型，会切断实例和新原型之间的联系</p>
 
 <h2 id="7通过寄生构造函数模式创建对象"><strong>7.通过寄生构造函数模式创建对象</strong></h2>
 <p>寄生构造函数模式=工厂模式+构造函数模式</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>function Box(name,age){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function Box(name,age){
 	var obj = new Object();
 	obj.name=name;
 	obj.age=age;
@@ -609,13 +592,12 @@ alert('Lee'.addString());//Lee is  adding ...
 }
 var box1 = new Box("Lee",32);
 alert(box1.run());
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="8通过稳妥构造函数模式创建对象"><strong>8.通过稳妥构造函数模式创建对象</strong></h2>
 <p>稳妥构造函数模式类似寄生构造函数模式，它适合在一些安全环境中。（安全环境：禁止使用this和new  ,  this 指 禁止在构造函数中使用this， new 指不使用new操作符调用构造函数）</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">){</span>
 	<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
 	<span class="nx">obj</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="nx">name</span><span class="p">;</span>
 	<span class="nx">obj</span><span class="p">.</span><span class="nx">age</span><span class="o">=</span><span class="nx">age</span><span class="p">;</span>
@@ -626,15 +608,14 @@ alert(box1.run());
 <span class="p">}</span>
 <span class="kd">var</span> <span class="nx">box1</span> <span class="o">=</span> <span class="nx">Box</span><span class="p">(</span><span class="s2">"Lee"</span><span class="p">,</span><span class="mi">32</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">run</span><span class="p">());</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="继承"><strong>继承</strong></h1>
 <p>ECMAScript只支持继承，不支持接口实现。
 所有的对象都继承自Object</p>
 <h2 id="1通过原型链实现"><strong>1.通过原型链实现</strong></h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(){</span>		<span class="c1">//被继承的函数称为超类型（父类，基类）</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Box</span><span class="p">(){</span>		<span class="c1">//被继承的函数称为超类型（父类，基类）</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span><span class="s1">'Lee'</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">Desk</span><span class="p">(){</span>	<span class="c1">//继承的函数叫做子类型（子类，派生类）</span>
@@ -662,13 +643,12 @@ alert(box1.run());
 <span class="nx">alert</span><span class="p">(</span><span class="nx">desk</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span><span class="c1">//true</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">table</span> <span class="k">instanceof</span> <span class="nx">Box</span><span class="p">);</span><span class="c1">//true</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">desk</span> <span class="k">instanceof</span> <span class="nx">Table</span><span class="p">);</span><span class="c1">//false</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="2借用构造函数对象冒充"><strong>2.借用构造函数（对象冒充）：</strong></h2>
 <p>为了解决引用共享和超类无法传参的问题，可采用一种叫 借用构造函数的技术，或者称为对象冒充（伪造对象，经典继承）。</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//使用对象冒充继承</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//使用对象冒充继承</span>
 <span class="kd">function</span> <span class="nx">Box</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">){</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="nx">name</span><span class="p">;</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="o">=</span><span class="nx">age</span><span class="p">;</span>
@@ -680,13 +660,12 @@ alert(box1.run());
 <span class="kd">var</span> <span class="nx">desk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Desk</span><span class="p">(</span><span class="s1">'Lee'</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">desk</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span><span class="c1">//Lee</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">desk</span><span class="p">.</span><span class="nx">family</span><span class="p">);</span><span class="c1">//undefined  对象冒充只能继承构造里的信息</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="3组合继承"><strong>3.组合继承</strong></h2>
 <p>通过原型链+借用构造函数
 解决传参+方法共享</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//对象冒充+原型链</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//对象冒充+原型链</span>
 <span class="kd">function</span> <span class="nx">Box</span><span class="p">(</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">'Lee'</span><span class="p">;</span>
 	<span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
@@ -702,13 +681,12 @@ alert(box1.run());
 
 <span class="kd">var</span> <span class="nx">desk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Desk</span><span class="p">(</span> <span class="mi">100</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">desk</span><span class="p">.</span><span class="nx">run</span><span class="p">());</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="4原型式继承"><strong>4.原型式继承</strong></h2>
 <p>借助原型并基于已有对象来创建新对象，同时还不必因此创建自定义类型</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//临时中转函数</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//临时中转函数</span>
 <span class="kd">function</span> <span class="nx">obj</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//o为将要传入的对象</span>
 	<span class="kd">function</span> <span class="nx">F</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">//F构造是一个临时新建对象，用于存储传递过来的对象</span>
 	<span class="nx">F</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span> <span class="c1">//将o对象实例赋值给F构造的原型对象,其实相当于原型链继承</span>
@@ -728,14 +706,13 @@ alert(box1.run());
 
 <span class="kd">var</span> <span class="nx">box2</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">(</span><span class="nx">box</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box2</span><span class="p">.</span><span class="nx">family</span><span class="p">);</span><span class="c1">//Dad.Mom,Sister,Brother,实现了共享</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="5寄生式继承"><strong>5.寄生式继承：</strong></h2>
 
 <p>= 原型式+工厂模式
 解决了组合继承两次调用构造函数的问题</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//临时中转函数</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//临时中转函数</span>
 <span class="kd">function</span> <span class="nx">obj</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span> 
 	<span class="kd">function</span> <span class="nx">F</span><span class="p">()</span> <span class="p">{}</span> 
 	<span class="nx">F</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span> 
@@ -758,12 +735,11 @@ alert(box1.run());
 <span class="kd">var</span> <span class="nx">box1</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span><span class="nx">box</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">box1</span><span class="p">.</span><span class="nx">run</span><span class="p">());</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="6寄生组合继承"><strong>6.寄生组合继承</strong></h2>
 <p>通过调用构造函数来继承属性，通过原型链混成形式继承方法，与组合继承不同之处在于子类型只继承了超类型原型的一个副本，并未继承其构造函数。因此只需要调用一次超类型构造函数。</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//临时中转函数</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//临时中转函数</span>
 <span class="kd">function</span> <span class="nx">obj</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span> 
 	<span class="kd">function</span> <span class="nx">F</span><span class="p">()</span> <span class="p">{}</span> 
 	<span class="nx">F</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span> 
@@ -791,15 +767,14 @@ alert(box1.run());
 <span class="nx">alert</span><span class="p">(</span><span class="nx">desk</span><span class="p">.</span><span class="nx">run</span><span class="p">());</span>
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><br /><br /><br /><br /><br /><br /></p>
 
 	</div>
 </div>
 			</div>
-			﻿<div id="totoro_fixed" >
+			<div id="totoro_fixed" >
 	<a href="#"><img src="http://localhost:4000/img/cat2.jpg" alt="" /></a>
 </div>
 <div id="right_sidebar"">
@@ -829,7 +804,7 @@ alert(box1.run());
 			<div id="side_to_top">
 				<a href="#"><span class="fa fa-arrow-up"></span></a>
 			</div>
-			﻿<footer class="container">
+			<footer class="container">
 	<p>福建师范大学|软件工程专业|</p>
 	<p>Copyright ? 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
 </footer>
