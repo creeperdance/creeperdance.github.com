@@ -45,8 +45,8 @@ console.log(person1.getScore(),person2.getScore());//99,报错：person2.getScor
 场景：<br/>
 1.我定义了一个Parent类，并定义了一个方法A，该方法在符合某规则R时被调用（即一定要有该方法）<br/>
 2.我定义一个Children类，重写了方法A<br/>
-3.我定义了Children类的对象实例children1，children2
-4.某规则R符合，调用children1,children2的A方法（即children重写的A方法），但children1，children2执行的操作不同
+3.我定义了Children类的对象实例children1，children2<br/>
+4.某规则R符合，调用children1,children2的A方法（即children重写的A方法），但children1，children2执行的操作不同<br/>
 由1+2+3+4提取出"方法开关"的概念：定义一个方法，当需要的时候再调用该方法。<br/>
 
 
@@ -77,5 +77,5 @@ function KeyPressModal() {
 ```
 认真推敲一下的话，这段代码到底是解决什么的呢？<br/>
 首先，我定义了一个类（KeyModal），该类中重写了父类Modal的hide方法。<br/>
-然后呢...也就是关键部分，在hide方法中我需要根据不同的对象执行不同的操作，而具体的操作只能在创建出具体的实例对象之后才可执行。那么这时我就可以在创建实例之时先定义一个方法开关（onHide）,在hide方法中执行该方法。
+然后呢...也就是关键部分，在KeyModal重写的hide方法中我需要根据不同的对象实例执行不同的操作，而具体的操作只能在创建出具体的对象实例之后才可执行。那么这时我就可以在创建对象实例之时定义一个方法开关（onHide）,在KeyModal重写的hide方法中调用该方法。
 
