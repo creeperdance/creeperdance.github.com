@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		 	<meta charset="utf-8" />
+<title>  JavaScript中的方法开关 |  Creeperdance </title>
+
+<!-- 移动优先，自适应手机屏幕-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--解决bootstrap不支持IE兼容模式问题，为了让IE浏览器运行最新的渲染模式-->
+
+<!--引入bootstrap css文件-->
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/css/bootstrap.min.css" />
+<!--引入图标库-->
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"/>
+
+<!--引入css文件-->
+<link rel="stylesheet" href="http://localhost:4000/css/style.css" /></link>
+<!--引入jquery-->
+<script type="text/javascript" src="http://localhost:4000/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/index.js"></script>
+
+<link rel="stylesheet" href="http://localhost:4000/css/rouge.css" type="text/css"> 
+	</head>
+
+	<body>
+		<div id="main" class="container">
+			<!--响应式导航栏-->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="nav_container">
+		<div class="navbar-header">
+			<a class="pull-left" href="#"><img src="http://localhost:4000/img/cat.png" alt="" /></a>
+			<header class="pull-left">
+				<h1>Creeperdance</h1>
+				<p> Still Bave , Still Young</p>
+			</header>
+			<button class="navbar-toggle pull-right" type="button" data-toggle="collapse" data-target="#myCollapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div id="myCollapse" class="collapse navbar-collapse ">
+			<ul class="nav navbar-nav navbar-right ">
+				<li>
+					<a href="http://localhost:4000/index.html"><span class="glyphicon  glyphicon-home"></span> &nbsp;&nbsp;Home</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/category.html"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> &nbsp;&nbsp;Category</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/about.html"><span class="glyphicon glyphicon-user"></span>  &nbsp;&nbsp;About</a>
+				</li>
+				<li>
+					<a href="http://localhost:4000/contact.html"><span class="glyphicon glyphicon-envelope"></span>  &nbsp;&nbsp;Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+			<div id="content" class="container">
+				 <div id="post_title">
+	  <h3>JavaScript中的方法开关</h3>
+</div>
+<div id="post_info">
+	<div class="post_about post_about_center">
+		<span class="fa fa-calendar-o"> <i id="mobile_hide">发表于</i>2017-10-31</span>|
+		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>css3</span>
+	</div>
+	<div class="article">
+		<p>说明：偶然发现一个JavaScript区别于其他语言的一个很好用的特性…</p>
+
+<p><br /><br /></p>
+
+<ul id="markdown-toc">
+  <li><a href="#背景介绍" id="markdown-toc-背景介绍">背景介绍</a></li>
+  <li><a href="#方法开关" id="markdown-toc-方法开关">方法开关？</a></li>
+  <li><a href="#实际应用" id="markdown-toc-实际应用">实际应用</a>    <ul>
+      <li><a href="#基础版实例" id="markdown-toc-基础版实例">基础版实例</a></li>
+      <li><a href="#升级版实例" id="markdown-toc-升级版实例">升级版实例</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="背景介绍">背景介绍</h2>
+<p>JavaScript的对象实例允许定义属于自己的属性和方法，而Java、C++中的对象…不存在的。甩个简单的例子，在JavaScript中可以如是操作：</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">'Kitty'</span><span class="p">,</span><span class="mi">34</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">'Jane'</span><span class="p">,</span><span class="mi">22</span><span class="p">);</span>
+<span class="c1">//注意：person1这个对象允许添加属于它自己的属性和方法</span>
+<span class="nx">person1</span><span class="p">.</span><span class="nx">score</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+<span class="nx">person1</span><span class="p">.</span><span class="nx">getScore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">score</span><span class="p">)</span>
+<span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">score</span><span class="p">,</span><span class="nx">person2</span><span class="p">.</span><span class="nx">score</span><span class="p">);</span><span class="c1">//99,undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">getScore</span><span class="p">(),</span><span class="nx">person2</span><span class="p">.</span><span class="nx">getScore</span><span class="p">());</span><span class="c1">//99,报错：person2.getScore is not a function</span>
+</code></pre></div></div>
+<p>如上例，在JavaScript中，person1这个对象实例还可以添加属于它的属性和方法。而在Java，C++中，这种操作…不存在的。
+<br />
+那么问题来了，JavaScript的这个特性有什么用呢？</p>
+
+<h2 id="方法开关">方法开关？</h2>
+<p>如果你认真推敲的话，其实可以发现<strong>Java/C++和JavaScript语言中存在的这样一个差异</strong>：<br />
+<strong>Java/C++:</strong> 创建一个类，为这一类对象定义它们共有的所有属性和方法，不允许其定义特殊方法（不考虑继承等）.<br />
+<strong>JavaScript：</strong> 创建一个类，为这一类对象定义它们共有的所有属性和方法，允许其定义特殊方法.<br /><br />
+那么JavaScript的特性有什么用呢？=》<strong>为某个对象实例定义一个方法开关。</strong><br />
+由于JavaScript中对象实例可以自行添加属性和方法，那么当场景如下时，它就是一个非常有用的开关了。<br />
+场景：<br />
+1.我需要为person1对象定义一个它特有的方法<br />
+2.我现在不打算执行该方法<br />
+3.我打算在需要的时候执行该方法<br />
+由1+2+3提取出”方法开关”的概念：定义一个方法，当需要的时候再调用该方法。<br /></p>
+
+<h2 id="实际应用">实际应用</h2>
+<h4 id="基础版实例">基础版实例</h4>
+<p>贴代码如下（删减版）：<br /></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">keyModal</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="nx">KeyModal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">hide</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	<span class="c1">//【注意此处，在需要时调用】</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">onHide</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">KeyPressModal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KeyModal</span><span class="p">({});</span>
+	<span class="c1">//【注意此处，为开关】</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">onHide</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="c1">//【注意此处，对该对象实例特有的操作】</span>
+	<span class="p">}</span>
+<span class="p">};</span>
+
+
+</code></pre></div></div>
+<p><br />
+认真推敲一下的话，这段代码到底是解决什么的呢？<br />
+首先，我定义了一个类（KeyModal），该类中定义了一个hide方法。<br />
+然后呢…也就是关键部分，在hide方法中我需要根据不同的对象执行不同的操作，而具体的操作只能在创建出具体的实例对象之后才可执行。那么这时我就可以</p>
+
+<h4 id="升级版实例">升级版实例</h4>
+
+
+	</div>
+</div>
+			</div>
+			<div id="totoro_fixed" >
+	<a href="#"><img src="http://localhost:4000/img/cat2.jpg" alt="" /></a>
+</div>
+<div id="right_sidebar"">
+	<div id ="sidebar_switch">
+		<a href="#" class="a_catelog">文章目录</a>
+		<a href="#" class ="a_bloginfo active">站点概要</a>
+	</div>
+	<div class="sidebar_index">
+		<img src="http://localhost:4000/img/header.jpg" class="img-circle"/>
+		<div id="sidebar_content">
+			<p>xuee Wei</p>
+			<span>You can't fly if you never try.</span>
+		</div>
+		<div id="sidebar_link">
+				<a href="https://github.com/creeperdance"><span class="fa fa-fw fa-github"></span> Github</a>
+				<a href="#"><span class="fa fa-fw fa-weibo"></span> Weibo</a>
+				<a href="#"><span class="fa fa-fw fa-wechat"></span> Wechat</a>
+		</div>
+	</div>
+	<div class = "sidebar_catelog">
+		
+	</div>
+	<div id = "sidebar_close">
+	    <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+	</div>
+</div>
+			<div id="side_to_top">
+				<a href="#"><span class="fa fa-arrow-up"></span></a>
+			</div>
+			<footer class="container">
+	<p>福建师范大学|软件工程专业|</p>
+	<p>Copyright ? 2017 creeperdance@163.com, <span>@Weixuee</span>.</p>
+</footer>
+
+		</div>
+	</body>
+</html>
