@@ -3,7 +3,7 @@ layout: post
 title: JavaScript  匿名函数与闭包
 date: 2017-06-02 01:05:13 +0800
 categories:
-  - javascript
+  - JavaScript
 ---
 
 说明：匿名函数、闭包、创建闭包的常见方式、

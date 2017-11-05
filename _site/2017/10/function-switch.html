@@ -67,7 +67,7 @@
 <div id="post_info">
 	<div class="post_about post_about_center">
 		<span class="fa fa-calendar-o"> <i id="mobile_hide">发表于</i>2017-10-31</span>|
-		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>css3</span>
+		<span class="fa fa-folder-o"> <i id="mobile_hide">分类于</i>JavaScript</span>
 	</div>
 	<div class="article">
 		<p>说明：偶然发现一个JavaScript区别于其他语言的一个很好用的特性…</p>
@@ -110,7 +110,7 @@
 1.我定义了一个Parent类，并定义了一个方法A，该方法在符合某规则R时被调用（即一定要有该方法）<br />
 2.我定义一个Children类，重写了方法A<br />
 3.我定义了Children类的对象实例children1，children2<br />
-4.某规则R符合，调用children1,children2的A方法（即children重写的A方法），但children1，children2执行的操作不同<br />
+4.某规则R符合，调用children1,children2的A方法（即children重写的A方法），但children1，children2执行的操作不同，<strong>且在创建出实例对象后才知道具体执行的操作</strong><br />
 由1+2+3+4提取出”方法开关”的概念：定义一个方法，当需要的时候再调用该方法。<br /></p>
 
 <h2 id="实际应用">实际应用</h2>
@@ -133,7 +133,7 @@
     <span class="k">this</span><span class="p">.</span><span class="nx">modal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KeyModal</span><span class="p">({});</span>
 	<span class="c1">//【注意此处，为开关】</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">onHide</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-		<span class="c1">//【注意此处，对该对象实例特有的操作】</span>
+		<span class="c1">//【注意此处，对该对象实例特有的操作，在某些场合下，必须在创建实例对象后，才知道具体要执行的操作（比如这里可能还依赖一些别的参数，暂略），那么这种情况下，就可以通过方法开关解决该类需求】</span>
 	<span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>

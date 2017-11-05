@@ -3,7 +3,7 @@ layout: post
 title: JavaScript变量及作用域
 date: 2017-05-17 01:05:13 +0800
 categories:
-  - javascript
+  - JavaScript
 ---
 
 说明：关于javascript基本类型及引用类型、执行环境及作用域等...  -参考《JavaScript高级程序设计(第3版)》

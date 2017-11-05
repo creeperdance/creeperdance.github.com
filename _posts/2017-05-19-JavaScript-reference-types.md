@@ -3,7 +3,7 @@ layout: post
 title: JavaScript引用类型
 date: 2017-05-19 01:05:13 +0800
 categories:
-  - javascript
+  - JavaScript
 ---
 
 说明：ECMAScript中常见引用类型有：Object类型、Array类型、Date类型、RepExp类型、Function类型。

@@ -3,7 +3,7 @@ layout: post
 title: JavaScript正则表达式
 date: 2017-05-20 01:05:13 +0800
 categories:
-  - javascript
+  - JavaScript
 ---
 说明：正则表达式：用途、JavaScript中的RegExp类型、字符串的模式匹配方法、元字符、贪婪模式与惰性模式、多行模式、分组与非捕获性分组。。。
 

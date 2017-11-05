@@ -3,7 +3,7 @@ layout: post
 title:  JavaScript中的方法开关
 date: 2017-10-31 11:05:13 +0800
 categories:
-  - css3
+  - JavaScript
 ---
 
 说明：偶然发现一个JavaScript区别于其他语言的一个很好用的特性...
@@ -46,7 +46,7 @@ console.log(person1.getScore(),person2.getScore());//99,报错：person2.getScor
 1.我定义了一个Parent类，并定义了一个方法A，该方法在符合某规则R时被调用（即一定要有该方法）<br/>
 2.我定义一个Children类，重写了方法A<br/>
 3.我定义了Children类的对象实例children1，children2<br/>
-4.某规则R符合，调用children1,children2的A方法（即children重写的A方法），但children1，children2执行的操作不同<br/>
+4.某规则R符合，调用children1,children2的A方法（即children重写的A方法），但children1，children2执行的操作不同，**且在创建出实例对象后才知道具体执行的操作**<br/>
 由1+2+3+4提取出"方法开关"的概念：定义一个方法，当需要的时候再调用该方法。<br/>
 
 
@@ -71,7 +71,7 @@ function KeyPressModal() {
     this.modal = new KeyModal({});
 	//【注意此处，为开关】
     this.modal.onHide = function() {
-		//【注意此处，对该对象实例特有的操作】
+		//【注意此处，对该对象实例特有的操作，在某些场合下，必须在创建实例对象后，才知道具体要执行的操作（比如这里可能还依赖一些别的参数，暂略），那么这种情况下，就可以通过方法开关解决该类需求】
 	}
 };
 ```

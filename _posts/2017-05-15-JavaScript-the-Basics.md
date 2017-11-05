@@ -3,7 +3,7 @@ layout: post
 title: JavaScript基础
 date: 2017-05-15 01:05:13 +0800
 categories:
-  - javascript
+  - JavaScript
 ---
 
 说明：之前学习javascript比较求成，很多基础知识都没有理解透彻，决定重温<<JavaScript高级程序设计>>,也为了便于今后复习,对之前csdn上的博文javascript基础做了延伸，
