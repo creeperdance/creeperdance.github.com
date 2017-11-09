@@ -15,7 +15,17 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.h1{
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+figure {
+    text-align: center;
+}
 .list-category,.entries{
 	list-style: none;
 	margin:0;
@@ -430,6 +440,7 @@ footer p {
 	}
 	#content .article h1{
 		font-size:26px;
+		font-weight: bold;
 		letter-spacing:2px;
 	}
 	#content .article h2{
